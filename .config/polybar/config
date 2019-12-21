@@ -1,0 +1,70 @@
+[bar/mybar]
+modules-left   = bspwm
+modules-center = xwindow
+modules-right  = network filesystem memory cpu date
+
+module-margin = 1
+
+font-0 = Terminus:size=8
+
+width  = 100%
+height = 20
+
+[colors]
+white    = #ffffff
+black    = #000000
+alert    = #bf281d
+selected = #38387d
+
+[module/bspwm]
+type = internal/bspwm
+enable-click = true
+enable-scroll = true
+
+label-focused = %name%
+label-focused-background = ${colors.selected}
+label-focused-padding = 1
+label-focused-alignment = center
+
+label-occupied = %name%
+label-occupied-background = ${colors.black}
+label-occupied-padding = 1
+label-occupied-alignment = center
+
+label-empty = %name%
+label-empty-background = ${colors.black}
+label-empty-padding = 1
+label-empty-alignment = center
+
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+label-urgent-alignment = center
+
+[module/xwindow]
+type = internal/xwindow
+
+[module/network]
+type = internal/network
+interface = wlp3s0
+
+[module/filesystem]
+type = internal/fs
+interval = 10
+
+mount-0 = /home
+
+label-mounted = %mountpoint%: %free% free (%percentage_used%% used)
+
+[module/memory]
+type = internal/memory
+
+label = mem: %gb_used%
+
+[module/cpu]
+type = internal/cpu
+label = cpu: %percentage%%
+
+[module/date]
+type = internal/date
+date = %Y-%m-%d %I:%M:%S %p
