@@ -3,6 +3,10 @@
 sxhkd &
 dunst &
 emacs --daemon
+~/.config/polybar/launch.sh &
+
+# set the wallpaper
+[ -f ~/.scripts/wallpaper ] && feh --bg-fill $(< ~/.scripts/wallpaper)
 
 # use the normal cursor when not hovering over a window
 xsetroot -cursor_name left_ptr
