@@ -22,6 +22,16 @@ super + e
 super + b
         firefox
 
+# media controls
+super + F6
+        mpc toggle
+
+super + F5
+        mpc prev
+
+super + F7
+        mpc next
+
 #
 # bspwm hotkeys
 #
