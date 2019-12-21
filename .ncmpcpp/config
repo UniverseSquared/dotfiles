@@ -1,0 +1,13 @@
+ncmpcpp_directory = ~/.ncmpcpp
+lyrics_directory = ~/.ncmpcpp/lyrics
+
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "30"
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum"
+visualizer_look = "+|"
+
+mpd_music_dir = ~/music
+
+allow_for_physical_item_deletion = yes
