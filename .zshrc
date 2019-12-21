@@ -1,10 +1,10 @@
 # If antigen is missing, download it
 ANTIGEN_PATH=$HOME/.zsh/antigen.zsh
 
-[ ! -f ANTIGEN_PATH ] && curl -L git.io/antigen > ANTIGEN_PATH
+[ ! -f $ANTIGEN_PATH ] && curl -L git.io/antigen > $ANTIGEN_PATH
 
 # Antigen - load zsh-syntax-highlighting and theme
-source ANTIGEN_PATH
+source $ANTIGEN_PATH
 
 antigen use oh-my-zsh
 
