@@ -1,6 +1,6 @@
 [bar/mybar]
-modules-left   = bspwm
-modules-center = xwindow
+modules-left   = bspwm xwindow
+modules-center = mpd
 modules-right  = network filesystem memory cpu date
 
 module-margin = 1
@@ -43,6 +43,12 @@ label-urgent-alignment = center
 
 [module/xwindow]
 type = internal/xwindow
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
 
 [module/network]
 type = internal/network
