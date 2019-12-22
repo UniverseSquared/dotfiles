@@ -32,6 +32,12 @@ super + F5
 super + F7
         mpc next
 
+super + F2
+        mpc volume -2
+
+super + F3
+        mpc volume +2
+
 #
 # bspwm hotkeys
 #
