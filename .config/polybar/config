@@ -44,17 +44,13 @@ label-urgent-alignment = center
 [module/xwindow]
 type = internal/xwindow
 
-[module/network]
-type = internal/network
-interface = wlp3s0
-
 [module/filesystem]
 type = internal/fs
 interval = 10
 
 mount-0 = /home
 
-label-mounted = %mountpoint%: %free% free (%percentage_used%% used)
+label-mounted = %mountpoint%: %free% free
 
 [module/memory]
 type = internal/memory
