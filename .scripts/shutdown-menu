@@ -1,18 +1,18 @@
 #!/bin/bash
 
-option=$(echo -e "Shutdown\nReboot\nSleep\nExit i3" | rofi -dmenu -i)
+option=$(echo -e "Shutdown\nReboot\nSleep\nLogout" | rofi -dmenu -i)
 
 case "$option" in
     "Shutdown")
-	shutdown now
-	;;
+        shutdown now
+        ;;
     "Reboot")
-	reboot
-	;;
+        reboot
+        ;;
     "Sleep")
         systemctl suspend
         ;;
-    "Exit i3")
-	i3-msg exit
-	;;
+    "Logout")
+        bspc quit
+        ;;
 esac
