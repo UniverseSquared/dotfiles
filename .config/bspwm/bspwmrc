@@ -3,8 +3,9 @@
 sxhkd &
 dunst &
 emacs --daemon
-mpd
 ~/.config/polybar/launch.sh &
+
+[ ! -f ~/.mpd/pid ] && mpd
 
 # set the wallpaper
 ~/.scripts/update-wallpaper
