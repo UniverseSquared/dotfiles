@@ -1,0 +1,5 @@
+#!/bin/bash
+
+image=~/Pictures/Screenshots/$(date +"%d-%m-%Y_%H-%M").png
+scrot -s $image
+xclip -selection clipboard -t image/png $image

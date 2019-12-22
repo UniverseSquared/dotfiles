@@ -1,0 +1,18 @@
+#!/bin/bash
+
+option=$(echo -e "Shutdown\nReboot\nSleep\nExit i3" | rofi -dmenu -i)
+
+case "$option" in
+    "Shutdown")
+	shutdown now
+	;;
+    "Reboot")
+	reboot
+	;;
+    "Sleep")
+        systemctl suspend
+        ;;
+    "Exit i3")
+	i3-msg exit
+	;;
+esac

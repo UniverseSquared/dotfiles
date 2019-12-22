@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$#" -eq 0 ];
+then
+    # If there are no args, use the current wallpaper.
+    if [ ! -f ~/.scripts/wallpaper ];
+    then
+        # If a wallpaper isn't set, do nothing.
+        exit
+    fi
+
+    wallpaper=$(< ~/.scripts/wallpaper)
+else
+    # Use the wallpaper specified and update the current one.
+    wallpaper=$1
+    echo $wallpaper > ~/.scripts/wallpaper
+fi
+
+feh --bg-fill $wallpaper
