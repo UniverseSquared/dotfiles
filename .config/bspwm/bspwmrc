@@ -3,6 +3,7 @@
 sxhkd &
 dunst &
 emacs --daemon
+mpd
 ~/.config/polybar/launch.sh &
 
 # set the wallpaper
