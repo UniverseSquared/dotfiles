@@ -7,7 +7,7 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # launch polybar
-polybar mybar &
+polybar -r mybar &
 
 # lower polybar below other windows
 sleep 1
