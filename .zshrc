@@ -17,5 +17,3 @@ antigen apply
 # Aliases
 alias ls=exa
 alias dotfiles-git="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
-
-export PATH="$PATH:$HOME/.cargo/bin"
