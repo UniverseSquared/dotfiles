@@ -272,9 +272,9 @@ new theme, and set `cursor-type' to box."
               '(:eval (format "%s@%s %s"
                               user-real-login-name system-name
                               (let ((current-buffer-name (buffer-name)))
-                                (cond
-                                 ((string-prefix-p " " current-buffer-name) "")
-                                 (t (concat "(" current-buffer-name ")")))))))
+                                (if (string-prefix-p " " current-buffer-name)
+                                    ""
+                                  (concat "(" current-buffer-name ")"))))))
 
 (provide 'init)
 ;;; init.el ends here
