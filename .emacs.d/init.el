@@ -265,5 +265,10 @@ new theme, and set `cursor-type' to box."
 ;; Store authentication information in ~/.authinfo.gpg
 (setq auth-sources '("~/.authinfo.gpg"))
 
+;; Make the frame title include the username, hostname and buffer name.
+(setq-default frame-title-format
+              '(:eval (format "%s@%s (%s)"
+                              user-real-login-name system-name (buffer-name))))
+
 (provide 'init)
 ;;; init.el ends here
