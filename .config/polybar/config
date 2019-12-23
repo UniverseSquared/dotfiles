@@ -10,6 +10,8 @@ font-0 = Terminus:size=8
 width  = 100%
 height = 20
 
+tray-position = right
+
 [colors]
 white    = #ffffff
 black    = #000000
