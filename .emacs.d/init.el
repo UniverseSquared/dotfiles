@@ -164,13 +164,13 @@ new theme, and set `cursor-type' to box."
 
 ;; Associate forth-mode and forth-mode with the appropriate file extensions.
 (autoload 'forth-mode "gforth.el")
-(add-to-list 'auto-mode-alist '("\\.fs" . forth-mode))
+(add-to-list 'auto-mode-alist '("\\.fs\\'" . forth-mode))
 
 (autoload 'forth-block-mode "gforth.el")
-(add-to-list 'auto-mode-alist '("\\.fb" . forth-block-mode))
+(add-to-list 'auto-mode-alist '("\\.fb\\'" . forth-block-mode))
 
 ;; Associate xml-mode with C# project files.
-(add-to-list 'auto-mode-alist '("\\.csproj" . xml-mode))
+(add-to-list 'auto-mode-alist '("\\.csproj\\'" . xml-mode))
 
 ;; Set the indent level in lua-mode.
 (setq lua-indent-level 4)
