@@ -58,6 +58,13 @@
               (kill-buffer buffer)))
           (buffer-list))))
 
+(defun my/set-alpha-for-all-frames (alpha)
+  "Set the alpha value for all visible frames, and set the default value."
+  (add-to-list 'default-frame-alist `(alpha . (,alpha . ,alpha)))
+  (mapc #'(lambda (frame)
+            (set-frame-parameter frame 'alpha `(,alpha . ,alpha)))
+        (visible-frame-list)))
+
 (defun my/around-load-theme-advice (old-fn &rest args)
   "Advice for `load-theme' to unload previously loaded themes before loading the
 new theme, and set `cursor-type' to box."
@@ -240,7 +247,11 @@ new theme, and set `cursor-type' to box."
 
 ;; Set the default font.
 (setq default-font "Terminus-10")
+(set-frame-font default-font)
 (add-to-list 'default-frame-alist `(font . ,default-font))
+
+;; Set the frame alpha value.
+(my/set-alpha-for-all-frames 90)
 
 ;; Move where emacs saves temporary files.
 (setq temporary-file-directory "~/.emacs.d/backups"
