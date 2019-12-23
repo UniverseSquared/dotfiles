@@ -1,5 +1,6 @@
 #!/bin/bash
 
+picom -b
 sxhkd &
 dunst &
 emacs --daemon
