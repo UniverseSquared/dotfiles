@@ -17,3 +17,12 @@ antigen apply
 # Aliases
 alias ls=exa
 alias dotfiles-git="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+
+ytmp3() {
+    youtube_url=$1
+    output_filename="${@:2}"
+
+    youtube-dl "$youtube_url" \
+               --extract-audio --audio-format=mp3 \
+               -o "$output_filename.%(ext)s"
+}
