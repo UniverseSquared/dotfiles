@@ -38,13 +38,17 @@ super + F2
 super + F3
         mpc volume +2
 
+# power management
+super + shift + q
+        ~/.scripts/shutdown-menu
+
 #
 # bspwm hotkeys
 #
 
-# quit/restart bspwm
-super + shift + {q,r}
-	bspc {quit,wm -r}
+# restart bspwm
+super + shift + r
+	bspc wm -r
 
 # close and kill
 super + {_,shift + }w
