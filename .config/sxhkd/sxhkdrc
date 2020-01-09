@@ -42,6 +42,10 @@ super + F3
 super + shift + q
         ~/.scripts/shutdown-menu
 
+# screenshot
+super + shift + @s
+        ~/.scripts/screenshot
+
 #
 # bspwm hotkeys
 #
