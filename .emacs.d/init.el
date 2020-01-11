@@ -246,9 +246,15 @@ new theme, and set `cursor-type' to box."
 (setq compile-command "make -C .. ")
 
 ;; Set the default font.
-(setq default-font "Terminus-10")
+(setq default-font "kiwi-10")
 (set-frame-font default-font)
 (add-to-list 'default-frame-alist `(font . ,default-font))
+
+;; Globally disable bold text.
+(mapc
+ (lambda (face)
+   (set-face-attribute face nil :weight 'normal))
+ (face-list))
 
 ;; Set the frame alpha value.
 (my/set-alpha-for-all-frames 80)
