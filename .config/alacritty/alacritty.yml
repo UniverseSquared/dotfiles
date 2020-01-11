@@ -87,7 +87,7 @@ font:
     #   - (Linux) monospace
     #   - (Windows) Consolas
     #family: Liberation Mono
-    family: Terminus
+    family: kiwi
 
     # The `style` can be specified to pick a specific face.
     style: Regular
