@@ -1,22 +1,35 @@
 [bar/mybar]
-modules-left   = bspwm
+modules-left   = bspwm mpd
 modules-center = xwindow
-modules-right  = network filesystem memory cpu date
+modules-right  = filesystem memory cpu date
 
 module-margin = 1
 
-font-0 = Terminus:size=8
+font-0 = kiwi:size=8
+font-1 = siji:size=8
+font-2 = Unifont:size=8
 
 width  = 100%
 height = 20
 
+line-size = 2
+
+background = ${colors.background}
+
 tray-position = right
 
 [colors]
-white    = #ffffff
-black    = #000000
-alert    = #bf281d
-selected = #38387d
+background = #222
+black      = #000000
+alert      = #bf281d
+selected   = #38387d
+
+red    = #ff0000
+orange = #e38a24
+yellow = #edd311
+green  = #4ebf19
+blue   = #115eed
+purple = #af11ed
 
 [module/bspwm]
 type = internal/bspwm
@@ -29,12 +42,12 @@ label-focused-padding = 1
 label-focused-alignment = center
 
 label-occupied = %name%
-label-occupied-background = ${colors.black}
+label-occupied-background = ${colors.background}
 label-occupied-padding = 1
 label-occupied-alignment = center
 
 label-empty = %name%
-label-empty-background = ${colors.black}
+label-empty-background = ${colors.background}
 label-empty-padding = 1
 label-empty-alignment = center
 
@@ -43,12 +56,38 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 label-urgent-alignment = center
 
+[module/mpd]
+type = internal/mpd
+
+format-online = <label-song>
+format-online-underline = ${colors.red}
+
+format-playing-prefix = 
+format-paused-prefix  = 
+format-stopped-prefix = 
+
+label-song          = %artist% - %title%
+label-song-maxlen   = 75
+label-song-ellipsis = true
+
+label-offline =  mpd is offline
+
 [module/xwindow]
 type = internal/xwindow
+
+format = <label>
+format-underline = ${colors.orange}
+
+label          = %title%
+label-maxlen   = 75
+label-ellipsis = true
 
 [module/filesystem]
 type = internal/fs
 interval = 10
+
+format-mounted = <label-mounted>
+format-mounted-underline = ${colors.yellow}
 
 mount-0 = /home
 
@@ -57,12 +96,25 @@ label-mounted = %mountpoint%: %free% free
 [module/memory]
 type = internal/memory
 
+format = <label>
+format-underline = ${colors.green}
+
 label = mem: %gb_used%
 
 [module/cpu]
 type = internal/cpu
+
+format = <label>
+format-underline = ${colors.blue}
+
 label = cpu: %percentage%%
 
 [module/date]
 type = internal/date
-date = %Y-%m-%d %I:%M:%S %p
+date = %Y-%m-%d
+time = %I:%M:%S %p
+
+format = <label>
+format-underline = ${colors.purple}
+
+label = %date% %time%
