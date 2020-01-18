@@ -29,6 +29,9 @@ super + F6
 super + F5
         mpc prev
 
+super + shift + F5
+        mpc seek 0%
+
 super + F7
         mpc next
 
