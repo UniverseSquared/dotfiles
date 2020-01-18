@@ -59,7 +59,7 @@ label-urgent-alignment = center
 [module/mpd]
 type = internal/mpd
 
-format-online = <label-song>
+format-online = <label-song> (<label-time>)
 format-online-underline = ${colors.red}
 
 format-playing-prefix = 
