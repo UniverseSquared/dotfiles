@@ -286,12 +286,12 @@ new theme, and set `cursor-type' to box."
 ;; If the buffer name starts with a space (e.g. " *Minibuf-1*"), don't include
 ;; it in the title.
 (setq-default frame-title-format
-              '(:eval (format "%s@%s %s"
+              '(:eval (format "%s@%s%s"
                               user-real-login-name system-name
                               (let ((current-buffer-name (buffer-name)))
                                 (if (string-prefix-p " " current-buffer-name)
                                     ""
-                                  (concat "(" current-buffer-name ")"))))))
+                                  (concat " (" current-buffer-name ")"))))))
 
 (provide 'init)
 ;;; init.el ends here
