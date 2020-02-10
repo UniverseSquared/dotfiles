@@ -76,45 +76,19 @@ scrolling:
 # change the `it` value in terminfo when altering this setting.
 tabspaces: 8
 
-# Font configuration (changes require restart)
 font:
-  # Normal (roman) font face
   normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux) monospace
-    #   - (Windows) Consolas
-    #family: Liberation Mono
-    family: kiwi
-
-    # The `style` can be specified to pick a specific face.
+    family: Hack
     style: Regular
 
-  # Bold font face
-  #bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
+  bold:
+    family: Hack
+    style: Bold
 
-    # The `style` can be specified to pick a specific face.
-    #style: Bold
+  italic:
+    family: Hack
+    style: Italic
 
-  # Italic font face
-  #italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Italic
-
-  # Point size
   size: 9.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of

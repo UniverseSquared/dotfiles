@@ -246,27 +246,14 @@ new theme, and set `cursor-type' to box."
 (setq compile-command "make -C .. ")
 
 ;; Set the default font.
-(setq my/default-font-family "kiwi"
-      my/default-font-size   10
-      my/default-font (format "%s-%s"
-                              my/default-font-family
-                              my/default-font-size))
+(setq my/default-font-family "Hack"
+      my/default-font-size   11
+      my/default-font        (format "%s-%s"
+                                     my/default-font-family
+                                     my/default-font-size))
 
 (set-frame-font my/default-font)
 (add-to-list 'default-frame-alist `(font . ,my/default-font))
-
-;; Globally disable bold text.
-(mapc
- (lambda (face)
-   (set-face-bold face nil))
- (face-list))
-
-;; Fix the font configuration in markdown-mode, too.
-(set-face-attribute 'fixed-pitch nil :family my/default-font-family)
-
-(add-hook 'markdown-mode-hook
-          (lambda ()
-            (set-face-bold 'markdown-header-face nil)))
 
 ;; Set the frame alpha value.
 (my/set-alpha-for-all-frames 80)
