@@ -1,6 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 (unless package-archive-contents
@@ -38,7 +38,7 @@
   "Set each key combination to the corresponding function in KEYBINDS."
   (dolist (bind keybinds)
     (let ((keys (kbd (car bind)))
-	  (func (cdr bind)))
+          (func (cdr bind)))
       (global-set-key keys func))))
 
 (defun my/load-random-theme (&optional themes)
