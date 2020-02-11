@@ -281,6 +281,9 @@ new theme, and set `cursor-type' to box."
 ;; Store authentication information in ~/.authinfo.gpg
 (setq auth-sources '("~/.authinfo.gpg"))
 
+;; Make dired show human-readable file sizes.
+(setq dired-listing-switches "-alh")
+
 ;; Make the frame title include the username, hostname and buffer name.
 ;; If the buffer name starts with a space (e.g. " *Minibuf-1*"), don't include
 ;; it in the title.
