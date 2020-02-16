@@ -209,7 +209,7 @@ new theme, and set `cursor-type' to box."
 (add-to-list 'slime-contribs 'slime-repl)
 
 (setq slime-lisp-implementations
-      `(("sbcl" ,(executable-find "sbcl"))))
+      `(("sbcl" (,(executable-find "sbcl")))))
 
 ;; Enable company-mode globally, and make tab accept the highlighted candidate.
 (add-hook 'after-init-hook 'global-company-mode)
