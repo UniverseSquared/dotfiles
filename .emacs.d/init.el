@@ -144,6 +144,9 @@ new theme, and set `cursor-type' to box."
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 
+;; Disable cursor blink.
+(blink-cursor-mode 0)
+
 ;; Enable smartparens globally.
 (require 'smartparens-config)
 (smartparens-global-mode)
