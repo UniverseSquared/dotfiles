@@ -88,7 +88,7 @@ new theme, and set `cursor-type' to box."
    ("C-c r" . my/reload-config)
    ("C-c t" . my/open-todo-list)
    ("C-c c" . compile)
-   ("C-c a" . org-agenda)
+   ("C-c a" . align-regexp)
    ("C-c m" . man)
    ("C-c s" . sort-lines)
    ("C-c g" . magit-status)
