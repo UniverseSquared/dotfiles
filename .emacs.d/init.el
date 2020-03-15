@@ -249,7 +249,7 @@ new theme, and set `cursor-type' to box."
 (setq compile-command "make -C .. ")
 
 ;; Set the default font.
-(setq my/default-font-family "Hack"
+(setq my/default-font-family "Fira Code"
       my/default-font-size   11
       my/default-font        (format "%s-%s"
                                      my/default-font-family

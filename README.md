@@ -47,4 +47,4 @@ I use (among others) the following software:
 * mpd/ncmpcpp for listening to music
 * and firefox as a web browser.
 
-I primarily use the Hack font, but use kiwi (which can be obtained [here](https://github.com/turquoise-hexagon/fonts/blob/master/kiwi.bdf) from [turquoise-hexagon/fonts](https://github.com/turquoise-hexagon)) in polybar.
+I primarily use the Fira Code font, but use kiwi (which can be obtained [here](https://github.com/turquoise-hexagon/fonts/blob/master/kiwi.bdf) from [turquoise-hexagon/fonts](https://github.com/turquoise-hexagon)) in polybar.
