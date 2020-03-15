@@ -48,3 +48,5 @@ I use (among others) the following software:
 * and firefox as a web browser.
 
 I primarily use the Fira Code font, but use kiwi (which can be obtained [here](https://github.com/turquoise-hexagon/fonts/blob/master/kiwi.bdf) from [turquoise-hexagon/fonts](https://github.com/turquoise-hexagon)) in polybar.
+
+I use the [feature/dual_kawase branch of picom](https://github.com/tryone144/compton/tree/feature/dual_kawase) as my compositor, which includes the dual_kawase blur method. You will have to build this from source for blur to work correctly.
