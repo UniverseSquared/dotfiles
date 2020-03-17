@@ -259,7 +259,7 @@ new theme, and set `cursor-type' to box."
 (add-to-list 'default-frame-alist `(font . ,my/default-font))
 
 ;; Set the frame alpha value.
-(my/set-alpha-for-all-frames 80)
+(my/set-alpha-for-all-frames 75)
 
 ;; Move where emacs saves temporary files.
 (setq temporary-file-directory "~/.emacs.d/backups"
