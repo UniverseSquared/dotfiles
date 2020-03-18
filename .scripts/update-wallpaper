@@ -2,18 +2,14 @@
 
 if [ "$#" -eq 0 ];
 then
-    # If there are no args, use the current wallpaper.
-    if [ ! -f ~/.scripts/wallpaper ];
-    then
-        # If a wallpaper isn't set, do nothing.
-        exit
-    fi
+    [ ! -f ~/.scripts/wallpaper ] && exit
 
+    # If there are no args, use the current wallpaper.
     wallpaper=$(< ~/.scripts/wallpaper)
 else
     # Use the wallpaper specified and update the current one.
-    wallpaper=$1
-    echo $wallpaper > ~/.scripts/wallpaper
+    wallpaper=$(realpath "$1")
+    echo "$wallpaper" > ~/.scripts/wallpaper
 fi
 
-feh --bg-fill $wallpaper
+feh --bg-fill "$wallpaper"
