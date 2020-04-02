@@ -16,7 +16,7 @@ antigen apply
 
 # Aliases
 alias ls=exa
-alias dotfiles-git="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias dfg="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 ytmp3() {
     youtube_url=$1

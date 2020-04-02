@@ -7,13 +7,13 @@ The configuration files that I use on Arch Linux.
 I use a bare git repository to manage my dotfiles - they can be installed as follows:
 
 ```sh
-$ alias dotfiles-git="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+$ alias dfg="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 $ git clone --bare https://github.com/UniverseSquared/dotfiles.git
-$ dotfiles-git checkout
-$ dotfiles-git config --local config.showUntrackedFiles no
+$ dfg checkout
+$ dfg config --local config.showUntrackedFiles no
 ```
 
-From then on, the repository can be managed as normal, substituting `git` for `dotfiles-git`
+From then on, the repository can be managed as normal, substituting `git` for `dfg`
 
 ### Initial setup
 
@@ -26,14 +26,14 @@ $ mkdir dotfiles && cd dotfiles
 $ git init --bare
 
 # put this alias in your shell's configuration too:
-$ alias dotfiles-git="git --git-dir $HOME/dotfiles --work-tree=$HOME"
+$ alias dfg="git --git-dir $HOME/dotfiles --work-tree=$HOME"
 
-# make `dotfiles-git status` quieter
-$ dotfiles-git config --local config.showUntrackedFiles no
+# make `dfg status` quieter
+$ dfg config --local config.showUntrackedFiles no
 
 # then, add/commit files as normal
-$ dotfiles-git add .config/alacritty.yml
-$ dotfiles-git commit -m "alacritty: add config"
+$ dfg add .config/alacritty.yml
+$ dfg commit -m "alacritty: add config"
 ```
 
 ## Prerequisites
