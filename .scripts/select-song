@@ -1,0 +1,5 @@
+#!/bin/bash
+
+current=$(($(mpc current -f '%position%') - 1))
+song=$(mpc playlist | rofi -dmenu -format d -selected-row $current -p song -i)
+mpc play "$song"
