@@ -148,7 +148,6 @@ new theme, and set `cursor-type' to box."
 (blink-cursor-mode 0)
 
 ;; Enable smartparens globally.
-(require 'smartparens-config)
 (smartparens-global-mode)
 
 ;; Enable rainbow-delimiters in all programming modes.
