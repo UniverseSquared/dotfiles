@@ -107,7 +107,8 @@ new theme, and set `cursor-type' to box."
    ("C-x C-b" . ibuffer)
    ("C-s" . swiper)
    ("C-M-<right>" . sp-slurp-hybrid-sexp)
-   ("C-M-<left>" . sp-forward-barf-sexp)))
+   ("C-M-<left>" . sp-forward-barf-sexp)
+   ("C-h C-f" . (lambda () (interactive) (find-function (symbol-at-point))))))
 
 ;; Package management.
 (my/ensure-packages-installed
