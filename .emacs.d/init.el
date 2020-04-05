@@ -150,6 +150,9 @@ new theme, and set `cursor-type' to box."
 ;; Enable smartparens globally.
 (smartparens-global-mode)
 
+(sp-with-modes sp-lisp-modes
+  (sp-local-pair "'" nil :actions nil))
+
 ;; Enable rainbow-delimiters in all programming modes.
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
