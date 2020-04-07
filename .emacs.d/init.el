@@ -92,7 +92,6 @@ new theme, and set `cursor-type' to box."
    ("C-c m" . man)
    ("C-c s" . sort-lines)
    ("C-c g" . magit-status)
-   ("C-c u" . mu4e)
    ("C-c f" . find-function)
    ("ESC ESC" . keyboard-escape-quit)
    ("C-<tab>" . company-complete)
@@ -181,29 +180,6 @@ new theme, and set `cursor-type' to box."
 ;; Set the indent level in lua-mode.
 (setq lua-indent-level 4)
 
-;; Configure mu4e.
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
-(require 'mu4e)
-
-(setq mu4e-maildir "~/Maildir"
-      mu4e-sent-messages-behavior 'delete
-      mu4e-get-mail-command "offlineimap")
-
-(add-to-list 'mu4e-view-actions
-             '("View in browser" . mu4e-action-view-in-browser) t)
-
-(setq mu4e-maildir-shortcuts
-      '(("/Gmail/INBOX" . ?i)
-        ("/sent"        . ?s)))
-
-(require 'smtpmail)
-
-(setq message-send-mail-function 'smtpmail-send-it
-      smtpmail-stream-type 'starttls
-      smtpmail-default-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-service 587)
-
 ;; Enable interactive-haskell-mode and hindent-mode in haskell files.
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-hook 'haskell-mode-hook 'hindent-mode)
@@ -253,7 +229,7 @@ new theme, and set `cursor-type' to box."
 
 ;; Set the default font.
 (setq my/default-font-family "Fira Code"
-      my/default-font-size   11
+      my/default-font-size   9
       my/default-font        (format "%s-%s"
                                      my/default-font-family
                                      my/default-font-size))
