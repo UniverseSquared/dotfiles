@@ -10,7 +10,7 @@ I use a bare git repository to manage my dotfiles - they can be installed as fol
 $ alias dfg="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 $ git clone --bare https://github.com/UniverseSquared/dotfiles.git
 $ dfg checkout
-$ dfg config --local config.showUntrackedFiles no
+$ dfg config --local status.showUntrackedFiles no
 ```
 
 From then on, the repository can be managed as normal, substituting `git` for `dfg`
@@ -29,7 +29,7 @@ $ git init --bare
 $ alias dfg="git --git-dir $HOME/dotfiles --work-tree=$HOME"
 
 # make `dfg status` quieter
-$ dfg config --local config.showUntrackedFiles no
+$ dfg config --local status.showUntrackedFiles no
 
 # then, add/commit files as normal
 $ dfg add .config/alacritty.yml
