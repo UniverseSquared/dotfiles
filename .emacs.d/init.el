@@ -101,7 +101,7 @@ new theme, and set `cursor-type' to box."
    ("M-1" . delete-other-windows)
    ("M-2" . split-window-below)
    ("M-3" . split-window-right)
-   ("C-z" . zap-up-to-char)
+   ("C-z" . zzz-up-to-char)
    ("C-c C-e" . eval-buffer)
    ("C-x C-b" . ibuffer)
    ("C-s" . swiper)
@@ -136,7 +136,8 @@ new theme, and set `cursor-type' to box."
    web-mode
    which-key
    yaml-mode
-   zig-mode))
+   zig-mode
+   zzz-to-char))
 
 ;; Load a theme and set cursor type.
 (load-theme 'dracula t)
