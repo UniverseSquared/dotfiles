@@ -86,6 +86,8 @@ label-ellipsis = true
 type = internal/fs
 interval = 10
 
+fixed-values = true
+
 format-mounted = <label-mounted>
 format-mounted-underline = ${colors.yellow}
 
