@@ -107,11 +107,13 @@ new theme, and set `cursor-type' to box."
    ("C-s" . swiper)
    ("C-M-<right>" . sp-slurp-hybrid-sexp)
    ("C-M-<left>" . sp-forward-barf-sexp)
-   ("C-h C-f" . (lambda () (interactive) (find-function (symbol-at-point))))))
+   ("C-h C-f" . (lambda () (interactive) (find-function (symbol-at-point))))
+   ("C-c SPC" . ace-jump-mode)))
 
 ;; Package management.
 (my/ensure-packages-installed
- '(company
+ '(ace-jump-mode
+   company
    counsel
    csharp-mode
    dracula-theme
