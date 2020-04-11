@@ -18,6 +18,8 @@ background = ${colors.background}
 
 tray-position = right
 
+wm-restack = bspwm
+
 [colors]
 background = #222
 black      = #000000
