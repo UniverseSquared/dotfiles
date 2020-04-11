@@ -3,7 +3,6 @@
 picom -b --experimental-backends &
 sxhkd &
 dunst &
-emacs --daemon &
 ~/.config/polybar/launch.sh &
 
 [ ! -f ~/.mpd/pid ] && mpd &
