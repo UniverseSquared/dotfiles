@@ -29,11 +29,6 @@
   (interactive)
   (load my/config-path))
 
-(defun my/open-todo-list ()
-  "Open the todo.org."
-  (interactive)
-  (find-file "~/todo.org"))
-
 (defun my/set-global-keybinds (keybinds)
   "Set each key combination to the corresponding function in KEYBINDS."
   (dolist (bind keybinds)
@@ -83,10 +78,8 @@ new theme, and set `cursor-type' to box."
 
 ;; Set global keybinds.
 (my/set-global-keybinds
- `(("C-c i" . my/install-packages)
-   ("C-c e" . my/edit-config)
+ `(("C-c e" . my/edit-config)
    ("C-c r" . my/reload-config)
-   ("C-c t" . my/open-todo-list)
    ("C-c c" . compile)
    ("C-c a" . align-regexp)
    ("C-c m" . man)
