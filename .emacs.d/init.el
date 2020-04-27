@@ -236,6 +236,9 @@ new theme, and set `cursor-type' to box."
 (set-face-attribute font-lock-comment-face nil :slant 'italic)
 (set-face-attribute font-lock-comment-delimiter-face nil :slant 'italic)
 
+;; Make line numbers not italic.
+(set-face-attribute 'line-number nil :slant 'normal)
+
 ;; Set the frame alpha value.
 (my/set-alpha-for-all-frames 75)
 
