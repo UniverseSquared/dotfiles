@@ -66,15 +66,15 @@ scrolling:
 
 font:
   normal:
-    family: Source Code Pro
+    family: JetBrains Mono
     style: Regular
 
   bold:
-    family: Source Code Pro
+    family: JetBrains Mono
     style: Bold
 
   italic:
-    family: Source Code Pro
+    family: JetBrains Mono
     style: Italic
 
   size: 9.0
