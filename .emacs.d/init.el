@@ -55,6 +55,8 @@
 (use-package which-key
   :hook (after-init . which-key-mode))
 
+(use-package yaml-mode)
+
 ;; Utility functions
 (setq my/config-path (concat user-emacs-directory "init.el"))
 
