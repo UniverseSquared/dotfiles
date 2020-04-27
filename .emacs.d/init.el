@@ -223,7 +223,7 @@ new theme, and set `cursor-type' to box."
 (setq compile-command "make -C .. ")
 
 ;; Set the default font.
-(setq my/default-font-family "Fira Code"
+(setq my/default-font-family "Source Code Pro"
       my/default-font-size   11
       my/default-font        (format "%s-%s"
                                      my/default-font-family
@@ -231,6 +231,10 @@ new theme, and set `cursor-type' to box."
 
 (set-frame-font my/default-font)
 (add-to-list 'default-frame-alist `(font . ,my/default-font))
+
+;; Make comments and comment delimiters italic.
+(set-face-attribute font-lock-comment-face nil :slant 'italic)
+(set-face-attribute font-lock-comment-delimiter-face nil :slant 'italic)
 
 ;; Set the frame alpha value.
 (my/set-alpha-for-all-frames 75)
