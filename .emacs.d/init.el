@@ -96,9 +96,10 @@ the new theme, and set the `cursor-type' to box."
 (set-frame-font my/default-font)
 (add-to-list 'default-frame-alist `(font . ,my/default-font))
 
-;; Make comments and comment delimiters italic
+;; Make comments, comment delimiters and doc strings italic
 (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
 (set-face-attribute 'font-lock-comment-delimiter-face nil :slant 'italic)
+(set-face-attribute 'font-lock-doc-face nil :slant 'italic)
 
 ;; Make line numbers not italic
 (set-face-attribute 'line-number nil :slant 'normal)
