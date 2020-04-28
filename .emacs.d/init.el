@@ -21,8 +21,8 @@
 (use-package company
   :hook (after-init . global-company-mode)
   :bind (("C-<tab>" . company-complete)
-	 :map company-active-map
-	 ("<tab>" . company-complete-selection)))
+         :map company-active-map
+         ("<tab>" . company-complete-selection)))
 
 (use-package counsel
   :hook (after-init . counsel-mode))
@@ -70,8 +70,8 @@
 to ALPHA."
   (add-to-list 'default-frame-alist `(alpha . (,alpha . ,alpha)))
   (mapc #'(lambda (frame)
-	    (set-frame-parameter frame 'alpha `(,alpha . ,alpha)))
-	(visible-frame-list)))
+            (set-frame-parameter frame 'alpha `(,alpha . ,alpha)))
+        (visible-frame-list)))
 
 (defun my/around-load-theme-advice (old-fn &rest args)
   "Advice for `load-theme' to unload previously loaded themes before loading
