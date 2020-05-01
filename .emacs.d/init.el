@@ -34,6 +34,9 @@
 (use-package ivy
   :hook (after-init . ivy-mode))
 
+(use-package lua-mode
+  :custom (lua-indent-level 4))
+
 (use-package magit
   :bind ("C-c g" . magit-status))
 
