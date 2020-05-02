@@ -45,6 +45,8 @@
 
 (use-package rust-mode)
 
+(use-package s)
+
 (use-package smartparens
   :hook (after-init . smartparens-global-mode)
   :config
@@ -158,6 +160,76 @@ the new theme, and set the `cursor-type' to box."
                                 (if (string-prefix-p " " current-buffer-name)
                                     ""
                                   (concat " (" current-buffer-name ")"))))))
+
+;; Modeline customization
+(defun my/shorten-path (path)
+  "Shorten PATH to the last two components."
+  (let* ((components (split-string path "/"))
+         (last-components (nthcdr (- (length components) 2) components)))
+    (s-join "/" last-components)))
+
+(defun my/pretty-buffer-file-encoding ()
+  "Return the prettified name of the encoding system used by the current
+buffer."
+  (let* ((coding-system (coding-system-plist buffer-file-coding-system))
+         (coding-system-category (plist-get coding-system :category)))
+    (if (memq coding-system-category
+              '(coding-category-utf-8 coding-category-undecided))
+        "UTF-8"
+      (upcase (symbol-name (plist-get coding-system :name))))))
+
+(defface mode-line-modified-buffer-id
+  '((t (:inherit mode-line-buffer-id :slant italic)))
+  "Face used for buffer identification parts of the mode line, when the buffer
+is modified.")
+
+(setq my/left-mode-line-format
+      `(" "
+
+        (:eval (file-size-human-readable (buffer-size)))
+
+        " "
+
+        (:eval (propertize
+                (if buffer-file-name
+                    (my/shorten-path buffer-file-name)
+                  (buffer-name))
+                'face (if (buffer-modified-p)
+                          'mode-line-modified-buffer-id
+                        'mode-line-buffer-id)))
+
+        " %l:%c"))
+
+(setq my/left-mode-line-format-length (length (format-mode-line
+                                               my/left-mode-line-format)))
+
+(setq my/right-mode-line-format
+      `((:eval
+         (let ((buffer-eol-type
+                (coding-system-eol-type buffer-file-coding-system))
+               (buffer-coding-system
+                (plist-get (coding-system-plist buffer-file-coding-system) :name)))
+           (concat
+            (pcase buffer-eol-type
+              (0 "LF")
+              (1 "CRLF")
+              (2 "CR"))
+            "  "
+            (my/pretty-buffer-file-encoding))))))
+
+(setq my/right-mode-line-format-length (length (format-mode-line
+                                                my/right-mode-line-format)))
+
+(setq-default mode-line-format
+              `(,@my/left-mode-line-format
+
+                (:eval (s-repeat
+                        (- (window-width)
+                           my/left-mode-line-format-length
+                           my/right-mode-line-format-length)
+                        " "))
+
+                ,@my/right-mode-line-format))
 
 ;; Misc. key bindings
 (bind-keys
