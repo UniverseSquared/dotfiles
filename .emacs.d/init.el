@@ -200,9 +200,6 @@ is modified.")
 
         " %l:%c"))
 
-(setq my/left-mode-line-format-length (length (format-mode-line
-                                               my/left-mode-line-format)))
-
 (setq my/right-mode-line-format
       `((:eval
          (let ((buffer-eol-type
@@ -217,16 +214,13 @@ is modified.")
             "  "
             (my/pretty-buffer-file-encoding))))))
 
-(setq my/right-mode-line-format-length (length (format-mode-line
-                                                my/right-mode-line-format)))
-
 (setq-default mode-line-format
               `(,@my/left-mode-line-format
 
                 (:eval (s-repeat
                         (- (window-width)
-                           my/left-mode-line-format-length
-                           my/right-mode-line-format-length)
+                           (length (format-mode-line my/left-mode-line-format))
+                           (length (format-mode-line my/right-mode-line-format)))
                         " "))
 
                 ,@my/right-mode-line-format))
