@@ -201,7 +201,11 @@ is modified.")
         " %l:%c"))
 
 (setq my/right-mode-line-format
-      `((:eval
+      `(,mode-name
+
+        "  "
+
+        (:eval
          (let ((buffer-eol-type
                 (coding-system-eol-type buffer-file-coding-system))
                (buffer-coding-system
