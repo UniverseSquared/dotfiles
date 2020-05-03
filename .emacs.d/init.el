@@ -201,7 +201,7 @@ is modified.")
         " %l:%c"))
 
 (setq my/right-mode-line-format
-      `(,mode-name
+      `((:eval mode-name)
 
         "  "
 
