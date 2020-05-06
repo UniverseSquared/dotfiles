@@ -1,7 +1,7 @@
 [bar/mybar]
 modules-left   = bspwm mpd
-modules-center = xwindow
-modules-right  = filesystem memory cpu date
+modules-center = date
+modules-right  = cpu memory filesystem
 
 module-margin = 1
 
@@ -15,8 +15,6 @@ height = 20
 line-size = 2
 
 background = ${colors.background}
-
-tray-position = right
 
 wm-restack = bspwm
 
@@ -38,23 +36,19 @@ type = internal/bspwm
 enable-click = true
 enable-scroll = true
 
-label-focused = %name%
-label-focused-background = ${colors.selected}
+label-focused = 
 label-focused-padding = 1
 label-focused-alignment = center
 
-label-occupied = %name%
-label-occupied-background = ${colors.background}
+label-occupied = 
 label-occupied-padding = 1
 label-occupied-alignment = center
 
-label-empty = %name%
-label-empty-background = ${colors.background}
+label-empty = 
 label-empty-padding = 1
 label-empty-alignment = center
 
 label-urgent = %name%
-label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 label-urgent-alignment = center
 
@@ -65,8 +59,8 @@ format-online = <label-song> (<label-time>)
 format-online-underline = ${colors.red}
 
 format-playing-prefix = 
-format-paused-prefix  = 
-format-stopped-prefix = 
+format-paused-prefix  = 
+format-stopped-prefix = 
 
 label-song          = %artist% - %title%
 label-song-maxlen   = 75
@@ -74,15 +68,31 @@ label-song-ellipsis = true
 
 label-offline =  mpd is offline
 
-[module/xwindow]
-type = internal/xwindow
+[module/date]
+type = internal/date
+date = %a %Y-%m-%d
+time = %I:%M:%S %p
 
 format = <label>
 format-underline = ${colors.orange}
 
-label          = %title%
-label-maxlen   = 75
-label-ellipsis = true
+label =  %date% %time%
+
+[module/cpu]
+type = internal/cpu
+
+format = <label>
+format-underline = ${colors.yellow}
+
+label =  %percentage%%
+
+[module/memory]
+type = internal/memory
+
+format = <label>
+format-underline = ${colors.green}
+
+label =  %gb_used%
 
 [module/filesystem]
 type = internal/fs
@@ -91,34 +101,8 @@ interval = 10
 fixed-values = true
 
 format-mounted = <label-mounted>
-format-mounted-underline = ${colors.yellow}
+format-mounted-underline = ${colors.blue}
 
 mount-0 = /home
 
-label-mounted = %mountpoint%: %free% free
-
-[module/memory]
-type = internal/memory
-
-format = <label>
-format-underline = ${colors.green}
-
-label = mem: %gb_used%
-
-[module/cpu]
-type = internal/cpu
-
-format = <label>
-format-underline = ${colors.blue}
-
-label = cpu: %percentage%%
-
-[module/date]
-type = internal/date
-date = %a %Y-%m-%d
-time = %I:%M:%S %p
-
-format = <label>
-format-underline = ${colors.purple}
-
-label = %date% %time%
+label-mounted =  %free% free
