@@ -178,6 +178,23 @@ buffer."
         "UTF-8"
       (upcase (symbol-name (plist-get coding-system :name))))))
 
+(defun my/find-rust-version ()
+  "Return the string that represents the currently installed version of Rust."
+  (if (boundp 'my/current-rust-version)
+      my/current-rust-version
+    (setq-local my/current-rust-version
+                (nth 1 (split-string
+                        (shell-command-to-string "rustc --version") " ")))))
+
+(defun my/major-mode-description ()
+  "Return the name of the major mode to be used in the modeline, possibly with
+extra information about the environment, such as the language version."
+  (propertize
+   (pcase major-mode
+     ('rust-mode (format "%s %s" mode-name (my/find-rust-version)))
+     (_ mode-name))
+   'face 'bold))
+
 (defface mode-line-modified-buffer-id
   '((t (:inherit mode-line-buffer-id :slant italic)))
   "Face used for buffer identification parts of the mode line, when the buffer
@@ -214,7 +231,7 @@ is modified.")
             "  "
             (my/pretty-buffer-file-encoding))))
 
-        "  " (:eval (propertize mode-name 'face 'bold))))
+        "  " (:eval (my/major-mode-description))))
 
 (setq-default mode-line-format
               `(,@my/left-mode-line-format
