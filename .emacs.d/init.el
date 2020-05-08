@@ -201,11 +201,7 @@ is modified.")
         " %l:%c"))
 
 (setq my/right-mode-line-format
-      `((:eval mode-name)
-
-        "  "
-
-        (:eval
+      `((:eval
          (let ((buffer-eol-type
                 (coding-system-eol-type buffer-file-coding-system))
                (buffer-coding-system
@@ -216,7 +212,9 @@ is modified.")
               (1 "CRLF")
               (2 "CR"))
             "  "
-            (my/pretty-buffer-file-encoding))))))
+            (my/pretty-buffer-file-encoding))))
+
+        "  " (:eval (propertize mode-name 'face 'bold))))
 
 (setq-default mode-line-format
               `(,@my/left-mode-line-format
