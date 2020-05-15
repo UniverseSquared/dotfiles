@@ -1,5 +1,5 @@
 #!/bin/bash
 
-image=~/Pictures/Screenshots/$(date +"%Y-%m-%d_%H-%M").png
+image=~/img/Screenshots/$(date +"%Y-%m-%d_%H-%M").png
 maim -s $image
 xclip -selection clipboard -t image/png $image
