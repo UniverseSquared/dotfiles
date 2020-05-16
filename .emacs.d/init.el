@@ -31,6 +31,9 @@
   :config
   (load-theme 'dracula t))
 
+(use-package haskell-mode
+  :hook (haskell-mode . interactive-haskell-mode))
+
 (use-package ivy
   :hook (after-init . ivy-mode))
 
