@@ -199,7 +199,7 @@ extra information about the environment, such as the language version."
   (propertize
    (pcase major-mode
      ('rust-mode (format "%s %s" mode-name (my/find-rust-version)))
-     (_ mode-name))
+     (_ (format-mode-line mode-name)))
    'face 'bold))
 
 (defface mode-line-modified-buffer-id
