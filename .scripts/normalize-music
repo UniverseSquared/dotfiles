@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mp3gain -rq $HOME/music/**/*.mp3
+mp3gain -r -q $HOME/music/**/*.mp3
