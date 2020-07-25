@@ -159,6 +159,9 @@ the new theme, and set the `cursor-type' to box."
 (put #'upcase-region 'disabled nil)
 (put #'downcase-region 'disabled nil)
 
+;; Add cargo's bin folder to `exec-path'
+(add-to-list 'exec-path (concat (getenv "HOME") "/.cargo/bin"))
+
 ;; Make the frame title format more informative
 (setq-default frame-title-format
               '(:eval (format "%s@%s%s"
