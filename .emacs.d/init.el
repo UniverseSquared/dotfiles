@@ -47,6 +47,8 @@
 (use-package magit
   :bind ("C-c g" . magit-status))
 
+(use-package markdown-mode)
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
