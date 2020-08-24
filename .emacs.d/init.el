@@ -66,6 +66,8 @@
 (use-package swiper
   :bind ("C-s" . swiper))
 
+(use-package web-mode)
+
 (use-package which-key
   :hook (after-init . which-key-mode))
 
