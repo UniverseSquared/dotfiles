@@ -35,7 +35,7 @@
   :hook (haskell-mode . interactive-haskell-mode))
 
 (use-package hl-todo
-  :custom-face (hl-todo ((t (:inherit font-lock-comment-face))))
+  :custom-face (hl-todo ((t (:weight bold :inherit font-lock-comment-face))))
   :hook (after-init . global-hl-todo-mode))
 
 (use-package ivy
