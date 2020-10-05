@@ -98,11 +98,6 @@ the new theme, and set the `cursor-type' to box."
 
 (advice-add #'load-theme :around #'my/around-load-theme-advice)
 
-;; Disable unnecessary GUI elements
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
-
 ;; Disable cursor blink
 (blink-cursor-mode 0)
 
