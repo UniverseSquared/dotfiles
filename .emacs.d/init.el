@@ -127,7 +127,7 @@ the new theme, and set the `cursor-type' to box."
       scroll-conservatively 10000)
 
 ;; Move temporary files to a dedicated folder
-(setq temporary-file-directory "~/.emacs.d/backups"
+(setq temporary-file-directory (concat user-emacs-directory "backups")
       backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
