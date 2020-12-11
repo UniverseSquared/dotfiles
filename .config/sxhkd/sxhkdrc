@@ -42,7 +42,7 @@ super + F3
         mpc volume +2
 
 super + m
-        ~/.scripts/select-song
+        ~/.scripts/song-menu
 
 # power management
 super + shift + q
