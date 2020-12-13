@@ -11,7 +11,8 @@ dunst &
 # use the normal cursor when not hovering over a window
 xsetroot -cursor_name left_ptr
 
-bspc monitor -d I II III IV V
+bspc monitor HDMI-0 -d I II III
+bspc monitor DP-3 -d IV V VI
 
 bspc config border_width 1
 bspc config window_gap 12
