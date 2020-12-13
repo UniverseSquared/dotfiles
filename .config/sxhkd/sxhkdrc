@@ -117,9 +117,13 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
+# focus or send to the given desktop on the current monitor
 super + {_,shift + }{1-3}
 	bspc {desktop -f,node -d} {I,II,III}.local
+
+# focus or send to the given desktop on the other monitor
+super + ctrl + {_,shift + }{1-3}
+	bspc {desktop -f,node -d} {I,II,III}.!local
 
 #
 # preselect
@@ -128,10 +132,6 @@ super + {_,shift + }{1-3}
 # preselect the direction
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
-
-# preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
 super + ctrl + space
