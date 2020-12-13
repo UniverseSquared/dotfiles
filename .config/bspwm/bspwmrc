@@ -12,7 +12,7 @@ dunst &
 xsetroot -cursor_name left_ptr
 
 bspc monitor HDMI-0 -d I II III
-bspc monitor DP-3 -d IV V VI
+bspc monitor DP-3 -d I II III
 
 bspc config border_width 1
 bspc config window_gap 12
