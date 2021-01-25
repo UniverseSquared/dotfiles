@@ -52,6 +52,9 @@ super + shift + q
 super + shift + @s
         ~/.scripts/screenshot
 
+super + ctrl + @s
+        feh --class floating "$HOME/img/Screenshots/$(ls ~/img/Screenshots | tail -n1)"
+
 #
 # bspwm hotkeys
 #
