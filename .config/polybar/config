@@ -1,7 +1,7 @@
 [bar/mybar]
 modules-left   = bspwm mpd
 modules-center = date
-modules-right  = cpu memory filesystem
+modules-right  = temperature cpu memory filesystem
 
 module-margin = 1
 
@@ -79,11 +79,20 @@ format-underline = ${colors.orange}
 
 label =  %date% %time%
 
+[module/temperature]
+type = internal/temperature
+thermal-zone = 2
+
+format = <label>
+format-underline = ${colors.yellow}
+
+label =  %temperature-c%
+
 [module/cpu]
 type = internal/cpu
 
 format = <label>
-format-underline = ${colors.yellow}
+format-underline = ${colors.green}
 
 label =  %percentage%%
 
@@ -91,7 +100,7 @@ label =  %percentage%%
 type = internal/memory
 
 format = <label>
-format-underline = ${colors.green}
+format-underline = ${colors.blue}
 
 label =  %gb_used%
 
@@ -102,7 +111,7 @@ interval = 10
 fixed-values = true
 
 format-mounted = <label-mounted>
-format-mounted-underline = ${colors.blue}
+format-mounted-underline = ${colors.purple}
 
 mount-0 = /home
 
