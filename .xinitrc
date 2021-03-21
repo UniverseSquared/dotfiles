@@ -1,3 +1,6 @@
+# magical fix for gtk apps taking forever to open
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+
 # load the xresources file
 xrdb -merge ~/.Xresources
 
