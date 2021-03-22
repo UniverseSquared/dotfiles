@@ -102,7 +102,7 @@ the new theme, and set the `cursor-type' to box."
 (blink-cursor-mode 0)
 
 ;; Set the default font
-(setq my/default-font "JetBrains Mono-11")
+(setq my/default-font "Fantasque Sans Mono-12")
 
 (set-frame-font my/default-font)
 (add-to-list 'default-frame-alist `(font . ,my/default-font))
