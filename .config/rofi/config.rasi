@@ -1,5 +1,7 @@
 configuration {
-	font: "JetBrains Mono 12";
-	theme: "solarized";
-	monitor: "-1";
+    font: "Fantasque Sans Mono 14";
+    theme: "solarized";
+    monitor: "-1";
+    width: 30;
+    lines: 20;
 }
