@@ -10,4 +10,7 @@ setxkbmap -option caps:escape
 # remap right alt to the Compose key
 xmodmap -e 'keycode 108 = Multi_key'
 
+# funny thing make java app work
+wmname LG3D
+
 exec bspwm
