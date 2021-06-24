@@ -13,4 +13,7 @@ xmodmap -e 'keycode 108 = Multi_key'
 # funny thing make java app work
 wmname LG3D
 
+# more funny magic to make java app work
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 exec bspwm
