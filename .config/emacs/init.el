@@ -73,6 +73,8 @@
 
 (use-package yaml-mode)
 
+(use-package zig-mode)
+
 ;; Utility functions
 (setq my/config-path (concat user-emacs-directory "init.el"))
 
