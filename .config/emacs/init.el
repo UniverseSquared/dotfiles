@@ -41,6 +41,17 @@
 (use-package ivy
   :hook (after-init . ivy-mode))
 
+(use-package ligature
+  :straight (:type git :host github :repo "mickeynp/ligature.el")
+  :hook (after-init . global-ligature-mode)
+  :config
+  (ligature-set-ligatures
+   'prog-mode
+   '("<---" "<--" "<<-" "<-" "->" "->>" "-->" "--->" "<===" "<==" "<<="  "<="
+     ">=" "=>>" ">==" ">===" "<->" "<-->" "<--->" "<---->" "<=>" "<==>" "<===>"
+     "<====>" "::" ":::" "==" "!=" "~=" "<>" "===" "!==" "<|" "<|>" "|>" ":="
+     "++" "+++" "<!--" "<!---")))
+
 (use-package lua-mode
   :custom (lua-indent-level 4))
 
@@ -104,7 +115,7 @@ the new theme, and set the `cursor-type' to box."
 (blink-cursor-mode 0)
 
 ;; Set the default font
-(setq my/default-font "Fantasque Sans Mono-12")
+(setq my/default-font "Iosevka-12")
 
 (set-frame-font my/default-font)
 (add-to-list 'default-frame-alist `(font . ,my/default-font))
