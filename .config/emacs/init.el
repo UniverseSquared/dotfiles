@@ -107,7 +107,12 @@ to ALPHA."
 the new theme, and set the `cursor-type' to box."
   (mapc #'disable-theme custom-enabled-themes)
   (apply old-fn args)
-  (setq-default cursor-type 'box))
+  (setq-default cursor-type 'box)
+
+  ;; Make comments, comment delimiters and doc strings italic
+  (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
+  (set-face-attribute 'font-lock-comment-delimiter-face nil :slant 'italic)
+  (set-face-attribute 'font-lock-doc-face nil :slant 'italic))
 
 (advice-add #'load-theme :around #'my/around-load-theme-advice)
 
@@ -119,11 +124,6 @@ the new theme, and set the `cursor-type' to box."
 
 (set-frame-font my/default-font)
 (add-to-list 'default-frame-alist `(font . ,my/default-font))
-
-;; Make comments, comment delimiters and doc strings italic
-(set-face-attribute 'font-lock-comment-face nil :slant 'italic)
-(set-face-attribute 'font-lock-comment-delimiter-face nil :slant 'italic)
-(set-face-attribute 'font-lock-doc-face nil :slant 'italic)
 
 ;; Make line numbers not italic
 (set-face-attribute 'line-number nil :slant 'normal)
