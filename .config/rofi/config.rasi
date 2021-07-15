@@ -1,5 +1,5 @@
 configuration {
-    font: "Fantasque Sans Mono 14";
+    font: "Iosevka 14";
     theme: "solarized";
     monitor: "-1";
     width: 30;

@@ -69,18 +69,18 @@ scrolling:
 
 font:
   normal:
-    family: Fantasque Sans Mono
+    family: Iosevka
     style: Regular
 
   bold:
-    family: Fantasque Sans Mono
+    family: Iosevka
     style: Bold
 
   italic:
-    family: Fantasque Sans Mono
+    family: Iosevka
     style: Italic
 
-  size: 10.0
+  size: 11
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
