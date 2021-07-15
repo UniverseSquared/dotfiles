@@ -12,6 +12,21 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+;; `load-theme` advice, defined before themes are loaded
+(defun my/around-load-theme-advice (old-fn &rest args)
+  "Advice for `load-theme' to unload previously loaded themes before loading
+the new theme, and set the `cursor-type' to box."
+  (mapc #'disable-theme custom-enabled-themes)
+  (apply old-fn args)
+  (setq-default cursor-type 'box)
+
+  ;; Make comments, comment delimiters and doc strings italic
+  (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
+  (set-face-attribute 'font-lock-comment-delimiter-face nil :slant 'italic)
+  (set-face-attribute 'font-lock-doc-face nil :slant 'italic))
+
+(advice-add #'load-theme :around #'my/around-load-theme-advice)
+
 ;; Install use-package
 (straight-use-package 'use-package)
 
@@ -101,20 +116,6 @@ to ALPHA."
   (mapc #'(lambda (frame)
             (set-frame-parameter frame 'alpha `(,alpha . ,alpha)))
         (visible-frame-list)))
-
-(defun my/around-load-theme-advice (old-fn &rest args)
-  "Advice for `load-theme' to unload previously loaded themes before loading
-the new theme, and set the `cursor-type' to box."
-  (mapc #'disable-theme custom-enabled-themes)
-  (apply old-fn args)
-  (setq-default cursor-type 'box)
-
-  ;; Make comments, comment delimiters and doc strings italic
-  (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
-  (set-face-attribute 'font-lock-comment-delimiter-face nil :slant 'italic)
-  (set-face-attribute 'font-lock-doc-face nil :slant 'italic))
-
-(advice-add #'load-theme :around #'my/around-load-theme-advice)
 
 ;; Disable cursor blink
 (blink-cursor-mode 0)
