@@ -85,6 +85,7 @@ the new theme, and set the `cursor-type' to box."
 (use-package smartparens
   :hook (after-init . smartparens-global-mode)
   :config
+  (setq sp-highlight-pair-overlay nil)
   (sp-with-modes sp-lisp-modes
     (sp-local-pair "'" nil :actions nil)
     (sp-local-pair "`" nil :actions nil)))
