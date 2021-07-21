@@ -12,7 +12,7 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;; `load-theme` advice, defined before themes are loaded
+;; `load-theme' advice, defined before themes are loaded
 (defun my/around-load-theme-advice (old-fn &rest args)
   "Advice for `load-theme' to unload previously loaded themes before loading
 the new theme, and set the `cursor-type' to box."
