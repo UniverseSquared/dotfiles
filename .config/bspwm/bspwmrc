@@ -2,7 +2,6 @@
 
 picom -b --experimental-backends &
 sxhkd &
-dunst &
 ~/.config/polybar/launch.sh &
 
 # set the wallpaper
