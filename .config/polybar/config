@@ -64,7 +64,7 @@ format-paused-prefix  = 
 format-stopped-prefix = 
 
 label-song          = %artist% - %title%
-label-song-maxlen   = 100
+label-song-maxlen   = 150
 label-song-ellipsis = true
 
 label-offline =  mpd is offline
