@@ -51,7 +51,9 @@ the new theme, and set the `cursor-type' to box."
 
 (use-package hl-todo
   :custom-face (hl-todo ((t (:weight bold :inherit font-lock-comment-face))))
-  :hook (after-init . global-hl-todo-mode))
+  :hook (after-init . global-hl-todo-mode)
+  :config
+  (add-to-list 'hl-todo-keyword-faces '("SAFETY" . "#7cb8bb")))
 
 (use-package ivy
   :hook (after-init . ivy-mode))
