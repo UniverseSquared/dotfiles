@@ -1,7 +1,7 @@
-configuration {
+@import "solarized.rasi"
+
+window {
     font: "Iosevka 14";
-    theme: "solarized";
-    monitor: "-1";
-    width: 30;
-    lines: 20;
+    width: 600;
+    height: 595;
 }
