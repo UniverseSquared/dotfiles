@@ -49,7 +49,7 @@ label-empty = 
 label-empty-padding = 1
 label-empty-alignment = center
 
-label-urgent = %name%
+label-urgent = 
 label-urgent-padding = 1
 label-urgent-alignment = center
 
