@@ -1,6 +1,6 @@
 #!/bin/bash
 
-picom -b --experimental-backends &
+picom -b &
 sxhkd &
 ~/.config/polybar/launch.sh &
 

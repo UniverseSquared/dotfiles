@@ -57,7 +57,7 @@ super + ctrl + @s
 
 # toggle picom
 super + p
-        pkill picom || picom -b --experimental-backends &
+        pkill picom || picom -b &
 
 #
 # bspwm hotkeys
