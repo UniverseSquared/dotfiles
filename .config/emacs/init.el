@@ -33,6 +33,12 @@ the new theme, and set the `cursor-type' to box."
 (setq straight-use-package-by-default t)
 
 ;; Install and configure packages
+(use-package catppuccin-theme
+  :straight (:type git :host github :repo "catppuccin/emacs" :local-repo "catppuccin-theme")
+  :custom (catppuccin-flavor 'macchiato)
+  :config
+  (load-theme 'catppuccin t))
+
 (use-package company
   :hook (after-init . global-company-mode)
   :bind (("C-<tab>" . company-complete)
@@ -41,10 +47,6 @@ the new theme, and set the `cursor-type' to box."
 
 (use-package counsel
   :hook (after-init . counsel-mode))
-
-(use-package dracula-theme
-  :config
-  (load-theme 'dracula t))
 
 (use-package haskell-mode
   :hook (haskell-mode . interactive-haskell-mode))
