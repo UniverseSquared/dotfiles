@@ -152,7 +152,7 @@ to ALPHA."
 
 ;; Have custom be less intrusive
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file)
+(when (file-exists-p custom-file) (load custom-file))
 
 ;; Show the *scratch* buffer on startup instead of the default startup screen
 (setq inhibit-startup-screen t)
