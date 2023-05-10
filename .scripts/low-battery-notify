@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# crontab entry to check the battery every five minutes:
+# */5 * * * * ~/.scripts/low-battery-notify
+
+TMPFILE=/tmp/low-battery-warning-sent
+
+acpi --battery | awk -F '[ ,%]' '{ print $3, $5 }' | {
+    read -r state level
+
+    if [ -f $TMPFILE ]; then
+        [ $state = "Charging" ] && rm $TMPFILE
+    elif [ $state = "Discharging" -a $level -le 15 ]; then
+        export XAUTHORITY=/home/universe/.Xauthority
+        export DISPLAY=:0
+        export $(dbus-launch)
+
+        notify-send --urgency=critical "Low battery" "$level% battery remaining"
+        touch $TMPFILE
+    fi
+}
