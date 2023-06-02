@@ -53,7 +53,7 @@ super + shift + @s
         ~/.scripts/screenshot
 
 super + ctrl + @s
-        feh --class floating "$HOME/img/Screenshots/$(ls ~/img/Screenshots | tail -n1)"
+        feh --class floating "$HOME/Pictures/Screenshots/$(ls ~/Pictures/Screenshots | tail -n1)"
 
 # toggle picom
 super + p
