@@ -1,5 +1,9 @@
 include "%L"
 
+# maths
+<Multi_key> <plus> <minus> : "±" # PLUS-OR-MINUS SIGN
+<Multi_key> <minus> <plus> : "∓" # MINUS-OR-PLUS SIGN
+
 # greek letters
 <Multi_key> <G> <a> : "α" # GREEK SMALL LETTER ALPHA
 <Multi_key> <G> <p> : "π" # GREEK SMALL LETTER PI
