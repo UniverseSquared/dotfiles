@@ -2,6 +2,7 @@
 
 picom -b &
 sxhkd &
+dunst &
 ~/.config/polybar/launch.sh &
 
 # set the wallpaper
