@@ -26,3 +26,9 @@ ytmp3() {
                --extract-audio --audio-format=mp3 \
                -o "$output_filename.%(ext)s"
 }
+
+export PATH="$PATH:$HOME/.cargo/bin"
+
+OPAM_INIT=$HOME/.opam/opam-init/init.zsh
+
+[[ -f $OPAM_INIT ]] && source $OPAM_INIT

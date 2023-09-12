@@ -79,6 +79,9 @@ the new theme, and set the `cursor-type' to box."
 
 (use-package markdown-mode)
 
+(use-package merlin
+  :hook (tuareg-mode . merlin-mode))
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
@@ -96,6 +99,10 @@ the new theme, and set the `cursor-type' to box."
 
 (use-package swiper
   :bind ("C-s" . swiper))
+
+(use-package tuareg
+  :config
+  (add-to-list 'exec-path "~/.opam/default/bin"))
 
 (use-package web-mode)
 
