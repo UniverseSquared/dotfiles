@@ -15,7 +15,7 @@ antigen theme fishy
 antigen apply
 
 # Aliases
-alias ls=exa
+alias ls=eza
 alias dfg="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 ytmp3() {
