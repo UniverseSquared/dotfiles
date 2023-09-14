@@ -102,7 +102,7 @@ the new theme, and set the `cursor-type' to box."
 
 (use-package tuareg
   :config
-  (add-to-list 'exec-path "~/.opam/default/bin"))
+  (add-to-list 'exec-path (s-trim (shell-command-to-string "opam var bin"))))
 
 (use-package web-mode)
 
