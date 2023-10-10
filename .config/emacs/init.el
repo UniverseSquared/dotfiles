@@ -46,7 +46,8 @@ the new theme, and set the `cursor-type' to box."
          ("<tab>" . company-complete-selection)))
 
 (use-package counsel
-  :hook (after-init . counsel-mode))
+  :hook (after-init . counsel-mode)
+  :bind (("C-x 8 RET" . counsel-unicode-char)))
 
 (use-package haskell-mode
   :hook (haskell-mode . interactive-haskell-mode))
@@ -120,6 +121,13 @@ the new theme, and set the `cursor-type' to box."
   "Open the emacs init.el file for editing."
   (interactive)
   (find-file my/config-path))
+
+(defun my/open-current-notes ()
+  "Open today's university notes file."
+  (interactive)
+  (let* ((date-string (format-time-string "%Y-%m-%d"))
+         (notes-file-path (concat (getenv "HOME") "/uni/notes/" date-string ".md")))
+    (find-file notes-file-path)))
 
 (defun my/set-alpha-for-all-frames (alpha)
   "Set the alpha value for all visible frames, and the default value,
@@ -284,7 +292,7 @@ is modified.")
                 ,@my/right-mode-line-format))
 
 ;; Misc. key bindings
-(bind-keys
+(bind-keys*
  ("ESC ESC" . keyboard-escape-quit)
  ("C-x C-b" . ibuffer)
  ("C-z" . zap-up-to-char)
@@ -298,4 +306,5 @@ is modified.")
  ("C-c e" . my/edit-config)
  ("C-c m" . man)
  ("C-c s" . sort-lines)
- ("C-c C-e" . eval-buffer))
+ ("C-c C-e" . eval-buffer)
+ ("C-c C-n" . my/open-current-notes))
