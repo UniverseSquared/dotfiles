@@ -16,3 +16,23 @@ include "%L"
 <Multi_key> <L> <n> : "¬" # NOT SIGN
 <Multi_key> <L> <a> : "∧" # LOGICAL AND
 <Multi_key> <L> <o> : "∨" # LOGICAL OR
+<Multi_key> <L> <e> : "≡" # IDENTICAL TO
+<Multi_key> <L> <slash> <e> : "≢" # NOT IDENTICAL TO
+
+# set theory
+<Multi_key> <S> <u> : "∪" # UNION
+<Multi_key> <S> <i> : "∩" # INTERSECTION
+
+<Multi_key> <S> <m> : "∈" # ELEMENT OF
+<Multi_key> <S> <slash> <m> : "∉" # NOT AN ELEMENT OF
+
+<Multi_key> <S> <s> : "⊂" # SUBSET OF
+<Multi_key> <S> <slash> <s> : "⊄" # NOT A SUBSET OF
+
+<Multi_key> <S> <equal> <s> : "⊆" # SUBSET OF OR EQUAL TO
+<Multi_key> <S> <slash> <equal> <s> : "⊈" # NEITHER A SUBSET OF NOR EQUAL TO
+
+<Multi_key> <S> <C> : "ℂ" # DOUBLE-STRUCK CAPITAL C
+<Multi_key> <S> <N> : "ℕ" # DOUBLE-STRUCK CAPITAL N
+<Multi_key> <S> <R> : "ℝ" # DOUBLE-STRUCK CAPITAL R
+<Multi_key> <S> <Z> : "ℤ" # DOUBLE-STRUCK CAPITAL Z
