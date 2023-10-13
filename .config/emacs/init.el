@@ -66,7 +66,7 @@ the new theme, and set the `cursor-type' to box."
   :hook (after-init . global-ligature-mode)
   :config
   (ligature-set-ligatures
-   'prog-mode
+   t
    '("<---" "<--" "<<-" "<-" "->" "->>" "-->" "--->" "<===" "<==" "<<="
      "=>" "=>>" ">==" ">===" "<->" "<-->" "<--->" "<---->" "<=>" "<==>"
      "<===>" "<====>" "::" ":::" "==" "!=" "~=" "<>" "===" "!==" "<|" "<|>" "|>"
