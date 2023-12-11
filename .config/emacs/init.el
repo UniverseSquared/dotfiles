@@ -178,8 +178,10 @@ to ALPHA."
 ;; Use spaces for indentation, not tabs
 (setq-default indent-tabs-mode nil)
 
+(add-hook 'prog-mode-hook (lambda () (indent-tabs-mode -1)))
+
 ;; Configure indentation in C-like languages
-(setq c-default-style "java"
+(setq c-default-style "linux"
       c-basic-offset 4)
 
 ;; Delete trailing whitespace before saving
