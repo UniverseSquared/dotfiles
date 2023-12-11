@@ -6,9 +6,15 @@ include "%L"
 <Multi_key> <plus> <minus> : "±" # PLUS-OR-MINUS SIGN
 <Multi_key> <minus> <plus> : "∓" # MINUS-OR-PLUS SIGN
 
+<Multi_key> <f> <a> : "∀" # FOR ALL
+<Multi_key> <t> <e> : "∃" # THERE EXISTS
+
 # greek letters
 <Multi_key> <G> <a> : "α" # GREEK SMALL LETTER ALPHA
 <Multi_key> <G> <p> : "π" # GREEK SMALL LETTER PI
+<Multi_key> <G> <r> : "ρ" # GREEK SMALL LETTER RHO
+
+<Multi_key> <G> <P> : "Π" # GREEK CAPITAL LETTER PI
 
 # logic
 <Multi_key> <L> <t> : "⊤" # DOWN TACK
@@ -34,5 +40,8 @@ include "%L"
 
 <Multi_key> <S> <C> : "ℂ" # DOUBLE-STRUCK CAPITAL C
 <Multi_key> <S> <N> : "ℕ" # DOUBLE-STRUCK CAPITAL N
+<Multi_key> <S> <Q> : "ℚ" # DOUBLE-STRUCK CAPITAL Q
 <Multi_key> <S> <R> : "ℝ" # DOUBLE-STRUCK CAPITAL R
 <Multi_key> <S> <Z> : "ℤ" # DOUBLE-STRUCK CAPITAL Z
+
+<Multi_key> <S> <n> : "∅" # EMPTY SET
