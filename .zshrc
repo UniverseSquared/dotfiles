@@ -28,6 +28,7 @@ ytmp3() {
 }
 
 export PATH="$PATH:$HOME/.cargo/bin"
+export EDITOR=nano
 
 OPAM_INIT=$HOME/.opam/opam-init/init.zsh
 
