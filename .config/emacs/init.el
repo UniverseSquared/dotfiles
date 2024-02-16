@@ -49,6 +49,8 @@ the new theme, and set the `cursor-type' to box."
   :hook (after-init . counsel-mode)
   :bind (("C-x 8 RET" . counsel-unicode-char)))
 
+(use-package edit-indirect)
+
 (use-package haskell-mode
   :hook (haskell-mode . interactive-haskell-mode))
 
@@ -178,10 +180,8 @@ to ALPHA."
 ;; Use spaces for indentation, not tabs
 (setq-default indent-tabs-mode nil)
 
-(add-hook 'prog-mode-hook (lambda () (indent-tabs-mode -1)))
-
 ;; Configure indentation in C-like languages
-(setq c-default-style "linux"
+(setq c-default-style "java"
       c-basic-offset 4)
 
 ;; Delete trailing whitespace before saving
