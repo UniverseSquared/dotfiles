@@ -11,6 +11,7 @@ include "%L"
 
 # greek letters
 <Multi_key> <G> <a> : "α" # GREEK SMALL LETTER ALPHA
+<Multi_key> <G> <l> : "λ" # GREEK SMALL LETTER LAMBDA
 <Multi_key> <G> <p> : "π" # GREEK SMALL LETTER PI
 <Multi_key> <G> <r> : "ρ" # GREEK SMALL LETTER RHO
 

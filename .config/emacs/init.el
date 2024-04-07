@@ -107,7 +107,9 @@ the new theme, and set the `cursor-type' to box."
   :config
   (add-to-list 'exec-path (s-trim (shell-command-to-string "opam var bin"))))
 
-(use-package web-mode)
+(use-package web-mode
+  :custom (web-mode-markup-indent-offset 2)
+  :mode ("\\.html?\\'" "\\.css\\'"))
 
 (use-package which-key
   :hook (after-init . which-key-mode))
