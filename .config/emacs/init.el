@@ -128,8 +128,21 @@ the new theme, and set the `cursor-type' to box."
   "Open today's university notes file."
   (interactive)
   (let* ((date-string (format-time-string "%Y-%m-%d"))
-         (notes-file-path (concat (getenv "HOME") "/uni/notes/" date-string ".md")))
-    (find-file notes-file-path)))
+         (notes-file-path (concat (getenv "HOME") "/uni/notes/" date-string ".md"))
+         (bin-path "/home/universe/.cache/cargo/debug/caltest")
+         (command (concat bin-path " now --title-only"))
+         (title (s-trim (shell-command-to-string command))))
+    (find-file notes-file-path)
+
+    (unless (string= title "no current event")
+      (beginning-of-buffer)
+
+      (unless (re-search-forward (concat "^# " title) nil t)
+        (end-of-buffer)
+        (unless (= (point) 1) (newline))
+        (insert (concat "# " title "\n")))
+
+      (beginning-of-line))))
 
 (defun my/set-alpha-for-all-frames (alpha)
   "Set the alpha value for all visible frames, and the default value,
