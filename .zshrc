@@ -17,6 +17,7 @@ antigen apply
 # Aliases
 alias ls=eza
 alias dfg="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias temacs="TERM=xterm-direct emacsclient -nw"
 
 ytmp3() {
     youtube_url=$1
