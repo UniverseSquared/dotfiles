@@ -104,6 +104,9 @@ the new theme, and set the `cursor-type' to box."
   :bind ("C-s" . swiper))
 
 (use-package tuareg
+  :custom-face
+  (tuareg-font-lock-governing-face
+   ((t (:inherit font-lock-keyword-face :weight unspecified :foreground unspecified))))
   :config
   (add-to-list 'exec-path (s-trim (shell-command-to-string "opam var bin"))))
 
