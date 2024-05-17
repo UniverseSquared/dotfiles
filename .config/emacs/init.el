@@ -122,7 +122,12 @@ the new theme, and set the `cursor-type' to box."
   (add-to-list 'exec-path (s-trim (shell-command-to-string "opam var bin"))))
 
 (use-package web-mode
-  :custom (web-mode-markup-indent-offset 2)
+  :custom ((web-mode-markup-indent-offset 2)
+           (web-mode-enable-auto-opening nil)
+           (web-mode-enable-auto-closing nil)
+           (web-mode-enable-auto-pairing nil)
+           (web-mode-enable-auto-quoting nil)
+           (web-mode-ac-sources-alist '(("css" (ac-source-css-property)))))
   :mode ("\\.html?\\'" "\\.css\\'"))
 
 (use-package which-key
