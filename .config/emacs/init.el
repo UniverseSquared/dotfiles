@@ -85,6 +85,17 @@ the new theme, and set the `cursor-type' to box."
 (use-package merlin
   :hook (tuareg-mode . merlin-mode))
 
+(use-package ocamlformat
+  :bind (:map tuareg-mode-map
+              ("C-c C-f" . ocamlformat))
+  :custom (ocamlformat-enable 'enable-outside-detected-project))
+
+(use-package org
+  :custom (org-support-shift-select t)
+  :custom-face (org-block ((t (:foreground unspecified :inherit default))))
+  :config
+  (org-babel-do-load-languages 'org-babel-load-languages '((sqlite . t))))
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
