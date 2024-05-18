@@ -94,7 +94,10 @@ the new theme, and set the `cursor-type' to box."
   :custom (org-support-shift-select t)
   :custom-face (org-block ((t (:foreground unspecified :inherit default))))
   :config
-  (org-babel-do-load-languages 'org-babel-load-languages '((sqlite . t))))
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((sqlite . t) (C . t) (haskell . t))))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
