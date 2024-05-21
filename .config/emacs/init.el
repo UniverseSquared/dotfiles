@@ -93,6 +93,7 @@ the new theme, and set the `cursor-type' to box."
 (use-package org
   :custom ((org-support-shift-select t)
            (org-hide-emphasis-markers t)
+           (org-list-allow-alphabetical t)
            (org-preview-latex-image-directory "~/.cache/org-lateximg/"))
   :custom-face (org-block ((t (:foreground unspecified :inherit default))))
   :config
