@@ -91,7 +91,9 @@ the new theme, and set the `cursor-type' to box."
   :custom (ocamlformat-enable 'enable-outside-detected-project))
 
 (use-package org
-  :custom (org-support-shift-select t)
+  :custom ((org-support-shift-select t)
+           (org-hide-emphasis-markers t)
+           (org-preview-latex-image-directory "~/.cache/org-lateximg/"))
   :custom-face (org-block ((t (:foreground unspecified :inherit default))))
   :config
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
