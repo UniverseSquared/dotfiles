@@ -100,7 +100,7 @@ the new theme, and set the `cursor-type' to box."
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((sqlite . t) (C . t) (haskell . t))))
+   '((sqlite . t) (C . t) (haskell . t) (python . t) (ocaml . t))))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -111,16 +111,19 @@ the new theme, and set the `cursor-type' to box."
 
 (use-package smartparens
   :hook (after-init . smartparens-global-mode)
+  :custom (sp-highlight-pair-overlay nil)
   :config
-  (setq sp-highlight-pair-overlay nil)
-  (sp-with-modes sp-lisp-modes
-    (sp-local-pair "'" nil :actions nil)
-    (sp-local-pair "`" nil :actions nil)))
+  ;; FIXME: do more smartparens config
+  ;; (require 'smartparens-config)
+  (require 'smartparens-rust)
+  (require 'smartparens-ml)
+  )
 
 (use-package swiper
   :bind ("C-s" . swiper))
 
 (use-package tuareg
+  :custom (tuareg-match-clause-indent 2)
   :custom-face
   (tuareg-font-lock-governing-face
    ((t (:inherit font-lock-keyword-face :weight unspecified :foreground unspecified))))
@@ -141,7 +144,8 @@ the new theme, and set the `cursor-type' to box."
 
 (use-package yaml-mode)
 
-(use-package zig-mode)
+(use-package zig-mode
+  :hook (zig-mode . (lambda () (zig-format-on-save-mode 0))))
 
 ;; Utility functions
 (setq my/config-path (concat user-emacs-directory "init.el"))
@@ -155,7 +159,7 @@ the new theme, and set the `cursor-type' to box."
   "Open today's university notes file."
   (interactive)
   (let* ((date-string (format-time-string "%Y-%m-%d"))
-         (notes-file-path (concat (getenv "HOME") "/uni/notes/" date-string ".md"))
+         (notes-file-path (concat (getenv "HOME") "/uni/notes/" date-string ".org"))
          (bin-path "/home/universe/.cache/cargo/debug/caltest")
          (command (concat bin-path " now --title-only"))
          (title (s-trim (shell-command-to-string command))))
@@ -164,10 +168,10 @@ the new theme, and set the `cursor-type' to box."
     (unless (string= title "no current event")
       (beginning-of-buffer)
 
-      (unless (re-search-forward (concat "^# " title) nil t)
+      (unless (re-search-forward (concat "^\\* " title) nil t)
         (end-of-buffer)
         (unless (= (point) 1) (newline))
-        (insert (concat "# " title "\n")))
+        (insert (concat "* " title "\n")))
 
       (beginning-of-line))))
 
@@ -181,6 +185,7 @@ to ALPHA."
 
 ;; Disable cursor blink
 (blink-cursor-mode 0)
+(setq visible-cursor nil)
 
 ;; Set the default font
 (setq my/default-font "Iosevka-12")
@@ -240,6 +245,7 @@ to ALPHA."
 
 ;; Add cargo's bin folder to `exec-path'
 (add-to-list 'exec-path (concat (getenv "HOME") "/.cargo/bin"))
+(add-to-list 'exec-path "/usr/lib/rustup/bin")
 
 ;; Make the frame title format more informative
 (setq-default frame-title-format
