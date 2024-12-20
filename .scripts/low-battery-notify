@@ -13,7 +13,7 @@ charge_percentage=$(($charge_now * 100 / $charge_full))
 
 if [ -f $TMPFILE ]; then
     [ $state = "Charging" ] && rm $TMPFILE
-elif [ $state = "Discharging" -a $charge_percentage -le 15 ]; then
+elif [ "$state" = "Discharging" -a $charge_percentage -le 15 ]; then
     export XAUTHORITY=/home/universe/.Xauthority
     export DISPLAY=:0
     export $(dbus-launch)

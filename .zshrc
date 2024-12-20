@@ -29,8 +29,13 @@ ytmp3() {
 }
 
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:/home/universe/.local/bin"
+
 export EDITOR=nano
+export VITASDK=/usr/local/vitasdk
 
 OPAM_INIT=$HOME/.opam/opam-init/init.zsh
 
 [[ -f $OPAM_INIT ]] && source $OPAM_INIT
+
+source "$HOME/.elan/env"

@@ -91,11 +91,17 @@ the new theme, and set the `cursor-type' to box."
   :custom (ocamlformat-enable 'enable-outside-detected-project))
 
 (use-package org
+  :bind (:map org-mode-map
+         ("C-c M-o" . org-store-link))
   :custom ((org-support-shift-select t)
            (org-hide-emphasis-markers t)
            (org-list-allow-alphabetical t)
-           (org-preview-latex-image-directory "~/.cache/org-lateximg/"))
-  :custom-face (org-block ((t (:foreground unspecified :inherit default))))
+           (org-preview-latex-image-directory "~/.cache/org-lateximg/")
+           (org-attach-use-inheritance t)
+           (org-attach-auto-tag nil))
+  :custom-face
+  (org-block ((t (:foreground unspecified :inherit default))))
+  (org-target ((t (:inherit font-lock-comment-face))))
   :config
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
   (org-babel-do-load-languages
@@ -246,6 +252,9 @@ to ALPHA."
 ;; Add cargo's bin folder to `exec-path'
 (add-to-list 'exec-path (concat (getenv "HOME") "/.cargo/bin"))
 (add-to-list 'exec-path "/usr/lib/rustup/bin")
+
+;; Add Lean to `exec-path'
+(add-to-list 'exec-path (concat (getenv "HOME") "/.elan/bin"))
 
 ;; Make the frame title format more informative
 (setq-default frame-title-format

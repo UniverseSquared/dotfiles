@@ -11,9 +11,11 @@ include "%L"
 
 # greek letters
 <Multi_key> <G> <a> : "α" # GREEK SMALL LETTER ALPHA
+<Multi_key> <G> <b> : "β" # GREEK SMALL LETTER BETA
 <Multi_key> <G> <l> : "λ" # GREEK SMALL LETTER LAMBDA
 <Multi_key> <G> <p> : "π" # GREEK SMALL LETTER PI
 <Multi_key> <G> <r> : "ρ" # GREEK SMALL LETTER RHO
+<Multi_key> <G> <t> : "θ" # GREEK SMALL LETTER THETA
 
 <Multi_key> <G> <P> : "Π" # GREEK CAPITAL LETTER PI
 
