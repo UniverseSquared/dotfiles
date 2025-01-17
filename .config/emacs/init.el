@@ -1,16 +1,9 @@
-;; Bootstrap straight.el
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 ;; `load-theme' advice, defined before themes are loaded
 (defun my/around-load-theme-advice (old-fn &rest args)
@@ -27,14 +20,8 @@ the new theme, and set the `cursor-type' to box."
 
 (advice-add #'load-theme :around #'my/around-load-theme-advice)
 
-;; Install use-package
-(straight-use-package 'use-package)
-
-(setq straight-use-package-by-default t)
-
 ;; Install and configure packages
 (use-package catppuccin-theme
-  :straight (:type git :host github :repo "catppuccin/emacs" :local-repo "catppuccin-theme")
   :custom (catppuccin-flavor 'macchiato)
   :config
   (load-theme 'catppuccin t))
@@ -64,7 +51,6 @@ the new theme, and set the `cursor-type' to box."
   :hook (after-init . ivy-mode))
 
 (use-package ligature
-  :straight (:type git :host github :repo "mickeynp/ligature.el")
   :hook (after-init . global-ligature-mode)
   :config
   (ligature-set-ligatures
