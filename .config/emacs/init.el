@@ -22,7 +22,9 @@ the new theme, and set the `cursor-type' to box."
 
 ;; Install and configure packages
 (use-package catppuccin-theme
-  :custom (catppuccin-flavor 'macchiato)
+  :custom
+  (catppuccin-flavor 'macchiato)
+  (catppuccin-italic-blockquotes nil)
   :config
   (load-theme 'catppuccin t))
 
