@@ -256,6 +256,14 @@ to ALPHA."
 (setq-default sentence-end-double-space nil
               fill-column 110)
 
+;; Prevent Emacs from drawing its own background color in terminal frames
+(defun my/remove-background-for-terminal-frame (frame)
+  (unless (display-graphic-p frame)
+    (set-face-background 'default "unspecified-bg" frame)
+    (set-face-background 'line-number "unspecified-bg" frame)))
+
+(add-to-list 'after-make-frame-functions #'my/remove-background-for-terminal-frame)
+
 ;; Enable some functions that are disabled by default
 (put #'erase-buffer 'disabled nil)
 (put #'upcase-region 'disabled nil)
