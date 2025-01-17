@@ -252,6 +252,10 @@ to ALPHA."
 ;; Show human-readable file sizes in dired
 (setq dired-listing-switches "-alh")
 
+;; End sentences with a single space, and fill paragraphs to a reasonable margin
+(setq-default sentence-end-double-space nil
+              fill-column 110)
+
 ;; Enable some functions that are disabled by default
 (put #'erase-buffer 'disabled nil)
 (put #'upcase-region 'disabled nil)
