@@ -138,6 +138,9 @@ the new theme, and set the `cursor-type' to box."
   :custom-face
   (tuareg-font-lock-governing-face
    ((t (:inherit font-lock-keyword-face :weight unspecified :foreground unspecified))))
+  ;; By default, this inherits `default', which causes OCaml code in code blocks to break the background
+  ;; color sometimes
+  (tuareg-font-lock-constructor-face ((t (:inherit unspecified))))
   :config
   (add-to-list 'exec-path (s-trim (shell-command-to-string "opam var bin"))))
 
