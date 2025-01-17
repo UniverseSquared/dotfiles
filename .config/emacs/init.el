@@ -121,6 +121,11 @@ the new theme, and set the `cursor-type' to box."
   :config
   ;; FIXME: do more smartparens config
   ;; (require 'smartparens-config)
+
+  (sp-with-modes sp-lisp-modes
+    (sp-local-pair "'" nil :actions nil)
+    (sp-local-pair "`" nil :actions nil))
+
   (require 'smartparens-rust)
   (require 'smartparens-ml)
   )
