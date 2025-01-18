@@ -86,10 +86,16 @@ the new theme, and set the `cursor-type' to box."
            (org-list-allow-alphabetical t)
            (org-preview-latex-image-directory "~/.cache/org-lateximg/")
            (org-attach-use-inheritance t)
-           (org-attach-auto-tag nil))
+           (org-attach-auto-tag nil)
+           (org-startup-truncated nil))
   :custom-face
-  (org-block ((t (:foreground unspecified :inherit default))))
+  (org-block ((t (:foreground unspecified :inherit fixed-pitch))))
+  (org-table ((t (:inherit fixed-pitch))))
+  (org-code ((t (:inherit fixed-pitch))))
   (org-target ((t (:inherit font-lock-comment-face))))
+  :hook
+  (org-mode . variable-pitch-mode)
+  (org-mode . word-wrap-whitespace-mode)
   :config
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
   (org-babel-do-load-languages
@@ -190,10 +196,16 @@ to ALPHA."
 (setq visible-cursor nil)
 
 ;; Set the default font
-(setq my/default-font "Iosevka-12")
-
-(set-frame-font my/default-font)
-(add-to-list 'default-frame-alist `(font . ,my/default-font))
+(let ((monospace-font-family "Iosevka")
+      (monospace-font-size 12)
+      (variable-font-family "Cantarell")
+      (variable-font-size 12))
+  (custom-set-faces
+   `(default ((t (:family ,monospace-font-family :height ,(* 10 monospace-font-size)))))
+   `(fixed-pitch ((t (:family ,monospace-font-family :height ,(* 10 monospace-font-size)))))
+   `(variable-pitch ((t (:family ,variable-font-family :height ,(* 10 variable-font-size)))))
+   ;; Ensure that `variable-pitch-mode' doesn't affect line numbers
+   `(line-number ((t :inherit fixed-pitch)))))
 
 ;; Make line numbers not italic
 (set-face-attribute 'line-number nil :slant 'normal)
