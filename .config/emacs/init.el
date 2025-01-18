@@ -102,6 +102,9 @@ the new theme, and set the `cursor-type' to box."
    'org-babel-load-languages
    '((sqlite . t) (C . t) (haskell . t) (python . t) (ocaml . t))))
 
+(use-package org-appear
+  :hook (org-mode . org-appear-mode))
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
