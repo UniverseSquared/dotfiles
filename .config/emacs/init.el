@@ -378,6 +378,19 @@ is modified.")
 
                 ,@my/right-mode-line-format))
 
+;; Allow toggling between a light and dark theme
+(setq my/is-light-theme nil)
+
+(defun my/cycle-theme ()
+  (interactive)
+  (setq my/is-light-theme (not my/is-light-theme))
+  (pcase-let ((`(,flavor ,alpha) (if my/is-light-theme
+                                     '(latte 100)
+                                   '(macchiato 75))))
+    (setq catppuccin-flavor flavor)
+    (load-theme 'catppuccin t)
+    (my/set-alpha-for-all-frames alpha)))
+
 ;; Misc. key bindings
 (bind-keys*
  ("ESC ESC" . keyboard-escape-quit)
@@ -393,4 +406,5 @@ is modified.")
  ("C-c e" . my/edit-config)
  ("C-c m" . man)
  ("C-c s" . sort-lines)
- ("C-c n" . my/open-current-notes))
+ ("C-c n" . my/open-current-notes)
+ ("C-c t" . my/cycle-theme))
