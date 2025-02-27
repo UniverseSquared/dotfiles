@@ -196,10 +196,10 @@ the new theme, and set the `cursor-type' to box."
 (defun my/set-alpha-for-all-frames (alpha)
   "Set the alpha value for all visible frames, and the default value,
 to ALPHA."
-  (add-to-list 'default-frame-alist `(alpha-background . ,alpha))
+  (setf (alist-get 'alpha-background default-frame-alist) alpha)
   (mapc #'(lambda (frame)
             (set-frame-parameter frame 'alpha-background alpha))
-        (visible-frame-list)))
+        (frame-list)))
 
 ;; Disable cursor blink
 (blink-cursor-mode 0)
