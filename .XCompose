@@ -1,3 +1,4 @@
+# -*- mode: conf-colon; -*-
 include "%L"
 
 # https://www.unicode.org/Public/UNIDATA/UnicodeData.txt
@@ -11,13 +12,18 @@ include "%L"
 
 # greek letters
 <Multi_key> <G> <a> : "α" # GREEK SMALL LETTER ALPHA
+<Multi_key> <G> <d> : "δ" # GREEK SMALL LETTER DELTA
+<Multi_key> <G> <e> : "ε" # GREEK SMALL LETTER EPSILON
 <Multi_key> <G> <b> : "β" # GREEK SMALL LETTER BETA
 <Multi_key> <G> <l> : "λ" # GREEK SMALL LETTER LAMBDA
 <Multi_key> <G> <p> : "π" # GREEK SMALL LETTER PI
 <Multi_key> <G> <r> : "ρ" # GREEK SMALL LETTER RHO
 <Multi_key> <G> <t> : "θ" # GREEK SMALL LETTER THETA
+<Multi_key> <G> <o> : "ω" # GREEK SMALL LETTER OMEGA
 
 <Multi_key> <G> <P> : "Π" # GREEK CAPITAL LETTER PI
+<Multi_key> <G> <O> : "Ω" # GREEK CAPITAL LETTER OMEGA
+<Multi_key> <G> <T> : "Θ" # GREEK CAPITAL LETTER THETA
 
 # logic
 <Multi_key> <L> <t> : "⊤" # DOWN TACK
