@@ -83,6 +83,7 @@ the new theme, and set the `cursor-type' to box."
          ("C-c M-o" . org-store-link))
   :custom ((org-support-shift-select t)
            (org-hide-emphasis-markers t)
+           (org-hide-leading-stars t)
            (org-list-allow-alphabetical t)
            (org-preview-latex-image-directory "~/.cache/org-lateximg/")
            (org-attach-use-inheritance t)
@@ -93,17 +94,23 @@ the new theme, and set the `cursor-type' to box."
   (org-table ((t (:inherit fixed-pitch))))
   (org-code ((t (:inherit fixed-pitch))))
   (org-target ((t (:inherit font-lock-comment-face))))
+  (org-level-1 ((t (:height 1.3))))
+  (org-level-2 ((t (:height 1.2))))
+  (org-level-3 ((t (:height 1.1))))
   :hook
   (org-mode . variable-pitch-mode)
-  (org-mode . word-wrap-whitespace-mode)
+  (org-mode . visual-line-mode)
   :config
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((sqlite . t) (C . t) (haskell . t) (python . t) (ocaml . t))))
+   '((sqlite . t) (C . t) (haskell . t) (python . t) (ocaml . t) (gnuplot . t))))
 
 (use-package org-appear
   :hook (org-mode . org-appear-mode))
+
+(use-package org-superstar
+  :hook (org-mode . org-superstar-mode))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
