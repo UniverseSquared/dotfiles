@@ -208,7 +208,7 @@ to ALPHA."
 ;; Set the default font
 (let ((monospace-font-family "Iosevka")
       (monospace-font-size 12)
-      (variable-font-family "Cantarell")
+      (variable-font-family "Source Sans 3")
       (variable-font-size 12))
   (custom-set-faces
    `(default ((t (:family ,monospace-font-family :height ,(* 10 monospace-font-size)))))
