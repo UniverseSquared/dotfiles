@@ -2,8 +2,11 @@
 
 {
   imports = [ ./hardware-configuration.nix ];
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -23,7 +26,10 @@
 
   users.users.dawson = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
   };
 
   security.sudo.wheelNeedsPassword = false;
