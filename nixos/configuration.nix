@@ -47,5 +47,10 @@
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
+
   system.stateVersion = "25.05";
 }
