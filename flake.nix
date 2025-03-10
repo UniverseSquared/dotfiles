@@ -8,6 +8,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
@@ -15,6 +17,7 @@
       self,
       nixpkgs,
       home-manager,
+      ...
     }@inputs:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
@@ -35,6 +38,7 @@
             };
           }
         ];
+	specialArgs = { inherit inputs; };
       };
     };
 }

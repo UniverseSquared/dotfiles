@@ -1,7 +1,12 @@
-{ ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [ ./hardware-configuration.nix ];
+
+  nix.settings = {
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  };
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -9,6 +14,8 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
+
+  boot.blacklistedKernelModules = [ "nouveau" ];
 
   boot.loader = {
     systemd-boot = {
@@ -33,6 +40,12 @@
   };
 
   security.sudo.wheelNeedsPassword = false;
+
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
 
   system.stateVersion = "25.05";
 }
