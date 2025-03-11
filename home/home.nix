@@ -1,10 +1,12 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./hyprland.nix ];
+  imports = [
+    ./emacs.nix
+    ./hyprland.nix
+  ];
 
   home.packages = with pkgs; [
-    emacs
     git
     gnupg
     nh

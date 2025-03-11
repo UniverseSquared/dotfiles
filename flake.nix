@@ -38,7 +38,7 @@
             };
           }
         ];
-	specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; };
       };
     };
 }
