@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./discord.nix
     ./emacs.nix
     ./hyprland.nix
   ];
@@ -9,6 +10,7 @@
   catppuccin = {
     enable = true;
     flavor = "macchiato";
+    accent = "mauve";
   };
 
   home.packages = with pkgs; [

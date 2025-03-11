@@ -15,6 +15,11 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -38,7 +43,10 @@
               useGlobalPkgs = true;
               useUserPackages = true;
 
-              sharedModules = [ inputs.catppuccin.homeManagerModules.catppuccin ];
+              sharedModules = [
+                inputs.catppuccin.homeManagerModules.catppuccin
+                inputs.nixcord.homeManagerModules.nixcord
+              ];
 
               users.dawson = import ./home/home.nix;
               extraSpecialArgs = { inherit inputs; };
