@@ -5,6 +5,7 @@
     ./discord.nix
     ./emacs.nix
     ./hyprland.nix
+    ./kitty.nix
   ];
 
   catppuccin = {
@@ -22,7 +23,6 @@
 
   programs.bash.enable = true;
   programs.firefox.enable = true;
-  programs.kitty.enable = true;
 
   home.stateVersion = "24.11";
 }
