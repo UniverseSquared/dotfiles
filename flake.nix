@@ -10,6 +10,11 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -32,6 +37,8 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+
+              sharedModules = [ inputs.catppuccin.homeManagerModules.catppuccin ];
 
               users.dawson = import ./home/home.nix;
               extraSpecialArgs = { inherit inputs; };
