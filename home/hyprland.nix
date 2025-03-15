@@ -26,6 +26,9 @@ in
         layout = "dwindle";
       };
 
+      # don't warp the cursor (e.g. when changing window focus)
+      cursor.no_warps = true;
+
       decoration = {
         rounding = 10;
         rounding_power = 2;
@@ -58,6 +61,13 @@ in
           "${mainMod}, Return, exec, kitty"
           "${mainMod}, W, killactive"
           "${mainMod}, F, fullscreen"
+          "${mainMod}, B, exec, firefox"
+          "${mainMod}, E, exec, emacsclient -nc"
+
+          "${mainMod}, up, movefocus, u"
+          "${mainMod}, down, movefocus, d"
+          "${mainMod}, left, movefocus, l"
+          "${mainMod}, right, movefocus, r"
         ]
         ++ eachWs (ws: "${mainMod}, ${toString (lib.mod ws 10)}, workspace, ${toString ws}")
         ++ eachWs (
