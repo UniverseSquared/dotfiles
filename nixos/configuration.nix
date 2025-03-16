@@ -1,7 +1,10 @@
 { inputs, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./acer
+    ./hardware-configuration.nix
+  ];
 
   nix.settings = {
     substituters = [ "https://hyprland.cachix.org" ];
