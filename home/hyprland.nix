@@ -29,6 +29,8 @@ in
       # don't warp the cursor (e.g. when changing window focus)
       cursor.no_warps = true;
 
+      input.kb_options = "caps:escape";
+
       decoration = {
         rounding = 10;
         rounding_power = 2;

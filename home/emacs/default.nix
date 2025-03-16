@@ -32,6 +32,7 @@
         s
         smartparens
         swiper
+        transient # magit wants a newer version than emacs' builtin package
         tuareg
         web-mode
         with-editor # required for magit
