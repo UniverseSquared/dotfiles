@@ -3,7 +3,7 @@
 {
   imports = [
     ./discord.nix
-    ./emacs.nix
+    ./emacs
     ./hyprland.nix
     ./kitty.nix
   ];
