@@ -9,12 +9,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
     catppuccin = {
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    anyrun.url = "github:anyrun-org/anyrun";
 
     nixcord = {
       url = "github:kaylorben/nixcord";
@@ -45,6 +47,7 @@
 
               sharedModules = [
                 inputs.catppuccin.homeManagerModules.catppuccin
+                inputs.anyrun.homeManagerModules.default
                 inputs.nixcord.homeManagerModules.nixcord
               ];
 

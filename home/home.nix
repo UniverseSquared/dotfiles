@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./anyrun
     ./discord.nix
     ./emacs
     ./hyprland.nix

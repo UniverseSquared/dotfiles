@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 let
   mainMod = "SUPER";
@@ -20,7 +20,7 @@ in
 
         border_size = 2;
 
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+        "col.active_border" = "\$${config.catppuccin.accent}";
         "col.inactive_border" = "rgba(595959aa)";
 
         layout = "dwindle";
@@ -63,6 +63,7 @@ in
           "${mainMod}, Return, exec, kitty"
           "${mainMod}, W, killactive"
           "${mainMod}, F, fullscreen"
+          "${mainMod}, Space, exec, anyrun"
           "${mainMod}, B, exec, firefox"
           "${mainMod}, E, exec, emacsclient -nc"
 
