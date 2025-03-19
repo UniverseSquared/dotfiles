@@ -27,6 +27,7 @@
 
   programs.bash.enable = true;
   programs.firefox.enable = true;
+  programs.bat.enable = true;
 
   home.stateVersion = "24.11";
 }
