@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -21,6 +21,9 @@
     nh
     pavucontrol
   ];
+
+  # set the default flake for `nh`
+  home.sessionVariables.FLAKE = "${config.home.homeDirectory}/dotfiles";
 
   programs.bash.enable = true;
   programs.firefox.enable = true;
