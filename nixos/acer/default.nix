@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   boot.extraModulePackages = [
@@ -6,4 +6,8 @@
   ];
 
   boot.kernelModules = [ "facer" ];
+
+  environment.systemPackages = [
+    (pkgs.callPackage ./facer-rgb.nix { })
+  ];
 }
