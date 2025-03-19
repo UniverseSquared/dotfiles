@@ -3,6 +3,7 @@
 {
   imports = [
     ./acer
+    ./graphics.nix
     ./hardware-configuration.nix
   ];
 
@@ -24,8 +25,6 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  boot.blacklistedKernelModules = [ "nouveau" ];
 
   boot.loader = {
     systemd-boot = {
