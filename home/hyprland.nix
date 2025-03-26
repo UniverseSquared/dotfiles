@@ -12,7 +12,7 @@ in
     portalPackage = null;
 
     settings = {
-      monitor = "eDP-1, 1920x1080@165, 0x0, 1, vrr, 1";
+      monitor = "eDP-1, 1920x1080@165, 0x0, 1, vrr, 2";
 
       general = {
         gaps_in = 5;
