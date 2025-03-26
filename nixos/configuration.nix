@@ -30,6 +30,10 @@
     systemd-boot = {
       enable = true;
       configurationLimit = 10;
+      extraEntries."arch.conf" = ''
+        title Arch Linux
+        efi   /EFI/GRUB/grubx64.efi
+      '';
     };
 
     efi.canTouchEfiVariables = true;

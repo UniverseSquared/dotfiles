@@ -20,14 +20,16 @@
     gnupg
     nh
     pavucontrol
+    tree
   ];
 
   # set the default flake for `nh`
   home.sessionVariables.FLAKE = "${config.home.homeDirectory}/dotfiles";
 
   programs.bash.enable = true;
-  programs.firefox.enable = true;
   programs.bat.enable = true;
+  programs.firefox.enable = true;
+  programs.htop.enable = true;
 
   home.stateVersion = "24.11";
 }

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  home.packages = [ pkgs.source-sans ];
+
   programs.emacs = {
     enable = true;
     package = pkgs.emacs30.override {
