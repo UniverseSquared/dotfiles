@@ -66,5 +66,15 @@
     pulse.enable = true;
   };
 
+  # required for gpg pinentry to work
+  services.pcscd.enable = true;
+
+  environment.systemPackages = with pkgs; [ gnupg pinentry-gtk2 ];
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-gtk2;
+  };
+
   system.stateVersion = "25.05";
 }

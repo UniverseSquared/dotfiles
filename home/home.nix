@@ -16,11 +16,22 @@
   };
 
   home.packages = with pkgs; [
-    git
-    gnupg
     pavucontrol
     tree
   ];
+
+  programs.git = {
+    enable = true;
+    userName = "UniverseSquared";
+    userEmail = "universesquared4@gmail.com";
+
+    signing.signByDefault = true;
+
+    extraConfig = {
+      init.defaultBranch = "main";
+      credential.helper = "store";
+    };
+  };
 
   programs.nh = {
     enable = true;
