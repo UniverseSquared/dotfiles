@@ -71,6 +71,10 @@ in
           "${mainMod}, down, movefocus, d"
           "${mainMod}, left, movefocus, l"
           "${mainMod}, right, movefocus, r"
+
+          # workaround for discord global mute keybind; set 'toggle mute' bind in discord with:
+          #  sleep 2; hyprctl dispatch "sendkeystate , XF86Launch9, down, class:^(discord)$"
+          "CTRL SHIFT, semicolon, sendshortcut, , XF86Launch9, class:^(discord)$"
         ]
         ++ eachWs (ws: "${mainMod}, ${toString (lib.mod ws 10)}, workspace, ${toString ws}")
         ++ eachWs (
