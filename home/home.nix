@@ -18,13 +18,14 @@
   home.packages = with pkgs; [
     git
     gnupg
-    nh
     pavucontrol
     tree
   ];
 
-  # set the default flake for `nh`
-  home.sessionVariables.FLAKE = "${config.home.homeDirectory}/dotfiles";
+  programs.nh = {
+    enable = true;
+    flake = "${config.home.homeDirectory}/dotfiles";
+  };
 
   programs.bash.enable = true;
   programs.bat.enable = true;
