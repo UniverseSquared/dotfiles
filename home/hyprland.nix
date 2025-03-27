@@ -4,6 +4,11 @@ let
   mainMod = "SUPER";
 in
 {
+  home.sessionVariables = {
+    HYPRCURSOR_THEME = "Adwaita";
+    HYPRCURSOR_SIZE = 24;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
 
