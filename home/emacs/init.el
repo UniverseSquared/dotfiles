@@ -268,6 +268,9 @@ to ALPHA."
 (setq-default sentence-end-double-space nil
               fill-column 110)
 
+;; Pass DISPLAY env var to processes (e.g. GPG password prompt)
+(add-to-list 'process-environment "DISPLAY=:0")
+
 ;; Prevent Emacs from drawing its own background color in terminal frames
 (defun my/remove-background-for-terminal-frame (frame)
   (unless (display-graphic-p frame)
