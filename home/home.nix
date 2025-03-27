@@ -5,6 +5,7 @@
     ./anyrun
     ./discord.nix
     ./emacs
+    ./firefox.nix
     ./hyprland.nix
     ./kitty.nix
   ];
@@ -67,7 +68,6 @@
 
   programs.bash.enable = true;
   programs.bat.enable = true;
-  programs.firefox.enable = true;
   programs.htop.enable = true;
 
   home.stateVersion = "24.11";
