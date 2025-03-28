@@ -21,6 +21,7 @@
         "general.autoScroll" = true; # enable middle click scrolling
         "ui.key.menuAccessKeyFocuses" = false; # don't summon the menu bar with alt
         "browser.toolbars.bookmarks.visibility" = "never";
+        "sidebar.revamp" = false; # ensure that the sidebar is disabled
 
         # restore previous tabs on startup
         "browser.startup.page" = 3;
