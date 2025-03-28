@@ -77,6 +77,21 @@ in
           "${mainMod}, left, movefocus, l"
           "${mainMod}, right, movefocus, r"
 
+          "${mainMod} SHIFT, up, movewindow, u"
+          "${mainMod} SHIFT, down, movewindow, d"
+          "${mainMod} SHIFT, left, movewindow, l"
+          "${mainMod} SHIFT, right, movewindow, r"
+
+          "${mainMod} CONTROL, up, resizeactive, 0 -10"
+          "${mainMod} CONTROL, down, resizeactive, 0 10"
+          "${mainMod} CONTROL, left, resizeactive, -10 0"
+          "${mainMod} CONTROL, right, resizeactive, 10 0"
+
+          "${mainMod} CONTROL SHIFT, up, resizeactive, 0 10"
+          "${mainMod} CONTROL SHIFT, down, resizeactive, 0 -10"
+          "${mainMod} CONTROL SHIFT, left, resizeactive, 10 0"
+          "${mainMod} CONTROL SHIFT, right, resizeactive, -10 0"
+
           # workaround for discord global mute keybind; set 'toggle mute' bind in discord with:
           #  sleep 2; hyprctl dispatch "sendkeystate , XF86Launch9, down, class:^(discord)$"
           "CTRL SHIFT, semicolon, sendshortcut, , XF86Launch9, class:^(discord)$"
