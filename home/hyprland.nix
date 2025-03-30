@@ -4,11 +4,6 @@ let
   mainMod = "SUPER";
 in
 {
-  home.sessionVariables = {
-    HYPRCURSOR_THEME = "Adwaita";
-    HYPRCURSOR_SIZE = 24;
-  };
-
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -18,6 +13,8 @@ in
 
     settings = {
       monitor = "eDP-1, 1920x1080@165, 0x0, 1, vrr, 2";
+
+      exec-once = "hyprctl setcursor Adwaita 24";
 
       general = {
         gaps_in = 5;
