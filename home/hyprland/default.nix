@@ -15,6 +15,8 @@ in
     XCURSOR_SIZE = cursorSize;
   };
 
+  home.file.".XCompose".source = ./XCompose;
+
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -42,7 +44,7 @@ in
       # don't warp the cursor (e.g. when changing window focus)
       cursor.no_warps = true;
 
-      input.kb_options = "caps:escape";
+      input.kb_options = "caps:escape, compose:ralt";
 
       decoration = {
         rounding = 10;

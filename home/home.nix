@@ -6,7 +6,7 @@
     ./discord.nix
     ./emacs
     ./firefox.nix
-    ./hyprland.nix
+    ./hyprland
     ./kitty.nix
   ];
 
