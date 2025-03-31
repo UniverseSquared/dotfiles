@@ -93,16 +93,6 @@ in
           "${mainMod} SHIFT, left, movewindow, l"
           "${mainMod} SHIFT, right, movewindow, r"
 
-          "${mainMod} CONTROL, up, resizeactive, 0 -10"
-          "${mainMod} CONTROL, down, resizeactive, 0 10"
-          "${mainMod} CONTROL, left, resizeactive, -10 0"
-          "${mainMod} CONTROL, right, resizeactive, 10 0"
-
-          "${mainMod} CONTROL SHIFT, up, resizeactive, 0 10"
-          "${mainMod} CONTROL SHIFT, down, resizeactive, 0 -10"
-          "${mainMod} CONTROL SHIFT, left, resizeactive, 10 0"
-          "${mainMod} CONTROL SHIFT, right, resizeactive, -10 0"
-
           # workaround for discord global mute keybind; set 'toggle mute' bind in discord with:
           #  sleep 2; hyprctl dispatch "sendkeystate , XF86Launch9, down, class:^(discord)$"
           "CTRL SHIFT, semicolon, sendshortcut, , XF86Launch9, class:^(discord)$"
@@ -111,6 +101,19 @@ in
         ++ eachWs (
           ws: "${mainMod} SHIFT, ${toString (lib.mod ws 10)}, movetoworkspacesilent, ${toString ws}"
         );
+
+      # window resizing ('e' bind flag repeats the command when the keys are held)
+      binde = [
+        "${mainMod} CONTROL, up, resizeactive, 0 -10"
+        "${mainMod} CONTROL, down, resizeactive, 0 10"
+        "${mainMod} CONTROL, left, resizeactive, -10 0"
+        "${mainMod} CONTROL, right, resizeactive, 10 0"
+
+        "${mainMod} CONTROL SHIFT, up, resizeactive, 0 10"
+        "${mainMod} CONTROL SHIFT, down, resizeactive, 0 -10"
+        "${mainMod} CONTROL SHIFT, left, resizeactive, 10 0"
+        "${mainMod} CONTROL SHIFT, right, resizeactive, -10 0"
+      ];
 
       bindm = [
         "${mainMod}, mouse:272, movewindow"

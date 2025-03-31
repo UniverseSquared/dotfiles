@@ -73,7 +73,10 @@
   # required for gpg pinentry to work
   services.pcscd.enable = true;
 
-  environment.systemPackages = with pkgs; [ gnupg pinentry-gtk2 ];
+  environment.systemPackages = with pkgs; [
+    gnupg
+    pinentry-gtk2
+  ];
 
   programs.gnupg.agent = {
     enable = true;
