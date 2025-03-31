@@ -23,6 +23,9 @@
         "browser.toolbars.bookmarks.visibility" = "never";
         "sidebar.revamp" = false; # ensure that the sidebar is disabled
 
+        # disable picture in picture popup option on videos
+        "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
+
         # restore previous tabs on startup
         "browser.startup.page" = 3;
 
