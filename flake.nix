@@ -27,6 +27,11 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -34,10 +39,15 @@
       self,
       nixpkgs,
       home-manager,
+      treefmt-nix,
       ...
     }@inputs:
+    let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
+    in
     {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      formatter.x86_64-linux = treefmtEval.config.build.wrapper;
 
       nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
