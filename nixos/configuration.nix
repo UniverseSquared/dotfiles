@@ -7,21 +7,25 @@
     ./hardware-configuration.nix
   ];
 
-  nix.settings = {
-    substituters = [
-      "https://anyrun.cachix.org"
-      "https://hyprland.cachix.org"
-    ];
+  nix = {
+    registry.dotfiles.flake = inputs.self;
 
-    trusted-public-keys = [
-      "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-    ];
+    settings = {
+      substituters = [
+        "https://anyrun.cachix.org"
+        "https://hyprland.cachix.org"
+      ];
 
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+      trusted-public-keys = [
+        "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      ];
+
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
   };
 
   nixpkgs = {

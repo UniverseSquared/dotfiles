@@ -73,5 +73,10 @@
         ];
         specialArgs = { inherit inputs; };
       };
+
+      templates.ocaml = {
+        path = ./templates/ocaml;
+        description = "OCaml template with Dune";
+      };
     };
 }
