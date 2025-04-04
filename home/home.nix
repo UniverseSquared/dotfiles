@@ -10,6 +10,7 @@
     ./kitty.nix
     ./rofi.nix
     ./theme.nix
+    ./thunderbird.nix
   ];
 
   home.packages = with pkgs; [

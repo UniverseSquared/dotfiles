@@ -61,7 +61,7 @@
               useUserPackages = true;
 
               sharedModules = [
-                inputs.catppuccin.homeManagerModules.catppuccin
+                inputs.catppuccin.homeModules.catppuccin
                 inputs.anyrun.homeManagerModules.default
                 inputs.nixcord.homeManagerModules.nixcord
               ];
