@@ -25,7 +25,7 @@
         duneVersion = "3";
         src = ./.;
 
-        buildInputs = with pkgs.ocamlPackages; [];
+        buildInputs = with pkgs.ocamlPackages; [ ];
       };
 
       devShells.x86_64-linux.default = pkgs.mkShell {

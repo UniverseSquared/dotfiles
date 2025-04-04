@@ -7,6 +7,8 @@ let
   cursorSize = 24;
 in
 {
+  imports = [ ./hyprpaper.nix ];
+
   home.sessionVariables = {
     HYPRCURSOR_THEME = cursorTheme;
     HYPRCURSOR_SIZE = cursorSize;
@@ -27,7 +29,7 @@ in
     settings = {
       monitor = "eDP-1, 1920x1080@165, 0x0, 1, vrr, 2";
 
-      exec-once = "hyprctl setcursor ${cursorTheme} ${toString cursorSize}";
+      exec-once = [ "hyprctl setcursor ${cursorTheme} ${toString cursorSize}" ];
 
       general = {
         gaps_in = 5;
@@ -45,6 +47,8 @@ in
       cursor.no_warps = true;
 
       input.kb_options = "caps:escape, compose:ralt";
+
+      misc.force_default_wallpaper = 0;
 
       decoration = {
         rounding = 10;
