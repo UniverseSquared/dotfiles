@@ -87,5 +87,10 @@
     pinentryPackage = pkgs.pinentry-gtk2;
   };
 
+  programs.steam = {
+    enable = true;
+    extraPackages = [ pkgs.gamescope ];
+  };
+
   system.stateVersion = "25.05";
 }

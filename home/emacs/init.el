@@ -1,3 +1,6 @@
+;; TODO: maybe (setq dired-omit-files "^\\.\\.?[^\\.]+$") with dired-omit-mode?
+;; hides hidden files (.foo) but not . and ..
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)

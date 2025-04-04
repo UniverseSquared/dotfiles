@@ -14,6 +14,7 @@
         catppuccin-theme
         company
         counsel
+        direnv
         edit-indirect
         haskell-mode
         hl-todo

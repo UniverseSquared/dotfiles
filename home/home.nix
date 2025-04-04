@@ -8,6 +8,7 @@
     ./firefox.nix
     ./hyprland
     ./kitty.nix
+    ./rofi.nix
     ./theme.nix
   ];
 
@@ -38,6 +39,12 @@
   programs.bash.enable = true;
   programs.bat.enable = true;
   programs.htop.enable = true;
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   home.stateVersion = "24.11";
 }
