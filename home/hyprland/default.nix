@@ -17,6 +17,11 @@ in
     XCURSOR_SIZE = cursorSize;
   };
 
+  # start hyprland on login
+  programs.bash.profileExtra = ''
+    [ -z "$WAYLAND_DISPLAY" -a "$XDG_VTNR" = 1 ] && exec Hyprland
+  '';
+
   home.file.".XCompose".source = ./XCompose;
 
   wayland.windowManager.hyprland = {
