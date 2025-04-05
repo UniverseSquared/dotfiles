@@ -7,7 +7,10 @@ let
   cursorSize = 24;
 in
 {
-  imports = [ ./hyprpaper.nix ];
+  imports = [
+    ./hyprpaper.nix
+    ./power-menu.nix
+  ];
 
   home.sessionVariables = {
     HYPRCURSOR_THEME = cursorTheme;
