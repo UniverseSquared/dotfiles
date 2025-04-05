@@ -47,6 +47,8 @@
     efi.canTouchEfiVariables = true;
   };
 
+  boot.tmp.cleanOnBoot = true;
+
   networking.hostName = "nixos-laptop";
 
   networking.networkmanager.enable = true;
