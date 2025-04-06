@@ -74,9 +74,16 @@
         specialArgs = { inherit inputs; };
       };
 
-      templates.ocaml = {
-        path = ./templates/ocaml;
-        description = "OCaml template with Dune";
+      templates = {
+        ocaml = {
+          path = ./templates/ocaml;
+          description = "OCaml template with Dune";
+        };
+
+        rust = {
+          path = ./templates/rust;
+          description = "Rust template with stable rustc/cargo via rust-overlay";
+        };
       };
     };
 }
