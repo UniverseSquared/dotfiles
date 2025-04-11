@@ -91,7 +91,7 @@ in
           "${mainMod}, W, killactive"
           "${mainMod}, F, fullscreen"
           "${mainMod}, S, togglefloating"
-          "${mainMod}, Space, exec, anyrun"
+          "${mainMod}, Space, exec, rofi -show drun"
           "${mainMod}, B, exec, firefox"
           "${mainMod}, E, exec, emacsclient -nc"
 
