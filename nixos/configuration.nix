@@ -5,6 +5,7 @@
     ./acer
     ./graphics.nix
     ./hardware-configuration.nix
+    ./keyd.nix
   ];
 
   nix = {

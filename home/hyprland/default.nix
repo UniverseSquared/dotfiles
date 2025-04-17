@@ -54,7 +54,7 @@ in
       # don't warp the cursor (e.g. when changing window focus)
       cursor.no_warps = true;
 
-      input.kb_options = "caps:escape, compose:ralt";
+      input.kb_options = "compose:ralt";
 
       misc.force_default_wallpaper = 0;
 
