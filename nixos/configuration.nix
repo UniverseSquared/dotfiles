@@ -12,6 +12,9 @@
     registry.dotfiles.flake = inputs.self;
 
     settings = {
+      max-jobs = 1;
+      cores = 16;
+
       substituters = [
         "https://anyrun.cachix.org"
         "https://hyprland.cachix.org"

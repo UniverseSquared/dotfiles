@@ -14,8 +14,10 @@
   ];
 
   home.packages = with pkgs; [
+    acpi
     file
     pavucontrol
+    prismlauncher
     tree
   ];
 

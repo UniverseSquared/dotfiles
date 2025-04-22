@@ -34,9 +34,9 @@ the new theme, and set the `cursor-type' to box."
          :map company-active-map
          ("<tab>" . company-complete-selection)))
 
-(use-package counsel
-  :hook (after-init . counsel-mode)
-  :bind (("C-x 8 RET" . counsel-unicode-char)))
+(use-package consult
+  :bind (("C-x b" . consult-buffer)
+         ("C-s" . consult-line)))
 
 (use-package edit-indirect)
 
@@ -48,9 +48,6 @@ the new theme, and set the `cursor-type' to box."
   :hook (after-init . global-hl-todo-mode)
   :config
   (add-to-list 'hl-todo-keyword-faces '("SAFETY" . "#7cb8bb")))
-
-(use-package ivy
-  :hook (after-init . ivy-mode))
 
 (use-package ligature
   :hook (after-init . global-ligature-mode)
@@ -68,6 +65,13 @@ the new theme, and set the `cursor-type' to box."
 (use-package magit
   :bind ("C-c g" . magit-status))
 
+(use-package marginalia
+  :hook (after-init . marginalia-mode)
+  :config
+  ;; Always use three separate dots instead of a single ellipsis character
+  (defun marginalia--ellipsis ()
+    "..."))
+
 (use-package markdown-mode)
 
 (use-package merlin
@@ -77,6 +81,10 @@ the new theme, and set the `cursor-type' to box."
   :bind (:map tuareg-mode-map
               ("C-c C-f" . ocamlformat))
   :custom (ocamlformat-enable 'enable-outside-detected-project))
+
+(use-package orderless
+  :custom ((completion-styles '(orderless basic))
+           (completion-category-overrides '((file (styles basic partial-completion))))))
 
 (use-package org
   :bind (:map org-mode-map
@@ -134,9 +142,6 @@ the new theme, and set the `cursor-type' to box."
   (require 'smartparens-ml)
   )
 
-(use-package swiper
-  :bind ("C-s" . swiper))
-
 (use-package tuareg
   :custom (tuareg-match-clause-indent 2)
   :custom-face
@@ -156,6 +161,9 @@ the new theme, and set the `cursor-type' to box."
            (web-mode-enable-auto-quoting nil)
            (web-mode-ac-sources-alist '(("css" (ac-source-css-property)))))
   :mode ("\\.html?\\'" "\\.css\\'"))
+
+(use-package vertico
+  :hook (after-init . vertico-mode))
 
 (use-package which-key
   :hook (after-init . which-key-mode))
