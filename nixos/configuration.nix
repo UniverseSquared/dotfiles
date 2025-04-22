@@ -6,6 +6,7 @@
     ./graphics.nix
     ./hardware-configuration.nix
     ./keyd.nix
+    ./power-saving.nix
   ];
 
   nix = {
