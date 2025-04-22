@@ -15,6 +15,7 @@
 
   home.packages = with pkgs; [
     acpi
+    feh
     file
     pavucontrol
     prismlauncher

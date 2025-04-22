@@ -10,6 +10,7 @@ in
   imports = [
     ./hyprpaper.nix
     ./power-menu.nix
+    ./screenshot.nix
   ];
 
   home.sessionVariables = {

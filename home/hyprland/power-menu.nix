@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
   powerMenu = pkgs.writeShellScript "power-menu" ''
