@@ -22,7 +22,7 @@ in
   };
 
   # start hyprland on login
-  programs.bash.profileExtra = ''
+  programs.zsh.profileExtra = ''
     [ -z "$WAYLAND_DISPLAY" -a "$XDG_VTNR" = 1 ] && exec Hyprland
   '';
 

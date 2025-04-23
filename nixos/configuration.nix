@@ -65,7 +65,11 @@
       "wheel"
       "networkmanager"
     ];
+
+    shell = pkgs.zsh;
   };
+
+  programs.zsh.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
 
