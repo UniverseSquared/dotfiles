@@ -62,7 +62,7 @@
 
               sharedModules = [
                 inputs.catppuccin.homeModules.catppuccin
-                inputs.nixcord.homeManagerModules.nixcord
+                inputs.nixcord.homeModules.nixcord
               ];
 
               users.dawson = import ./home/home.nix;

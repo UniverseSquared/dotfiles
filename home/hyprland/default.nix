@@ -57,7 +57,10 @@ in
 
       input.kb_options = "compose:ralt";
 
-      misc.force_default_wallpaper = 0;
+      misc = {
+        disable_hyprland_logo = true;
+        force_default_wallpaper = 0;
+      };
 
       decoration = {
         rounding = 10;
