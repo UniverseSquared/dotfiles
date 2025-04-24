@@ -14,7 +14,7 @@
 
     settings = {
       max-jobs = 1;
-      cores = 16;
+      cores = 10;
 
       substituters = [
         "https://anyrun.cachix.org"
