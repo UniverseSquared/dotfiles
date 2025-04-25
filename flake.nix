@@ -74,6 +74,11 @@
       };
 
       templates = {
+        c = {
+          path = ./templates/c;
+          description = "C template with make";
+        };
+
         ocaml = {
           path = ./templates/ocaml;
           description = "OCaml template with Dune";
