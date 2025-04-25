@@ -273,7 +273,8 @@ to ALPHA."
 (setq reb-re-syntax 'string)
 
 ;; Show human-readable file sizes in dired
-(setq dired-listing-switches "-alh")
+(setq dired-listing-switches "-alh"
+      dired-dwim-target t)
 
 ;; End sentences with a single space, and fill paragraphs to a reasonable margin
 (setq-default sentence-end-double-space nil
