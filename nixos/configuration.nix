@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ lib, inputs, pkgs, ... }:
 
 {
   imports = [
@@ -91,6 +91,8 @@
   environment.systemPackages = with pkgs; [
     gnupg
     pinentry-gtk2
+    man-pages
+    man-pages-posix
   ];
 
   programs.gnupg.agent = {
@@ -101,6 +103,13 @@
   programs.steam = {
     enable = true;
     extraPackages = [ pkgs.gamescope ];
+  };
+
+  documentation.dev.enable = true;
+
+  networking = {
+    dhcpcd.enable = true;
+    useDHCP = lib.mkForce true;
   };
 
   system.stateVersion = "25.05";

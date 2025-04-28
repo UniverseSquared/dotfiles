@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.source-sans ];
+  home.packages = with pkgs; [
+    source-sans
+    # for org-mode inline latex preview (i'm not sure why installing `texlivePackages.dvipng` doesn't work?)
+    texliveMedium
+  ];
 
   programs.emacs = {
     enable = true;
@@ -42,6 +46,8 @@
         with-editor # required for magit
         yaml-mode
         zig-mode
+
+        (treesit-grammars.with-grammars (g: with g; [ tree-sitter-elixir tree-sitter-heex ]))
       ];
     extraConfig = builtins.readFile ./init.el;
   };
