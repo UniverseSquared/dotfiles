@@ -36,7 +36,8 @@ the new theme, and set the `cursor-type' to box."
 
 (use-package consult
   :bind (("C-x b" . consult-buffer)
-         ("C-s" . consult-line)))
+         ("C-s" . consult-line))
+  :custom (consult-line-start-from-top t))
 
 (use-package edit-indirect)
 
