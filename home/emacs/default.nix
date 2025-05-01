@@ -47,7 +47,15 @@
         yaml-mode
         zig-mode
 
-        (treesit-grammars.with-grammars (g: with g; [ tree-sitter-elixir tree-sitter-heex ]))
+        # for org html exports
+        htmlize
+
+        (treesit-grammars.with-grammars (
+          grammars: with grammars; [
+            tree-sitter-elixir
+            tree-sitter-heex
+          ]
+        ))
       ];
     extraConfig = builtins.readFile ./init.el;
   };

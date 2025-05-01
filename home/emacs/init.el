@@ -110,7 +110,7 @@ the new theme, and set the `cursor-type' to box."
   (org-mode . variable-pitch-mode)
   (org-mode . visual-line-mode)
   :config
-  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.0))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((sqlite . t) (C . t) (haskell . t) (python . t) (ocaml . t) (gnuplot . t))))

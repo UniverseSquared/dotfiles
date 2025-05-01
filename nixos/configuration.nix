@@ -107,10 +107,12 @@
 
   documentation.dev.enable = true;
 
-  networking = {
-    dhcpcd.enable = true;
-    useDHCP = lib.mkForce true;
-  };
+  # networking = {
+  #   dhcpcd.enable = true;
+  #   useDHCP = lib.mkForce true;
+  # };
+
+  hardware.bluetooth.enable = true;
 
   system.stateVersion = "25.05";
 }
