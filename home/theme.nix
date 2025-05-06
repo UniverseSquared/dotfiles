@@ -5,6 +5,9 @@
     enable = true;
     flavor = "macchiato";
     accent = "mauve";
+
+    # workaround for a build error with the catppuccin flake
+    mako.enable = false;
   };
 
   home.pointerCursor = {
