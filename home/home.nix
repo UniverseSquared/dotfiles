@@ -6,6 +6,7 @@
     ./discord.nix
     ./emacs
     ./firefox.nix
+    ./git.nix
     ./hyprland
     ./kitty.nix
     ./rofi.nix
@@ -21,24 +22,12 @@
     acpi
     feh
     file
+    libreoffice
     pavucontrol
     prismlauncher
-    tree
     thunderbird # FIXME: ditto above
+    tree
   ];
-
-  programs.git = {
-    enable = true;
-    userName = "UniverseSquared";
-    userEmail = "universesquared4@gmail.com";
-
-    signing.signByDefault = true;
-
-    extraConfig = {
-      init.defaultBranch = "main";
-      credential.helper = "store";
-    };
-  };
 
   programs.nh = {
     enable = true;
