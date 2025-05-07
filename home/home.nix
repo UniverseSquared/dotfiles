@@ -11,10 +11,7 @@
     ./kitty.nix
     ./rofi.nix
     ./theme.nix
-    # TODO: modularise config (i.e. so that things can be configured/disabled more easily)
-    # FIXME: temporarily not using thunderbird home manager module because of this bug:
-    # https://github.com/nix-community/home-manager/issues/6800
-    # ./thunderbird.nix
+    ./thunderbird.nix
     ./zsh.nix
   ];
 
@@ -25,7 +22,6 @@
     libreoffice
     pavucontrol
     prismlauncher
-    thunderbird # FIXME: ditto above
     tree
   ];
 
