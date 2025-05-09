@@ -4,6 +4,7 @@
   imports = [
     ./anyrun
     ./discord.nix
+    ./dunst.nix
     ./emacs
     ./firefox.nix
     ./git.nix
