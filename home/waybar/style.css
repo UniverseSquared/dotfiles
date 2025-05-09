@@ -1,0 +1,66 @@
+@import "catppuccin.css";
+
+* {
+    all: unset;
+    font-family: "Iosevka", "Font Awesome 6 Free Solid";
+    font-size: 13px;
+    color: @text;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+window#waybar {
+    background-color: @base;
+}
+
+#workspaces {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin: 0px 5px 0px 5px;
+}
+
+#workspaces button {
+    padding: 2px 14px 2px 14px;
+    border-radius: 20px;
+}
+
+#workspaces button.active {
+    background-color: @mauve;
+}
+
+#workspaces button.active label {
+    color: @base;
+}
+
+/* spacing for modules on the right */
+#wireplumber, #cpu, #memory, #disk, #battery {
+    margin-left: 10px;
+}
+
+#window label {
+    border-bottom: 2px solid @red;
+}
+
+#clock {
+    border-bottom: 2px solid @peach;
+}
+
+#wireplumber {
+    border-bottom: 2px solid @yellow;
+}
+
+#cpu {
+    border-bottom: 2px solid @green;
+}
+
+#memory {
+    border-bottom: 2px solid @blue;
+}
+
+#disk {
+    border-bottom: 2px solid @mauve;
+}
+
+#battery {
+    border-bottom: 2px solid @lavender;
+}

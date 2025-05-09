@@ -12,6 +12,7 @@
     ./rofi.nix
     ./theme.nix
     ./thunderbird.nix
+    ./waybar
     ./zsh.nix
   ];
 
