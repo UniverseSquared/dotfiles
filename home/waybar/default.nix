@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  wayland.windowManager.hyprland.settings.exec-once = [ "waybar" ];
+
   home.packages = [ pkgs.font-awesome ];
 
   catppuccin.waybar.mode = "createLink";
