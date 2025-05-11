@@ -49,7 +49,7 @@
     {
       formatter.x86_64-linux = treefmtEval.config.build.wrapper;
 
-      nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.kala = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./nixos/configuration.nix

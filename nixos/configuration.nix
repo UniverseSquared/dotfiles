@@ -59,7 +59,7 @@
 
   boot.tmp.cleanOnBoot = true;
 
-  networking.hostName = "nixos-laptop";
+  networking.hostName = "kala";
 
   networking.networkmanager.enable = true;
   time.timeZone = "Europe/London";
