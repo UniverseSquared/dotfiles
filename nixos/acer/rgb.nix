@@ -12,8 +12,8 @@ stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "JafarAkhondali";
     repo = name;
-    rev = "5d4a850b67b5923e3eb5acb514de0a40dc800d84";
-    sha256 = "sha256-8Wa01nB3Peor0GkstetPf8pljY6chYp+GyoA/pqbpuM=";
+    rev = "343c715669ef52ccecdb65473e7318f612b6b6c2";
+    sha256 = "sha256-RKqe3kHZ32Pv+6skP4x+sB+c4dlyES0Bu2C73LvkgqQ=";
   };
 
   setSourceRoot = ''
