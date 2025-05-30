@@ -16,6 +16,7 @@ in
   systemd.services.acer-rgb = {
     enable = true;
     script = ''
+      sleep 5
       ${facer-rgb}/bin/facer-rgb -b 0
     '';
 

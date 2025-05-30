@@ -58,7 +58,7 @@ the new theme, and set the `cursor-type' to box."
    '("<---" "<--" "<<-" "<-" "->" "->>" "-->" "--->" "<===" "<==" "<<="
      "=>" "=>>" ">==" ">===" "<->" "<-->" "<--->" "<---->" "<=>" "<==>"
      "<===>" "<====>" "::" ":::" "==" "!=" "~=" "<>" "===" "!==" "<|" "<|>" "|>"
-     ":=" "++" "+++" "<!--" "<!---" "<=" ">=" ">>=" "<<=" "<<" ">>")))
+     ":=" "++" "+++" "<!--" "<!---" "<=" ">=" ">>=" "<<=" "<<" ">>" "<*" "<*>" "*>")))
 
 (use-package lua-mode
   :custom (lua-indent-level 4))
@@ -102,6 +102,7 @@ the new theme, and set the `cursor-type' to box."
   (org-block ((t (:foreground unspecified :inherit fixed-pitch))))
   (org-table ((t (:inherit fixed-pitch))))
   (org-code ((t (:inherit fixed-pitch))))
+  (org-quote ((t (:inherit fixed-pitch))))
   (org-target ((t (:inherit font-lock-comment-face))))
   (org-level-1 ((t (:height 1.3))))
   (org-level-2 ((t (:height 1.2))))

@@ -32,6 +32,17 @@ window#waybar {
     color: @base;
 }
 
+tooltip {
+    color: @text;
+    background-color: @base;
+    border: 2px solid @mauve;
+    border-radius: 4px;
+}
+
+tooltip * {
+    color: @text;
+}
+
 /* spacing for modules on the right */
 #wireplumber, #cpu, #memory, #disk, #battery {
     margin-left: 10px;

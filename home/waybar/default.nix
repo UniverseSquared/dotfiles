@@ -51,10 +51,32 @@
         };
 
         wireplumber.format = " {volume}%";
-        cpu.format = " {usage}%";
-        memory.format = " {used}GiB";
+
+        cpu = {
+          format = " {usage}%";
+          interval = 5;
+        };
+
+        memory = {
+          format = " {used}GiB";
+          interval = 5;
+        };
+
         disk.format = " {free} free on /";
-        battery.format = " {capacity}%";
+
+        battery = {
+          states = {
+            veryLow = 15;
+            low = 35;
+            mid = 50;
+            high = 65;
+            limit = 80;
+            full = 100;
+          };
+
+          format = "{icon} {capacity}%";
+          format-icons = [ "" "" "" "" "" "" ];
+        };
       };
     };
   };
