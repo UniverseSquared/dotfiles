@@ -54,6 +54,8 @@
           grammars: with grammars; [
             tree-sitter-elixir
             tree-sitter-heex
+            tree-sitter-c
+            tree-sitter-cpp
           ]
         ))
       ];

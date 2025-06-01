@@ -87,6 +87,12 @@ the new theme, and set the `cursor-type' to box."
   :custom ((completion-styles '(orderless basic))
            (completion-category-overrides '((file (styles basic partial-completion))))))
 
+(defun my/prettify-org-checkboxes ()
+  (push '("[ ]" . "☐") prettify-symbols-alist)
+  (push '("[X]" . "☑") prettify-symbols-alist)
+  (push '("[-]" . "☐") prettify-symbols-alist)
+  (turn-on-prettify-symbols-mode))
+
 (use-package org
   :bind (:map org-mode-map
          ("C-c M-o" . org-store-link))
@@ -110,6 +116,7 @@ the new theme, and set the `cursor-type' to box."
   :hook
   (org-mode . variable-pitch-mode)
   (org-mode . visual-line-mode)
+  (org-mode . my/prettify-org-checkboxes)
   :config
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.0))
   (org-babel-do-load-languages
