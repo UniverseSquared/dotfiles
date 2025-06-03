@@ -75,7 +75,14 @@
           };
 
           format = "{icon} {capacity}%";
-          format-icons = [ "" "" "" "" "" "" ];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
       };
     };

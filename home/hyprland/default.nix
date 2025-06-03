@@ -8,6 +8,7 @@ let
 in
 {
   imports = [
+    ./brightness.nix
     ./hyprpaper.nix
     ./power-menu.nix
     ./screenshot.nix
