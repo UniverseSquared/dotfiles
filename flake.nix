@@ -79,6 +79,11 @@
           description = "C template with make";
         };
 
+        haskell = {
+          path = ./templates/haskell;
+          description = "Haskell template with Cabal";
+        };
+
         ocaml = {
           path = ./templates/ocaml;
           description = "OCaml template with Dune";
