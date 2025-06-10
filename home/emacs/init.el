@@ -172,7 +172,18 @@ the new theme, and set the `cursor-type' to box."
   :mode ("\\.html?\\'" "\\.css\\'"))
 
 (use-package vertico
-  :hook (after-init . vertico-mode))
+  :hook (after-init . vertico-mode)
+  :bind (:map vertico-map
+         ("<prior>" . my/vertico-page-up)
+         ("<next>" . my/vertico-page-down))
+  :init
+  (defun my/vertico-page-up ()
+    (interactive)
+    (vertico-previous vertico-count))
+
+  (defun my/vertico-page-down ()
+    (interactive)
+    (vertico-next vertico-count)))
 
 (use-package which-key
   :hook (after-init . which-key-mode))
