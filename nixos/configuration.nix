@@ -21,6 +21,8 @@
       max-jobs = 1;
       cores = 10;
 
+      trusted-users = [ "dawson" ];
+
       substituters = [
         "https://anyrun.cachix.org"
         "https://hyprland.cachix.org"
@@ -43,6 +45,8 @@
 
     overlays = [ inputs.nur.overlays.default ];
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.loader = {
     systemd-boot = {
@@ -118,6 +122,8 @@
   # };
 
   hardware.bluetooth.enable = true;
+
+  systemd.user.services.xdg-document-portal.unitConfig.TimeoutStopSec = 10;
 
   system.stateVersion = "25.05";
 }

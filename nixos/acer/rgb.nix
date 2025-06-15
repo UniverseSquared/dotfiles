@@ -22,10 +22,12 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = kernel.moduleBuildDependencies;
 
-  makeFlags = kernel.makeFlags ++ [
+  # makeFlags = kernel.makeFlags ++ [
+  makeFlags = [
     "-C"
     "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
     "M=$(sourceRoot)"
+    "O=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
   ];
 
   buildFlags = [ "modules" ];

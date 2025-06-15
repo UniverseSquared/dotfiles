@@ -136,6 +136,8 @@ in
         "${mainMod}, mouse:272, movewindow"
         "${mainMod}, mouse:273, resizewindow"
       ];
+
+      windowrule = "opacity 0.75, class:discord";
     };
   };
 }

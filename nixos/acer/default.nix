@@ -9,17 +9,17 @@ in
   ];
 
   boot.kernelModules = [ "facer" ];
+  boot.blacklistedKernelModules = [ "acer_wmi" ];
 
   environment.systemPackages = [ facer-rgb ];
 
   # turn off rgb at startup
-  systemd.services.acer-rgb = {
-    enable = true;
-    script = ''
-      sleep 5
-      ${facer-rgb}/bin/facer-rgb -b 0
-    '';
+  # systemd.user.services.acer-rgb = {
+  #   enable = true;
+  #   script = ''
+  #     ${facer-rgb}/bin/facer-rgb -b 0
+  #   '';
 
-    wantedBy = [ "multi-user.target" ];
-  };
+  #   wantedBy = [ "default.target" ];
+  # };
 }
