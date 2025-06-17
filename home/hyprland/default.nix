@@ -2,9 +2,6 @@
 
 let
   mainMod = "SUPER";
-
-  cursorTheme = "Adwaita";
-  cursorSize = 24;
 in
 {
   imports = [
@@ -13,14 +10,6 @@ in
     ./power-menu.nix
     ./screenshot.nix
   ];
-
-  home.sessionVariables = {
-    HYPRCURSOR_THEME = cursorTheme;
-    HYPRCURSOR_SIZE = cursorSize;
-
-    XCURSOR_THEME = cursorTheme;
-    XCURSOR_SIZE = cursorSize;
-  };
 
   # start hyprland on login
   programs.zsh.profileExtra = ''
@@ -38,8 +27,6 @@ in
 
     settings = {
       monitor = "eDP-1, 1920x1080@165, 0x0, 1, vrr, 2";
-
-      exec-once = [ "hyprctl setcursor ${cursorTheme} ${toString cursorSize}" ];
 
       general = {
         gaps_in = 5;

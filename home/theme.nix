@@ -12,22 +12,16 @@
 
   home.pointerCursor = {
     gtk.enable = true;
+    hyprcursor.enable = true;
 
-    package = pkgs.adwaita-icon-theme;
-    name = "Adwaita";
+    package = pkgs.kdePackages.breeze;
+    name = "breeze_cursors";
+    size = 24;
   };
 
   gtk = {
     enable = true;
-
-    theme = {
-      name = "Adwaita-dark";
-    };
-
-    cursorTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
-    };
+    theme.name = "Adwaita-dark";
 
     gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
     gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
