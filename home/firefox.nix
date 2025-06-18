@@ -22,6 +22,7 @@
         "ui.key.menuAccessKeyFocuses" = false; # don't summon the menu bar with alt
         "browser.toolbars.bookmarks.visibility" = "never";
         "sidebar.revamp" = false; # ensure that the sidebar is disabled
+        "middlemouse.paste" = false;
 
         # disable picture in picture popup option on videos
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;

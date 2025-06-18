@@ -23,6 +23,7 @@
     file
     libreoffice
     lutris
+    osu-lazer-bin
     pavucontrol
     prismlauncher
     tree
@@ -35,7 +36,9 @@
 
   programs.bash.enable = true;
   programs.bat.enable = true;
+  programs.eza.enable = true;
   programs.htop.enable = true;
+  programs.mangohud.enable = true;
   programs.ripgrep.enable = true;
 
   programs.direnv = {
