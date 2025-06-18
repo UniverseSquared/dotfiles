@@ -22,6 +22,7 @@
     feh
     file
     libreoffice
+    lutris
     pavucontrol
     prismlauncher
     tree

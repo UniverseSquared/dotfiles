@@ -22,6 +22,7 @@
         edit-indirect
         haskell-mode
         hl-todo
+        kdl-mode
         ligature
         llama
         lua-mode

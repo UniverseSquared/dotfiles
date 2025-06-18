@@ -8,5 +8,7 @@
         "https://catppuccin.github.io/discord/dist/catppuccin-${flavor}-${accent}.theme.css"
       ];
     };
+
+    discord.autoscroll.enable = true;
   };
 }

@@ -123,7 +123,7 @@
 
   hardware.bluetooth.enable = true;
 
-  systemd.user.services.xdg-document-portal.unitConfig.TimeoutStopSec = 10;
+  systemd.user.services.xdg-document-portal.serviceConfig.TimeoutStopSec = 10;
 
   system.stateVersion = "25.05";
 }
