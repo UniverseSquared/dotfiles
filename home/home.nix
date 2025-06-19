@@ -10,6 +10,7 @@
     ./git.nix
     ./hyprland
     ./kitty.nix
+    ./nx
     ./rofi.nix
     ./theme.nix
     ./thunderbird.nix

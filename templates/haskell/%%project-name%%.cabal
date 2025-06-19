@@ -1,6 +1,6 @@
 cabal-version:      3.0
 
-name:               haskell-template
+name:               %%project-name%%
 version:            0.1.0.0
 author:             Dawson Taylor
 maintainer:         universesquared4@gmail.com
@@ -31,7 +31,7 @@ library
     -- Base language which the package is written in.
     default-language: Haskell2010
 
-executable haskell-template
+executable %%project-name%%
     -- Import common warning flags.
     import:           warnings
 
@@ -47,7 +47,7 @@ executable haskell-template
     -- Other library packages from which modules are imported.
     build-depends:
         base ^>=4.19.2.0,
-        haskell-template
+        %%project-name%%
 
     -- Directories containing source files.
     hs-source-dirs:   app
@@ -55,7 +55,7 @@ executable haskell-template
     -- Base language which the package is written in.
     default-language: Haskell2010
 
-test-suite haskell-template-test
+test-suite %%project-name%%-test
     -- Import common warning flags.
     import:           warnings
 
@@ -80,4 +80,4 @@ test-suite haskell-template-test
     -- Test dependencies.
     build-depends:
         base ^>=4.19.2.0,
-        haskell-template
+        %%project-name%%

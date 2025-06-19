@@ -20,7 +20,7 @@
       formatter.x86_64-linux = treefmtEval.config.build.wrapper;
 
       packages.x86_64-linux.default = pkgs.ocamlPackages.buildDunePackage {
-        pname = "ocaml_template";
+        pname = "%%project-name%%";
         version = "0.1.0";
         duneVersion = "3";
         src = ./.;

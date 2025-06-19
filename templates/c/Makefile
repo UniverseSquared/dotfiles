@@ -1,4 +1,4 @@
-BIN = hello
+BIN = %%project-name%%
 OBJ = src/main.o
 
 .PHONY: all clean

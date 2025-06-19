@@ -35,7 +35,7 @@
       formatter.x86_64-linux = treefmtEval.config.build.wrapper;
 
       packages.x86_64-linux.default = rustPlatform.buildRustPackage {
-        pname = "rust_template";
+        pname = "%%project-name%%";
         version = "0.1.0";
         src = ./.;
 

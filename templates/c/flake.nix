@@ -20,12 +20,12 @@
       formatter.x86_64-linux = treefmtEval.config.build.wrapper;
 
       packages.x86_64-linux.default = pkgs.stdenv.mkDerivation {
-        pname = "hello";
+        pname = "%%project-name%%";
         version = "0.1.0";
         src = ./.;
 
         installPhase = ''
-          install -Dm755 ./hello $out/bin/hello
+          install -Dm755 ./%%project-name%% $out/bin/%%project-name%%
         '';
       };
 
