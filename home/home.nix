@@ -6,6 +6,7 @@
     ./discord.nix
     ./dunst.nix
     ./emacs
+    ./eza.nix
     ./firefox.nix
     ./git.nix
     ./hyprland
@@ -37,7 +38,6 @@
 
   programs.bash.enable = true;
   programs.bat.enable = true;
-  programs.eza.enable = true;
   programs.htop.enable = true;
   programs.mangohud.enable = true;
   programs.ripgrep.enable = true;
