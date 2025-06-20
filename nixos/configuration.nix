@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ./keyd.nix
     ./power-saving.nix
+    ./steam
   ];
 
   nix = {
@@ -109,11 +110,6 @@
   programs.gnupg.agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-gtk2;
-  };
-
-  programs.steam = {
-    enable = true;
-    extraPackages = [ pkgs.gamescope ];
   };
 
   documentation.dev.enable = true;
