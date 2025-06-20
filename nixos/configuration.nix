@@ -13,6 +13,7 @@
     ./keyd.nix
     ./power-saving.nix
     ./steam
+    ./sunshine.nix
   ];
 
   nix = {
