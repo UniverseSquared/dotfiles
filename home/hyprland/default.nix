@@ -125,7 +125,10 @@ in
         "${mainMod}, mouse:273, resizewindow"
       ];
 
-      windowrule = "opacity 0.75, class:discord";
+      windowrule = [
+        "opacity 0.75, class:discord"
+        "float, class:steam, title:Friends List"
+      ];
     };
   };
 }
