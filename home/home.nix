@@ -9,8 +9,9 @@
     ./eza.nix
     ./firefox.nix
     ./git.nix
-    ./hyprland
+    # ./hyprland
     ./kitty.nix
+    ./niri.nix
     ./nx
     ./rofi.nix
     ./theme.nix

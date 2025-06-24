@@ -32,6 +32,11 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -54,6 +59,7 @@
         modules = [
           ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
+          inputs.niri.nixosModules.niri
 
           {
             home-manager = {

@@ -124,5 +124,7 @@
 
   systemd.user.services.xdg-document-portal.serviceConfig.TimeoutStopSec = 10;
 
+  programs.niri.enable = true;
+
   system.stateVersion = "25.05";
 }
