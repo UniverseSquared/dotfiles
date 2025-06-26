@@ -23,6 +23,8 @@
       max-jobs = 1;
       cores = 10;
 
+      warn-dirty = false;
+
       trusted-users = [ "dawson" ];
 
       substituters = [

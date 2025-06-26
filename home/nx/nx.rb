@@ -32,6 +32,16 @@ def create_project_from_template(template_name, project_name)
   }
 end
 
+def rebuild_and_switch
+  begin
+    system(
+      "nixos-rebuild switch --flake /home/dawson/dotfiles --sudo --log-format internal-json |& nom --json"
+    )
+  rescue Interrupt
+    # exit gracefully on ctrl+c
+  end
+end
+
 if ARGV[0] == "new" then
   template_name = ARGV[1]
   project_name = ARGV[2]
@@ -41,6 +51,8 @@ if ARGV[0] == "new" then
   else
     create_project_from_template(template_name, project_name)
   end
+elsif ARGV[0] == "switch" then
+  rebuild_and_switch
 else
   puts "unknown command '#{ARGV[0]}'"
 end

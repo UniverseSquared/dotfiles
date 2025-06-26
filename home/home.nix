@@ -26,6 +26,7 @@
     file
     libreoffice
     lutris
+    nix-output-monitor
     osu-lazer-bin
     pavucontrol
     prismlauncher
