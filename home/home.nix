@@ -3,15 +3,14 @@
 {
   imports = [
     ./anyrun
+    ./desktop
     ./discord.nix
     ./dunst.nix
     ./emacs
     ./eza.nix
     ./firefox.nix
     ./git.nix
-    # ./hyprland
     ./kitty.nix
-    ./niri.nix
     ./nx
     ./rofi.nix
     ./theme.nix
@@ -32,6 +31,8 @@
     prismlauncher
     tree
   ];
+
+  dawson.desktop.session = "hyprland";
 
   programs.nh = {
     enable = true;
