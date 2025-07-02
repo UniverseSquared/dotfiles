@@ -30,4 +30,6 @@
   dconf.settings."org/gnome/desktop/interface" = {
     color-scheme = "prefers-dark";
   };
+
+  home.sessionVariables.GTK_THEME = "Adwaita:dark";
 }

@@ -81,33 +81,33 @@ in
           let
             eachWs = f: builtins.genList (ws: f (ws + 1)) 10;
           in
-            [
-              "${mainMod}, Return, exec, kitty"
-              "${mainMod}, W, killactive"
-              "${mainMod}, F, fullscreen"
-              "${mainMod}, S, togglefloating"
-              "${mainMod}, Space, exec, rofi -show drun"
-              "${mainMod}, B, exec, firefox"
-              "${mainMod}, E, exec, emacsclient -nc"
+          [
+            "${mainMod}, Return, exec, kitty"
+            "${mainMod}, W, killactive"
+            "${mainMod}, F, fullscreen"
+            "${mainMod}, S, togglefloating"
+            "${mainMod}, Space, exec, rofi -show drun"
+            "${mainMod}, B, exec, firefox"
+            "${mainMod}, E, exec, emacsclient -nc"
 
-              "${mainMod}, up, movefocus, u"
-              "${mainMod}, down, movefocus, d"
-              "${mainMod}, left, movefocus, l"
-              "${mainMod}, right, movefocus, r"
+            "${mainMod}, up, movefocus, u"
+            "${mainMod}, down, movefocus, d"
+            "${mainMod}, left, movefocus, l"
+            "${mainMod}, right, movefocus, r"
 
-              "${mainMod} SHIFT, up, movewindow, u"
-              "${mainMod} SHIFT, down, movewindow, d"
-              "${mainMod} SHIFT, left, movewindow, l"
-              "${mainMod} SHIFT, right, movewindow, r"
+            "${mainMod} SHIFT, up, movewindow, u"
+            "${mainMod} SHIFT, down, movewindow, d"
+            "${mainMod} SHIFT, left, movewindow, l"
+            "${mainMod} SHIFT, right, movewindow, r"
 
-              # workaround for discord global mute keybind; set 'toggle mute' bind in discord with:
-              #  sleep 2; hyprctl dispatch "sendkeystate , XF86Launch9, down, class:^(discord)$"
-              "CTRL SHIFT, semicolon, sendshortcut, , XF86Launch9, class:^(discord)$"
-            ]
-            ++ eachWs (ws: "${mainMod}, ${toString (lib.mod ws 10)}, workspace, ${toString ws}")
-            ++ eachWs (
-              ws: "${mainMod} SHIFT, ${toString (lib.mod ws 10)}, movetoworkspacesilent, ${toString ws}"
-            );
+            # workaround for discord global mute keybind; set 'toggle mute' bind in discord with:
+            #  sleep 2; hyprctl dispatch "sendkeystate , XF86Launch9, down, class:^(discord)$"
+            "CTRL SHIFT, semicolon, sendshortcut, , XF86Launch9, class:^(discord)$"
+          ]
+          ++ eachWs (ws: "${mainMod}, ${toString (lib.mod ws 10)}, workspace, ${toString ws}")
+          ++ eachWs (
+            ws: "${mainMod} SHIFT, ${toString (lib.mod ws 10)}, movetoworkspacesilent, ${toString ws}"
+          );
 
         # window resizing ('e' bind flag repeats the command when the keys are held)
         binde = [

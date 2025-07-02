@@ -12,7 +12,10 @@ in
 
   options.dawson.desktop = {
     session = lib.mkOption {
-      type = lib.types.enum [ "hyprland" "niri" ];
+      type = lib.types.enum [
+        "hyprland"
+        "niri"
+      ];
     };
   };
 

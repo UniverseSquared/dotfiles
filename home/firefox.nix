@@ -5,6 +5,7 @@
     enable = true;
     profiles.dawson = {
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+        betterttv
         bitwarden
         darkreader
         ublock-origin

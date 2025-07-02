@@ -30,6 +30,7 @@
     pavucontrol
     prismlauncher
     tree
+    unzip
   ];
 
   dawson.desktop.session = "hyprland";
