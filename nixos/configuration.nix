@@ -14,6 +14,7 @@
     ./power-saving.nix
     ./steam
     ./sunshine.nix
+    ./virtualisation.nix
   ];
 
   nix = {
