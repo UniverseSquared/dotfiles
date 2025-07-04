@@ -1,5 +1,12 @@
+#! @ruby@/bin/ruby
+
 require 'find'
 require 'pathname'
+
+$nom = '@nix-output-monitor@/bin/nom'
+$nvd = '@nvd@/bin/nvd'
+
+$templates = @templates@
 
 def substitute_templates(contents, project_name)
   contents.gsub(/%%(.+?)%%/) {
@@ -32,11 +39,26 @@ def create_project_from_template(template_name, project_name)
   }
 end
 
+def list_system_profiles
+  Dir.children('/nix/var/nix/profiles')
+    .filter { |e| e.start_with?('system-') && e.end_with?('-link') }
+    .map { |e| e.delete_prefix('system-').delete_suffix('-link') }
+    .map { |generation| generation.to_i }
+    .sort
+end
+
 def rebuild_and_switch
   begin
     system(
-      "nixos-rebuild switch --flake /home/dawson/dotfiles --sudo --log-format internal-json |& nom --json"
+      "nixos-rebuild switch --flake /home/dawson/dotfiles --sudo --log-format internal-json \
+        |& #{$nom} --json"
     )
+
+    profiles = list_system_profiles
+    previous_generation = profiles[profiles.length - 2]
+    previous_generation_path = "/nix/var/nix/profiles/system-#{previous_generation}-link"
+
+    system("#{$nvd} diff #{previous_generation_path} /run/current-system")
   rescue Interrupt
     # exit gracefully on ctrl+c
   end

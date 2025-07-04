@@ -13,17 +13,26 @@ let
       "description" => "${info.description}",
     },
   '';
-
-  scriptPrelude = ''
-    #!${lib.getExe pkgs.ruby}
-
-    $templates = {
-      ${lib.concatStrings (lib.mapAttrsToList templateToRuby inputs.self.templates)}
-    }
-  '';
 in
 {
   home.packages = [
-    (pkgs.writeScriptBin "nx" (scriptPrelude + builtins.readFile ./nx.rb))
+    (pkgs.replaceVarsWith {
+      src = ./nx.rb;
+
+      replacements = {
+        inherit (pkgs) nix-output-monitor nvd ruby;
+
+        templates = ''
+          {
+            ${lib.concatStrings (lib.mapAttrsToList templateToRuby inputs.self.templates)}
+          }
+        '';
+      };
+
+      name = "nx";
+      dir = "bin";
+      isExecutable = true;
+      meta.mainProgram = "nx";
+    })
   ];
 }
