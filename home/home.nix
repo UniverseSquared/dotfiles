@@ -31,6 +31,7 @@
     prismlauncher
     tree
     unzip
+    jetbrains.rider
   ];
 
   dawson.desktop.session = "hyprland";
