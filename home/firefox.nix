@@ -31,6 +31,7 @@
         "middlemouse.paste" = false;
         "browser.startup.page" = 3; # restore previous tabs on startup
         "browser.urlbar.trimURLs" = false; # always show the entire url
+        "findbar.highlightAll" = true;
 
         # disable picture in picture popup option on videos
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
@@ -40,6 +41,11 @@
         "browser.newtabpage.activity-stream.showSearch" = false;
         "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
       };
+    };
+
+    policies.ExtensionSettings = {
+      "addon@darkreader.org".private_browsing = true;
+      "uBlock0@raymondhill.net".private_browsing = true;
     };
   };
 }
