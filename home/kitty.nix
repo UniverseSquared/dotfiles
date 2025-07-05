@@ -18,8 +18,8 @@
 
     keybindings = {
       # scroll up/down with (keypad) page up/down
-      "ctrl+KP_Prior" = "scroll_page_up";
-      "ctrl+KP_Next" = "scroll_page_down";
+      "ctrl+KP_PAGE_UP" = "scroll_page_up";
+      "ctrl+KP_PAGE_DOWN" = "scroll_page_down";
     };
   };
 }
