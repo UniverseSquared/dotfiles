@@ -18,10 +18,7 @@
 
     anyrun.url = "github:anyrun-org/anyrun";
 
-    nixcord = {
-      url = "github:kaylorben/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixcord.url = "github:kaylorben/nixcord";
 
     nur = {
       url = "github:nix-community/NUR";

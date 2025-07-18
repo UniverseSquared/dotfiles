@@ -50,7 +50,10 @@
   nixpkgs = {
     config.allowUnfree = true;
 
-    overlays = [ inputs.nur.overlays.default ];
+    overlays = [
+      inputs.nur.overlays.default
+      inputs.niri.overlays.niri
+    ];
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -127,7 +130,12 @@
 
   systemd.user.services.xdg-document-portal.serviceConfig.TimeoutStopSec = 10;
 
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri-unstable;
+  };
+
+  services.flatpak.enable = true;
 
   system.stateVersion = "25.05";
 }

@@ -31,10 +31,15 @@
     prismlauncher
     tree
     unzip
-    jetbrains.rider
+    # jetbrains.rider # https://github.com/NixOS/nixpkgs/issues/425328
+    noto-fonts
+    godot
   ];
 
-  dawson.desktop.session = "hyprland";
+  dawson = {
+    desktop.session = "hyprland";
+    discord.nixcord = false; # https://github.com/KaylorBen/nixcord/pull/121
+  };
 
   programs.nh = {
     enable = true;

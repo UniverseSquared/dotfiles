@@ -32,6 +32,7 @@
         "browser.startup.page" = 3; # restore previous tabs on startup
         "browser.urlbar.trimURLs" = false; # always show the entire url
         "findbar.highlightAll" = true;
+        "extensions.autoDisableScopes" = 0; # automatically enable extensions on rebuild
 
         # disable picture in picture popup option on videos
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
