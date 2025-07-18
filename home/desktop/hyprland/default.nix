@@ -53,6 +53,8 @@ in
           middle_click_paste = false;
         };
 
+        ecosystem.no_update_news = true;
+
         decoration = {
           rounding = 10;
           rounding_power = 2;
