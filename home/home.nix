@@ -38,7 +38,7 @@
 
   dawson = {
     desktop.session = "hyprland";
-    discord.nixcord = false; # https://github.com/KaylorBen/nixcord/pull/121
+    discord.nixcord = true;
   };
 
   programs.nh = {
