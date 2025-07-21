@@ -6,7 +6,7 @@ let
     max_brightness=$(< $device/max_brightness)
     current_brightness=$(< $device/brightness)
 
-    step=50
+    step=25
 
     case $1 in
       down) new_brightness=$(($current_brightness - $step));;
