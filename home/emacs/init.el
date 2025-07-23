@@ -371,49 +371,41 @@ extra information about the environment, such as the language version."
   "Face used for buffer identification parts of the mode line, when the buffer
 is modified.")
 
-(setq my/left-mode-line-format
-      `(" "
+(let ((left-mode-line-format
+       `(" "
 
-        (:eval (file-size-human-readable (buffer-size)))
+         (:eval (file-size-human-readable (buffer-size)))
 
-        " "
+         " "
 
-        (:eval (propertize
-                (if buffer-file-name
-                    (my/shorten-path buffer-file-name)
-                  (buffer-name))
-                'face (if (buffer-modified-p)
-                          'mode-line-modified-buffer-id
-                        'mode-line-buffer-id)))
+         (:eval (propertize
+                 (if buffer-file-name
+                     (my/shorten-path buffer-file-name)
+                   (buffer-name))
+                 'face (if (buffer-modified-p)
+                           'mode-line-modified-buffer-id
+                         'mode-line-buffer-id)))
 
-        " %l:%c"))
+         " %l:%c"))
+      (right-mode-line-format
+       `((:eval
+          (let ((buffer-eol-type
+                 (coding-system-eol-type buffer-file-coding-system))
+                (buffer-coding-system
+                 (plist-get (coding-system-plist buffer-file-coding-system) :name)))
+            (concat
+             (pcase buffer-eol-type
+               (0 "LF")
+               (1 "CRLF")
+               (2 "CR"))
+             "  "
+             (my/pretty-buffer-file-encoding))))
 
-(setq my/right-mode-line-format
-      `((:eval
-         (let ((buffer-eol-type
-                (coding-system-eol-type buffer-file-coding-system))
-               (buffer-coding-system
-                (plist-get (coding-system-plist buffer-file-coding-system) :name)))
-           (concat
-            (pcase buffer-eol-type
-              (0 "LF")
-              (1 "CRLF")
-              (2 "CR"))
-            "  "
-            (my/pretty-buffer-file-encoding))))
-
-        "  " (:eval (my/major-mode-description))))
-
-(setq-default mode-line-format
-              `(,@my/left-mode-line-format
-
-                (:eval (s-repeat
-                        (- (window-width)
-                           (length (format-mode-line my/left-mode-line-format))
-                           (length (format-mode-line my/right-mode-line-format)))
-                        " "))
-
-                ,@my/right-mode-line-format))
+         "  " (:eval (my/major-mode-description)))))
+  (setq-default mode-line-format
+                `(,@left-mode-line-format
+                  ,mode-line-format-right-align
+                  ,@right-mode-line-format)))
 
 ;; Allow toggling between a light and dark theme
 (setq my/is-light-theme nil)
