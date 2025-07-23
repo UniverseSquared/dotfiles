@@ -7,11 +7,11 @@
 }:
 
 stdenv.mkDerivation rec {
-  name = "acer-predator-turbo-and-rgb-keyboard-linux-module";
+  name = "facer";
 
   src = pkgs.fetchFromGitHub {
     owner = "JafarAkhondali";
-    repo = name;
+    repo = "acer-predator-turbo-and-rgb-keyboard-linux-module";
     rev = "343c715669ef52ccecdb65473e7318f612b6b6c2";
     sha256 = "sha256-RKqe3kHZ32Pv+6skP4x+sB+c4dlyES0Bu2C73LvkgqQ=";
   };
@@ -22,7 +22,6 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = kernel.moduleBuildDependencies;
 
-  # makeFlags = kernel.makeFlags ++ [
   makeFlags = [
     "-C"
     "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
