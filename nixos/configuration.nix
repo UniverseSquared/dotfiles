@@ -136,6 +136,7 @@
   };
 
   services.flatpak.enable = true;
+  services.mullvad-vpn.enable = true;
 
   system.stateVersion = "25.05";
 }

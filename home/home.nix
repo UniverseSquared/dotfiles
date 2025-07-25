@@ -23,17 +23,18 @@
     acpi
     feh
     file
+    godot
+    heroic
+    jetbrains.rider
     libreoffice
     lutris
     nix-output-monitor
+    noto-fonts
     osu-lazer-bin
     pavucontrol
     prismlauncher
     tree
     unzip
-    # jetbrains.rider # https://github.com/NixOS/nixpkgs/issues/425328
-    noto-fonts
-    godot
   ];
 
   dawson = {
