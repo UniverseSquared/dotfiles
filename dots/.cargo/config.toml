@@ -1,6 +1,0 @@
-[build]
-rustdocflags = ["--default-theme", "ayu"]
-target-dir = ".cache/cargo"
-
-[registries.crates-io]
-protocol = "sparse"

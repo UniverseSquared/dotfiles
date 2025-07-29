@@ -1,7 +1,0 @@
-@import "solarized.rasi"
-
-window {
-    font: "Iosevka 14";
-    width: 600;
-    height: 595;
-}

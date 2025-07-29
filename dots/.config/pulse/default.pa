@@ -1,6 +1,0 @@
-.include /etc/pulse/default.pa
-.nofail
-unload-module module-suspend-on-idle
-.fail
-
-load-module module-switch-on-connect
