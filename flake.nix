@@ -54,7 +54,8 @@
       nixosConfigurations.kala = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./nixos/configuration.nix
+          ./modules/nixos
+          ./hosts/kala/configuration.nix
           home-manager.nixosModules.home-manager
           inputs.niri.nixosModules.niri
 
@@ -64,11 +65,12 @@
               useUserPackages = true;
 
               sharedModules = [
+                ./modules/home-manager
                 inputs.catppuccin.homeModules.catppuccin
                 inputs.nixcord.homeModules.nixcord
               ];
 
-              users.dawson = import ./home/home.nix;
+              users.dawson = import ./hosts/kala/home.nix;
               extraSpecialArgs = { inherit inputs; };
             };
           }

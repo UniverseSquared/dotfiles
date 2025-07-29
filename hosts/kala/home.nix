@@ -1,24 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./anyrun
-    ./desktop
-    ./discord.nix
-    ./dunst.nix
-    ./emacs
-    ./eza.nix
-    ./firefox.nix
-    ./git.nix
-    ./kitty.nix
-    ./nx
-    ./rofi.nix
-    ./theme.nix
-    ./thunderbird.nix
-    ./waybar
-    ./zsh.nix
-  ];
-
   home.packages = with pkgs; [
     acpi
     feh
