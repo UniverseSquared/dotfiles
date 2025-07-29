@@ -24,7 +24,6 @@
     feh
     file
     godot
-    heroic
     jetbrains.rider
     libreoffice
     lutris

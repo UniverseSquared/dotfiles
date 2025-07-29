@@ -53,10 +53,12 @@
 
         (treesit-grammars.with-grammars (
           grammars: with grammars; [
-            tree-sitter-elixir
-            tree-sitter-heex
             tree-sitter-c
             tree-sitter-cpp
+            tree-sitter-elixir
+            tree-sitter-heex
+            tree-sitter-tsx
+            tree-sitter-typescript
           ]
         ))
       ];
