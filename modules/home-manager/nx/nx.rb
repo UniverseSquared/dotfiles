@@ -47,6 +47,18 @@ def list_system_profiles
     .sort
 end
 
+def deploy_to_deck(deck_ip)
+  generation_store_path = `nix build --no-link --print-out-paths \
+    /home/dawson/dotfiles#homeConfigurations.deck@waso.activationPackage`.strip
+
+  # `remote-program=...` is a workaround for https://github.com/NixOS/nix/issues/1078
+  `nix copy --verbose --to "ssh://deck@#{deck_ip}?remote-program=/home/deck/.nix-profile/bin/nix-store" \
+    #{generation_store_path}`
+
+  # `source .bash_profile` is a workaround for the same issue as above
+  `ssh deck@#{deck_ip} -- 'source .bash_profile; #{generation_store_path}/activate'`
+end
+
 def rebuild_and_switch
   begin
     system(
@@ -64,6 +76,16 @@ def rebuild_and_switch
   end
 end
 
+def switch
+  deck_switch = ARGV.index '--deck'
+
+  if deck_switch != nil then
+    deploy_to_deck(ARGV[deck_switch + 1])
+  else
+    rebuild_and_switch
+  end
+end
+
 if ARGV[0] == "new" then
   template_name = ARGV[1]
   project_name = ARGV[2]
@@ -74,7 +96,7 @@ if ARGV[0] == "new" then
     create_project_from_template(template_name, project_name)
   end
 elsif ARGV[0] == "switch" then
-  rebuild_and_switch
+  switch
 else
   puts "unknown command '#{ARGV[0]}'"
 end
