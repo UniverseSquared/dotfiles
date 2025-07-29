@@ -55,7 +55,7 @@
         system = "x86_64-linux";
         modules = [
           ./modules/nixos
-          ./hosts/kala/configuration.nix
+          ./hosts/kala/nixos.nix
           home-manager.nixosModules.home-manager
           inputs.niri.nixosModules.niri
 
@@ -76,6 +76,11 @@
           }
         ];
         specialArgs = { inherit inputs; };
+      };
+
+      homeConfigurations."deck@waso" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./hosts/waso/home.nix ];
       };
 
       templates = {
