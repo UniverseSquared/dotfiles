@@ -8,15 +8,12 @@
   programs.home-manager.enable = true;
 
   dawson.syncthing.folders = {
-    cemu = {
-      path = "~/Emulation/roms/wiiu/mlc01/usr/save";
-      devices = [
-        "kala"
-        "waso"
-        "phone"
-      ];
-    };
+    cemu.path = "~/Emulation/roms/wiiu/mlc01/usr/save";
   };
+
+  home.file.".ssh/authorized_keys".text = ''
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDQpyYLWtwsOePRYFPucbVoqkTEOB7D22MWYvTGvGBmG dawson@kala
+  '';
 
   home = {
     username = "deck";

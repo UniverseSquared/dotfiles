@@ -8,6 +8,8 @@ let
     waso = "AQRCJUI-WCTVBXM-JR2ETBF-BHUAL4U-YPHSJHK-ZHSXJOH-LHIZZC6-4GNBLAB";
     phone = "26PP6Z3-TB6WGN4-SZPKQYC-S37STFY-PPIP7EI-VTG5LH2-BYJGX4S-ZXC4WAA";
   };
+
+  allHostnames = lib.attrNames devices;
 in
 {
   options.dawson.syncthing = {
@@ -26,7 +28,8 @@ in
               description = ''
                 The hostname of each device this folder is to be shared with.
               '';
-              type = lib.types.listOf (lib.types.enum (lib.attrNames devices));
+              type = lib.types.listOf (lib.types.enum allHostnames);
+              default = allHostnames;
             };
           };
         }

@@ -6,6 +6,8 @@
 }:
 
 {
+  imports = [ ./hardware-configuration.nix ];
+
   nix = {
     registry.dotfiles.flake = inputs.self;
 
