@@ -11,6 +11,7 @@
     ./kitty.nix
     ./nx
     ./rofi.nix
+    ./syncthing.nix
     ./theme.nix
     ./thunderbird.nix
     ./waybar

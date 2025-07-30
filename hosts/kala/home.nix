@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./syncthing.nix ];
+
   home.packages = with pkgs; [
     acpi
     feh

@@ -8,8 +8,7 @@
   catppuccin.waybar.mode = "createLink";
 
   xdg.configFile."waybar/style.css".source =
-    config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/home-manager/waybar/style.css";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/home-manager/waybar/style.css";
 
   programs.waybar = {
     enable = true;
