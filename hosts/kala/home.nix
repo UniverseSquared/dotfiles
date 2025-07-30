@@ -16,6 +16,7 @@
     osu-lazer-bin
     pavucontrol
     prismlauncher
+    qbittorrent
     tree
     unzip
   ];

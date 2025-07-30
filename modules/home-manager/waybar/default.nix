@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   wayland.windowManager.hyprland.settings.exec-once = [ "waybar" ];
@@ -22,7 +27,10 @@
           "hyprland/window"
         ];
 
-        modules-center = [ "clock" ];
+        modules-center = [
+          "clock"
+          "custom/mullvad"
+        ];
 
         modules-right = [
           "wireplumber"
@@ -48,6 +56,28 @@
         clock = {
           format = " {:%a %Y-%m-%d %I:%M:%S %p}";
           interval = 1;
+        };
+
+        "custom/mullvad" = {
+          format = " {}";
+          interval = 10;
+          hide-empty-text = true; # disable module when script output is empty
+          exec = lib.getExe (
+            pkgs.writeShellApplication {
+              name = "mullvad-status";
+              runtimeInputs = [ pkgs.jq ];
+              text = ''
+                status_json=$(mullvad status --json)
+                connected_state=$(jq -r '.state' <<< "$status_json")
+                city=$(jq -r '.details.location.city' <<< "$status_json")
+                country=$(jq -r '.details.location.country' <<< "$status_json")
+
+                if [ "$connected_state" = "connected" ]; then
+                  echo "$city, $country"
+                fi
+              '';
+            }
+          );
         };
 
         wireplumber.format = " {volume}%";

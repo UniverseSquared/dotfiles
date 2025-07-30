@@ -43,6 +43,11 @@ tooltip * {
     color: @text;
 }
 
+#custom-mullvad {
+    margin-left: 10px;
+    border-bottom: 2px solid @pink;
+}
+
 /* spacing for modules on the right */
 #wireplumber, #cpu, #memory, #disk, #battery {
     margin-left: 10px;
@@ -69,9 +74,9 @@ tooltip * {
 }
 
 #disk {
-    border-bottom: 2px solid @mauve;
+    border-bottom: 2px solid @lavender;
 }
 
 #battery {
-    border-bottom: 2px solid @lavender;
+    border-bottom: 2px solid @mauve;
 }
