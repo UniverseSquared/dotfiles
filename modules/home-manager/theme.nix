@@ -6,6 +6,8 @@
     flavor = "macchiato";
     accent = "mauve";
 
+    kvantum.enable = false;
+
     # workaround for a build error with the catppuccin flake
     mako.enable = false;
   };
@@ -32,4 +34,9 @@
   };
 
   home.sessionVariables.GTK_THEME = "Adwaita:dark";
+
+  qt = {
+    enable = true;
+    style.name = "adwaita-dark";
+  };
 }
