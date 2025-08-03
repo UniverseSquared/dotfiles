@@ -402,10 +402,13 @@ is modified.")
              "  "
              (my/pretty-buffer-file-encoding))))
 
-         "  " (:eval (my/major-mode-description)))))
+         "  " (:eval (my/major-mode-description))
+
+         ;; FIXME: `mode-line-format-right-align' slightly misaligns the right side without extra spaces
+         "  ")))
   (setq-default mode-line-format
                 `(,@left-mode-line-format
-                  ,mode-line-format-right-align
+                  mode-line-format-right-align
                   ,@right-mode-line-format)))
 
 ;; Allow toggling between a light and dark theme
