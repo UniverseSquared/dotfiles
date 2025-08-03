@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   screenshot = pkgs.writeShellScript "screenshot" ''
@@ -16,4 +21,9 @@ in
     "SUPER SHIFT, s, exec, ${screenshot}"
     "SUPER CONTROL, s, exec, ${viewLastScreenshot}"
   ];
+
+  programs.niri.settings.binds = with config.lib.niri.actions; {
+    "Mod+Shift+S".action = spawn "${screenshot}";
+    "Mod+Ctrl+S".action = spawn "${viewLastScreenshot}";
+  };
 }

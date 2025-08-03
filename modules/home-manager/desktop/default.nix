@@ -5,9 +5,11 @@ let
 in
 {
   imports = [
-    ./hyprland
+    ./brightness.nix
     ./hyprpaper.nix
-    ./niri.nix
+    ./power-menu.nix
+    ./screenshot.nix
+    ./session
   ];
 
   options.dawson.desktop = {

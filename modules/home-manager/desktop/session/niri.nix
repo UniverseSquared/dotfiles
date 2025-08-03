@@ -83,6 +83,8 @@
             "Mod+Shift+Minus".action = set-window-height "-10%";
             "Mod+Shift+Equal".action = set-window-height "+10%";
 
+            "Mod+F".action = fullscreen-window;
+
             "Mod+R".action = switch-preset-column-width;
             "Mod+Ctrl+F".action = set-column-width "100%";
             "Mod+Shift+F".action = expand-column-to-available-width;
@@ -91,7 +93,6 @@
             "Mod+Period".action = expel-window-from-column;
 
             "Mod+W".action = close-window;
-            "Mod+Shift+Q".action = quit;
           }
           // lib.listToAttrs (
             lib.genList (ws: {

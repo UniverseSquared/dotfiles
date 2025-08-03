@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   powerMenu = pkgs.writeShellScript "power-menu" ''
@@ -6,7 +6,14 @@ let
       Shutdown) shutdown now;;
       Reboot) reboot;;
       Sleep) systemctl suspend;;
-      Logout) hyprctl dispatch exit;;
+      Logout)
+        ${
+          if config.dawson.desktop.session == "hyprland" then
+            "hyprctl dispatch exit"
+          else
+            "niri msg action quit"
+        }
+        ;;
     esac
   '';
 in
@@ -14,4 +21,6 @@ in
   wayland.windowManager.hyprland.settings.bind = [
     "SUPER SHIFT, q, exec, ${powerMenu}"
   ];
+
+  programs.niri.settings.binds."Mod+Shift+Q".action = config.lib.niri.actions.spawn "${powerMenu}";
 }

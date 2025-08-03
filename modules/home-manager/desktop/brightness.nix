@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   brightness = pkgs.writeShellScript "brightness" ''
@@ -24,4 +24,9 @@ in
     "SUPER, F9, exec, ${brightness} down"
     "SUPER, F10, exec, ${brightness} up"
   ];
+
+  programs.niri.settings.binds = with config.lib.niri.actions; {
+    "Mod+F9".action = spawn "${brightness}" "down";
+    "Mod+F10".action = spawn "${brightness}" "up";
+  };
 }

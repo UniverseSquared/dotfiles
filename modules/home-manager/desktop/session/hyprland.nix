@@ -4,12 +4,6 @@ let
   mainMod = "SUPER";
 in
 {
-  imports = [
-    ./brightness.nix
-    ./power-menu.nix
-    ./screenshot.nix
-  ];
-
   options.dawson.desktop.hyprland = {
     enable = lib.mkEnableOption "Hyprland";
   };
