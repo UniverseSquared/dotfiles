@@ -25,6 +25,9 @@
         modules-left = [
           "hyprland/workspaces"
           "hyprland/window"
+
+          "niri/workspaces"
+          "niri/window"
         ];
 
         modules-center = [
@@ -48,6 +51,12 @@
         };
 
         "hyprland/window" = {
+          format = "{title:.100}";
+          icon = true;
+          icon-size = 22;
+        };
+
+        "niri/window" = {
           format = "{title:.100}";
           icon = true;
           icon-size = 22;
