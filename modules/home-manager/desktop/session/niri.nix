@@ -36,6 +36,8 @@
           };
 
           shadow.enable = true;
+
+          background-color = "transparent";
         };
 
         window-rules = [
@@ -49,7 +51,28 @@
 
             clip-to-geometry = true;
           }
+
+          {
+            matches = [
+              { app-id = "discord"; }
+            ];
+
+            opacity = 0.75;
+            default-column-width.proportion = 1.0;
+          }
         ];
+
+        layer-rules = [
+          {
+            matches = [
+              { namespace = "^hyprpaper$"; }
+            ];
+
+            place-within-backdrop = true;
+          }
+        ];
+
+        overview.workspace-shadow.enable = false;
 
         input.focus-follows-mouse = {
           enable = true;
@@ -59,7 +82,6 @@
         binds =
           with config.lib.niri.actions;
           {
-            "Mod+Shift+Slash".action = show-hotkey-overlay;
             "Mod+Return".action = spawn "kitty";
             "Mod+E".action = spawn "emacsclient" "-nc";
             "Mod+Space".action = spawn "rofi" "-show" "drun";
@@ -71,6 +93,9 @@
 
             "Mod+WheelScrollUp".action = focus-column-left;
             "Mod+WheelScrollDown".action = focus-column-right;
+
+            "Mod+Shift+WheelScrollUp".action = focus-workspace-up;
+            "Mod+Shift+WheelScrollDown".action = focus-workspace-down;
 
             "Mod+Shift+Up".action = move-window-up;
             "Mod+Shift+Down".action = move-window-down;
@@ -84,15 +109,18 @@
             "Mod+Shift+Equal".action = set-window-height "+10%";
 
             "Mod+F".action = fullscreen-window;
+            "Mod+S".action = toggle-window-floating;
 
             "Mod+R".action = switch-preset-column-width;
-            "Mod+Ctrl+F".action = set-column-width "100%";
-            "Mod+Shift+F".action = expand-column-to-available-width;
+            "Mod+Shift+F".action = set-column-width "100%";
+            "Mod+Ctrl+F".action = expand-column-to-available-width;
 
             "Mod+Comma".action = consume-window-into-column;
             "Mod+Period".action = expel-window-from-column;
 
             "Mod+W".action = close-window;
+
+            "Mod+Grave".action = toggle-overview;
           }
           // lib.listToAttrs (
             lib.genList (ws: {

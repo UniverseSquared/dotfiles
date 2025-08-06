@@ -20,6 +20,7 @@
     settings = {
       bar = {
         position = "top";
+        layer = "top";
         height = 20;
 
         modules-left = [
