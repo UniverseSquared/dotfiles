@@ -126,10 +126,7 @@
     package = pkgs.niri-unstable;
   };
 
-  programs.uwsm = {
-    enable = true;
-    waylandCompositors = { };
-  };
+  services.displayManager.ly.enable = true;
 
   services.flatpak.enable = true;
   services.mullvad-vpn.enable = true;

@@ -11,10 +11,6 @@
   };
 
   config = lib.mkIf config.dawson.desktop.niri.enable {
-    programs.zsh.profileExtra = ''
-      uwsm check may-start && exec uwsm start niri.desktop
-    '';
-
     programs.niri = {
       settings = {
         environment.DISPLAY = ":0";
