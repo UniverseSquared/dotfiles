@@ -11,4 +11,9 @@ in
       wallpaper = [ "eDP-1,${wallpaper}" ];
     };
   };
+
+  systemd.user.services.hyprpaper = {
+    Install.WantedBy = [ "niri.service" ];
+    Unit.After = [ "niri.service" ];
+  };
 }

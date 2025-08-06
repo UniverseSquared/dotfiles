@@ -18,7 +18,6 @@
         prefer-no-csd = true; # disable client-side decorations
 
         spawn-at-startup = [
-          { command = [ "waybar" ]; }
           { command = [ "${lib.getExe pkgs.xwayland-satellite}" ]; }
         ];
 

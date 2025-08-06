@@ -17,6 +17,7 @@
 
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     settings = {
       bar = {
         position = "top";
@@ -126,5 +127,10 @@
         };
       };
     };
+  };
+
+  systemd.user.services.waybar = {
+    Install.WantedBy = [ "niri.service" ];
+    Unit.After = [ "niri.service" ];
   };
 }
