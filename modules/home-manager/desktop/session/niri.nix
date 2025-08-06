@@ -12,7 +12,7 @@
 
   config = lib.mkIf config.dawson.desktop.niri.enable {
     programs.zsh.profileExtra = ''
-      [ -z "$WAYLAND_DISPLAY" -a "$XDG_VTNR" = 1 ] && exec niri-session
+      uwsm check may-start && exec uwsm start niri.desktop
     '';
 
     programs.niri = {
