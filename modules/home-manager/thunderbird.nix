@@ -12,4 +12,6 @@
       };
     };
   };
+
+  catppuccin.thunderbird.profile = "dawson";
 }
