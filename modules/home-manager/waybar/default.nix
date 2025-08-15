@@ -6,8 +6,6 @@
 }:
 
 {
-  wayland.windowManager.hyprland.settings.exec-once = [ "waybar" ];
-
   home.packages = [ pkgs.font-awesome ];
 
   catppuccin.waybar.mode = "createLink";
@@ -130,7 +128,14 @@
   };
 
   systemd.user.services.waybar = {
-    Install.WantedBy = [ "niri.service" ];
-    Unit.After = [ "niri.service" ];
+    Install.WantedBy = [
+      "niri.service"
+      "hyprland-session.target"
+    ];
+
+    Unit.After = [
+      "niri.service"
+      "hyprland-session.target"
+    ];
   };
 }

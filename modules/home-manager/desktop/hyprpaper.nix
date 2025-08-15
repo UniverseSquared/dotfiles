@@ -13,7 +13,14 @@ in
   };
 
   systemd.user.services.hyprpaper = {
-    Install.WantedBy = [ "niri.service" ];
-    Unit.After = [ "niri.service" ];
+    Install.WantedBy = [
+      "niri.service"
+      "hyprland-session.target"
+    ];
+
+    Unit.After = [
+      "niri.service"
+      "hyprland-session.target"
+    ];
   };
 }

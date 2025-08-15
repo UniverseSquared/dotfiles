@@ -21,6 +21,10 @@
           { command = [ "${lib.getExe pkgs.xwayland-satellite}" ]; }
         ];
 
+        hotkey-overlay.skip-at-startup = true;
+
+        gestures.hot-corners.enable = false;
+
         layout = {
           focus-ring.enable = false;
 
@@ -52,7 +56,7 @@
               { app-id = "discord"; }
             ];
 
-            opacity = 0.75;
+            opacity = 0.9;
             default-column-width.proportion = 1.0;
           }
         ];

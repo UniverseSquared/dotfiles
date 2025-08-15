@@ -22,7 +22,7 @@
   ];
 
   dawson = {
-    desktop.session = "niri";
+    desktop.session = "hyprland";
     discord.nixcord = true;
   };
 
