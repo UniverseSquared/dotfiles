@@ -41,6 +41,10 @@
         "browser.newtabpage.activity-stream.feeds.topsites" = false;
         "browser.newtabpage.activity-stream.showSearch" = false;
         "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+
+        # disable ai stuff
+        "browser.ml.chat.enabled" = false;
+        "browser.ml.chat.menu" = false;
       };
     };
 

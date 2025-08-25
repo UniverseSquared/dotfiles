@@ -37,6 +37,9 @@
 
   qt = {
     enable = true;
-    style.name = "adwaita-dark";
+    style = {
+      package = pkgs.kdePackages.breeze;
+      name = "breeze";
+    };
   };
 }
