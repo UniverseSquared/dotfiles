@@ -61,16 +61,18 @@ end
 
 def rebuild_and_switch
   begin
-    system(
+    rebuild_succeeded = system(
       "nixos-rebuild switch --flake /home/dawson/dotfiles --sudo --log-format internal-json \
         |& #{$nom} --json"
     )
 
-    profiles = list_system_profiles
-    previous_generation = profiles[profiles.length - 2]
-    previous_generation_path = "/nix/var/nix/profiles/system-#{previous_generation}-link"
+    if rebuild_succeeded then
+      profiles = list_system_profiles
+      previous_generation = profiles[profiles.length - 2]
+      previous_generation_path = "/nix/var/nix/profiles/system-#{previous_generation}-link"
 
-    system("#{$nvd} diff #{previous_generation_path} /run/current-system")
+      system("#{$nvd} diff #{previous_generation_path} /run/current-system")
+    end
   rescue Interrupt
     # exit gracefully on ctrl+c
   end

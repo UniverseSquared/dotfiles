@@ -1,6 +1,7 @@
 {
   imports = [
     ./acer
+    ./documentation.nix
     ./graphics.nix
     ./keyd.nix
     ./power-saving.nix

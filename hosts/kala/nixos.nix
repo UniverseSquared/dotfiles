@@ -99,16 +99,12 @@
   environment.systemPackages = with pkgs; [
     gnupg
     pinentry-gtk2
-    man-pages
-    man-pages-posix
   ];
 
   programs.gnupg.agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-gtk2;
   };
-
-  documentation.dev.enable = true;
 
   # networking = {
   #   dhcpcd.enable = true;
