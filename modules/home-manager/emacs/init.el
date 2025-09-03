@@ -94,9 +94,19 @@ the new theme, and set the `cursor-type' to box."
   (push '("[-]" . "☐") prettify-symbols-alist)
   (turn-on-prettify-symbols-mode))
 
+(defun my/org-insert-link (arg)
+  "Prompt for a link to be inserted.
+
+With a prefix argument, first prompt for a protocol; otherwise, only prompt for a url."
+  (interactive "P")
+  (if arg
+      (org-insert-link)
+    (org-insert-link nil (read-string "Link: "))))
+
 (use-package org
   :bind (:map org-mode-map
-         ("C-c M-o" . org-store-link))
+         ("C-c M-o" . org-store-link)
+         ("C-c C-l" . my/org-insert-link))
   :custom ((org-support-shift-select t)
            (org-hide-emphasis-markers t)
            (org-hide-leading-stars t)
