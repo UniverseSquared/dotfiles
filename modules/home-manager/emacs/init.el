@@ -20,6 +20,9 @@ the new theme, and set the `cursor-type' to box."
 
 (advice-add #'load-theme :around #'my/around-load-theme-advice)
 
+(defun my/disable-line-numbers ()
+  (display-line-numbers-mode 0))
+
 ;; Install and configure packages
 (use-package catppuccin-theme
   :custom
@@ -66,6 +69,10 @@ the new theme, and set the `cursor-type' to box."
 
 (use-package magit
   :bind ("C-c g" . magit-status))
+
+(use-package man
+  :custom (Man-width-max 110)
+  :hook (Man-mode . my/disable-line-numbers))
 
 (use-package marginalia
   :hook (after-init . marginalia-mode)
