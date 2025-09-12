@@ -6,8 +6,6 @@
     flavor = "macchiato";
     accent = "mauve";
 
-    kvantum.enable = false;
-
     # workaround for a build error with the catppuccin flake
     mako.enable = false;
   };
@@ -35,11 +33,10 @@
 
   home.sessionVariables.GTK_THEME = "Adwaita:dark";
 
+  # required for catppuccin qt theme
   qt = {
     enable = true;
-    style = {
-      package = pkgs.kdePackages.breeze;
-      name = "breeze";
-    };
+    style.name = "kvantum";
+    platformTheme.name = "kvantum";
   };
 }
