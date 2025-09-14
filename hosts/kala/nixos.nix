@@ -125,5 +125,10 @@
   services.flatpak.enable = true;
   services.mullvad-vpn.enable = true;
 
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
+
   system.stateVersion = "25.05";
 }

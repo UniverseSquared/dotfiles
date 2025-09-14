@@ -48,6 +48,9 @@
         yaml-mode
         zig-mode
 
+        sly
+        geiser-guile
+
         # for org html exports
         htmlize
 
