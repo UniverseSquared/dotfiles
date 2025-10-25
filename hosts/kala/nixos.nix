@@ -64,7 +64,13 @@
 
   networking.hostName = "kala";
 
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.scanRandMacAddress = false;
+  };
+
+  networking.dhcpcd.enable = true;
+
   time.timeZone = "Europe/London";
 
   users.users.dawson = {

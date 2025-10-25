@@ -3,8 +3,6 @@
 {
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
-
     font = "Source Sans 3 12";
 
     extraConfig.show-icons = true;

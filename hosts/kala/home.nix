@@ -5,9 +5,11 @@
 
   home.packages = with pkgs; [
     acpi
+    fairfax-hd
     feh
     file
     godot
+    jetbrains.idea-ultimate
     jetbrains.rider
     libreoffice
     lutris

@@ -54,6 +54,8 @@
         # for org html exports
         htmlize
 
+        just-mode
+
         (treesit-grammars.with-grammars (
           grammars: with grammars; [
             tree-sitter-c
