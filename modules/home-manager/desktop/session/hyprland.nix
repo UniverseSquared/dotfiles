@@ -124,8 +124,9 @@ in
         ];
 
         windowrule = [
-          "opacity 0.75, class:discord"
-          "float, class:steam, title:Friends List"
+          "match:class discord, opacity 0.75"
+          "match:title Friends List, match:class steam, float 1"
+          "match:class jetbrains-studio, match:title ^win(.*), no_initial_focus 1"
         ];
       };
     };
