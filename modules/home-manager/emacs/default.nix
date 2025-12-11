@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     source-sans
     # for org-mode inline latex preview (i'm not sure why installing `texlivePackages.dvipng` doesn't work?)
-    texliveMedium
+    (texliveMedium.withPackages (p: [ p.tikz-cd ]))
   ];
 
   programs.emacs = {

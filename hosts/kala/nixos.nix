@@ -130,6 +130,7 @@
 
   services.flatpak.enable = true;
   services.mullvad-vpn.enable = true;
+  services.ratbagd.enable = true;
 
   services.jellyfin = {
     enable = true;

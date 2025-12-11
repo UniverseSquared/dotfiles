@@ -110,6 +110,16 @@ With a prefix argument, first prompt for a protocol; otherwise, only prompt for 
       (org-insert-link)
     (org-insert-link nil (read-string "Link: "))))
 
+;; taken from https://karthinks.com/software/scaling-latex-previews-in-emacs
+(defun my/text-scale-adjust-org-latex-previews ()
+  (dolist (ov (overlays-in (point-min) (point-max)))
+    (when (eq (overlay-get ov 'org-overlay-type) 'org-latex-overlay)
+      (overlay-put ov 'display
+                   (cons 'image
+                         (plist-put
+                          (cdr (overlay-get ov 'display))
+                          :scale (+ 1.0 (* 0.25 text-scale-mode-amount))))))))
+
 (use-package org
   :bind (:map org-mode-map
          ("C-c M-o" . org-store-link)
@@ -121,7 +131,9 @@ With a prefix argument, first prompt for a protocol; otherwise, only prompt for 
            (org-preview-latex-image-directory "~/.cache/org-lateximg/")
            (org-attach-use-inheritance t)
            (org-attach-auto-tag nil)
-           (org-startup-truncated nil))
+           (org-startup-truncated nil)
+           (org-preview-latex-default-process 'dvisvgm))
+  :hook (text-scale-mode . my/text-scale-adjust-org-latex-previews)
   :custom-face
   (org-block ((t (:foreground unspecified :inherit fixed-pitch))))
   (org-table ((t (:inherit fixed-pitch))))
@@ -136,7 +148,7 @@ With a prefix argument, first prompt for a protocol; otherwise, only prompt for 
   (org-mode . visual-line-mode)
   (org-mode . my/prettify-org-checkboxes)
   :config
-  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.0))
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 0.8))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((sqlite . t) (C . t) (haskell . t) (python . t) (ocaml . t) (gnuplot . t))))
