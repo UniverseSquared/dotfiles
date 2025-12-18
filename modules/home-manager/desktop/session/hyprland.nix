@@ -26,7 +26,7 @@ in
 
         general = {
           gaps_in = 5;
-          gaps_out = 20;
+          gaps_out = 14;
 
           border_size = 2;
 
@@ -50,7 +50,7 @@ in
         ecosystem.no_update_news = true;
 
         decoration = {
-          rounding = 10;
+          rounding = 6;
           rounding_power = 2;
 
           shadow = {

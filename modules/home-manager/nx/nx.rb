@@ -52,7 +52,8 @@ def deploy_to_deck(deck_ip)
     /home/dawson/dotfiles#homeConfigurations.deck@waso.activationPackage`.strip
 
   # `remote-program=...` is a workaround for https://github.com/NixOS/nix/issues/1078
-  `nix copy --verbose --to "ssh://deck@#{deck_ip}?remote-program=/home/deck/.nix-profile/bin/nix-store" \
+  `nix copy --verbose --substitute-on-destination --to \
+    "ssh://deck@#{deck_ip}?remote-program=/home/deck/.nix-profile/bin/nix-store" \
     #{generation_store_path}`
 
   # `source .bash_profile` is a workaround for the same issue as above
