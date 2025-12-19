@@ -56,6 +56,11 @@
           icon-size = 22;
         };
 
+        "niri/workspaces" = {
+          on-scroll-up = "niri msg action focus-workspace-up";
+          on-scroll-down = "niri msg action focus-workspace-down";
+        };
+
         "niri/window" = {
           format = "{title:.100}";
           icon = true;
