@@ -28,6 +28,15 @@
         layout = {
           focus-ring.enable = false;
 
+          gaps = 5;
+
+          struts = {
+            top = 10;
+            bottom = 10;
+            left = 10;
+            right = 10;
+          };
+
           border = {
             enable = true;
             width = 2;
@@ -37,15 +46,20 @@
           shadow.enable = true;
 
           background-color = "transparent";
+
+          insert-hint = {
+            enable = true;
+            display.color = "#c6a0f67f";
+          };
         };
 
         window-rules = [
           {
             geometry-corner-radius = {
-              top-left = 10.;
-              top-right = 10.;
-              bottom-left = 10.;
-              bottom-right = 10.;
+              top-left = 6.;
+              top-right = 6.;
+              bottom-left = 6.;
+              bottom-right = 6.;
             };
 
             clip-to-geometry = true;
@@ -56,7 +70,6 @@
               { app-id = "discord"; }
             ];
 
-            opacity = 0.9;
             default-column-width.proportion = 1.0;
           }
         ];
@@ -82,8 +95,9 @@
           with config.lib.niri.actions;
           {
             "Mod+Return".action = spawn "kitty";
-            "Mod+E".action = spawn "emacsclient" "-nc";
             "Mod+Space".action = spawn "rofi" "-show" "drun";
+            "Mod+E".action = spawn "emacsclient" "-nc";
+            "Mod+B".action = spawn "firefox";
 
             "Mod+Up".action = focus-window-up;
             "Mod+Down".action = focus-window-down;
