@@ -65,6 +65,11 @@
         clock = {
           format = " {:%a %Y-%m-%d %I:%M:%S %p}";
           interval = 1;
+          tooltip-format = "<tt>{calendar}</tt>";
+          calendar = {
+            mode = "year";
+            mode-mon-col = 3;
+          };
         };
 
         "custom/mullvad" = {

@@ -1,17 +1,20 @@
 {
   programs.git = {
     enable = true;
-    userName = "UniverseSquared";
-    userEmail = "universesquared4@gmail.com";
 
-    signing.signByDefault = true;
+    settings = {
+      user = {
+        name = "UniverseSquared";
+        email = "universesquared4@gmail.com";
+      };
 
-    extraConfig = {
       init.defaultBranch = "main";
       credential.helper = "store";
 
       # don't use a pager for `git stash list`
       pager.stash = false;
     };
+
+    signing.signByDefault = true;
   };
 }

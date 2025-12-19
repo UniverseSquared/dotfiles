@@ -10,7 +10,7 @@
       height.absolute = 595;
       showResultsImmediately = true;
 
-      plugins = with inputs.anyrun.packages.${pkgs.system}; [
+      plugins = with inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system}; [
         applications
         rink
         symbols
