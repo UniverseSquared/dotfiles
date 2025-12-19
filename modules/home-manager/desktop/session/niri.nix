@@ -144,7 +144,10 @@
           // lib.listToAttrs (
             lib.genList (ws: {
               name = "Mod+Shift+${toString (ws + 1)}";
-              value.action.move-window-to-workspace = ws + 1;
+              value.action.move-window-to-workspace = [
+                { focus = false; }
+                (ws + 1)
+              ];
             }) 9
           );
       };
