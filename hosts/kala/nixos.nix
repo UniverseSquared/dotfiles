@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   inputs,
   pkgs,
@@ -88,7 +89,7 @@
   security.sudo.wheelNeedsPassword = false;
 
   programs.hyprland = {
-    enable = true;
+    enable = false;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage =
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
@@ -126,7 +127,10 @@
     package = pkgs.niri-unstable;
   };
 
-  services.displayManager.ly.enable = true;
+  services.greetd = {
+    enable = true;
+    settings.default_session.command = "${config.services.greetd.package}/bin/agreety --cmd niri-session";
+  };
 
   services.flatpak.enable = true;
   services.mullvad-vpn.enable = true;

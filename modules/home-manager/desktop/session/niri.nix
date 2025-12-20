@@ -1,5 +1,6 @@
 {
   config,
+  osConfig,
   lib,
   pkgs,
   ...
@@ -11,6 +12,19 @@
   };
 
   config = lib.mkIf config.dawson.desktop.niri.enable {
+    xdg = {
+      enable = true;
+      portal = {
+        enable = true;
+        extraPortals = [
+          pkgs.xdg-desktop-portal-gtk
+          pkgs.xdg-desktop-portal-gnome
+        ];
+
+        configPackages = [ osConfig.programs.niri.package ];
+      };
+    };
+
     programs.niri = {
       settings = {
         environment.DISPLAY = ":0";
