@@ -22,13 +22,11 @@
 
       substituters = [
         "https://anyrun.cachix.org"
-        "https://hyprland.cachix.org"
         "https://nix-community.cachix.org"
       ];
 
       trusted-public-keys = [
         "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
 
@@ -88,12 +86,7 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  programs.hyprland = {
-    enable = false;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  };
+  dawson.desktop.session = "niri";
 
   services.pipewire = {
     enable = true;
@@ -121,16 +114,6 @@
   hardware.bluetooth.enable = true;
 
   systemd.user.services.xdg-document-portal.serviceConfig.TimeoutStopSec = 10;
-
-  programs.niri = {
-    enable = true;
-    package = pkgs.niri-unstable;
-  };
-
-  services.greetd = {
-    enable = true;
-    settings.default_session.command = "${config.services.greetd.package}/bin/agreety --cmd niri-session";
-  };
 
   services.flatpak.enable = true;
   services.mullvad-vpn.enable = true;

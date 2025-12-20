@@ -23,10 +23,7 @@
     unzip
   ];
 
-  dawson = {
-    desktop.session = "niri";
-    discord.nixcord = true;
-  };
+  dawson.discord.nixcord = true;
 
   programs.nh = {
     enable = true;

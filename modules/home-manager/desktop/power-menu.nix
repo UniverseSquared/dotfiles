@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  osConfig,
+  pkgs,
+  ...
+}:
 
 let
   powerMenu = pkgs.writeShellScript "power-menu" ''
@@ -8,7 +13,7 @@ let
       Sleep) systemctl suspend;;
       Logout)
         ${
-          if config.dawson.desktop.session == "hyprland" then
+          if osConfig.dawson.desktop.session == "hyprland" then
             "hyprctl dispatch exit"
           else
             "niri msg action quit"

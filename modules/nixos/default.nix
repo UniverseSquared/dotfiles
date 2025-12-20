@@ -1,6 +1,7 @@
 {
   imports = [
     ./acer
+    ./desktop.nix
     ./dns.nix
     ./documentation.nix
     ./graphics.nix
