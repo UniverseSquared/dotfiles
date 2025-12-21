@@ -23,7 +23,6 @@ in
   ];
 
   programs.niri.settings.binds = with config.lib.niri.actions; {
-    "Mod+Shift+S".action = spawn "${screenshot}";
     "Mod+Ctrl+S".action = spawn "${viewLastScreenshot}";
   };
 }

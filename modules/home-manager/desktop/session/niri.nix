@@ -26,6 +26,8 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
 
       prefer-no-csd = true; # disable client-side decorations
 
+      screenshot-path = "~/Pictures/Screenshots/%Y-%m-%d_%H:%M:%S.png";
+
       spawn-at-startup = [
         { command = [ "${lib.getExe pkgs.xwayland-satellite}" ]; }
       ];
@@ -146,6 +148,8 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
           "Mod+W".action = close-window;
 
           "Mod+Grave".action = toggle-overview;
+
+          "Mod+Shift+S".action.screenshot = [ ];
         }
         // lib.listToAttrs (
           lib.genList (ws: {
