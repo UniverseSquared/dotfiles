@@ -124,5 +124,7 @@
     openFirewall = true;
   };
 
+  systemd.services.jellyfin.wantedBy = lib.mkForce [ ];
+
   system.stateVersion = "25.05";
 }

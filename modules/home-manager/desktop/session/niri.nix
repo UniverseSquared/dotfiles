@@ -97,9 +97,13 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
 
       overview.workspace-shadow.enable = false;
 
-      input.focus-follows-mouse = {
-        enable = true;
-        max-scroll-amount = "0%";
+      input = {
+        keyboard.xkb.options = "compose:ralt";
+
+        focus-follows-mouse = {
+          enable = true;
+          max-scroll-amount = "0%";
+        };
       };
 
       binds =

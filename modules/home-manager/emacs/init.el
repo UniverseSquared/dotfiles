@@ -133,7 +133,6 @@ With a prefix argument, first prompt for a protocol; otherwise, only prompt for 
            (org-attach-auto-tag nil)
            (org-startup-truncated nil)
            (org-preview-latex-default-process 'dvisvgm))
-  :hook (text-scale-mode . my/text-scale-adjust-org-latex-previews)
   :custom-face
   (org-block ((t (:foreground unspecified :inherit fixed-pitch))))
   (org-table ((t (:inherit fixed-pitch))))
@@ -147,6 +146,8 @@ With a prefix argument, first prompt for a protocol; otherwise, only prompt for 
   (org-mode . variable-pitch-mode)
   (org-mode . visual-line-mode)
   (org-mode . my/prettify-org-checkboxes)
+  (text-scale-mode . my/text-scale-adjust-org-latex-previews)
+  (org-agenda-mode . my/disable-line-numbers)
   :config
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 0.8))
   (org-babel-do-load-languages
@@ -284,6 +285,9 @@ to ALPHA."
 ;; Display line and column numbers globally
 (column-number-mode)
 (global-display-line-numbers-mode)
+
+(add-hook 'special-mode-hook #'my/disable-line-numbers)
+(add-hook 'dired-mode-hook #'my/disable-line-numbers)
 
 ;; Scroll one line at a time
 (setq scroll-step 1
