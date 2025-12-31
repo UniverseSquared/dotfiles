@@ -126,5 +126,10 @@
 
   systemd.services.jellyfin.wantedBy = lib.mkForce [ ];
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+  };
+
   system.stateVersion = "25.05";
 }
