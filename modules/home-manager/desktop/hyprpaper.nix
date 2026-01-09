@@ -8,7 +8,12 @@ in
     enable = true;
     settings = {
       preload = [ wallpaper ];
-      wallpaper = [ "eDP-1,${wallpaper}" ];
+      wallpaper = [
+        {
+          monitor = "eDP-1";
+          path = wallpaper;
+        }
+      ];
     };
   };
 
