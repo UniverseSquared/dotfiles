@@ -21,6 +21,8 @@
     qbittorrent
     tree
     unzip
+
+    (vintagestory.override { waylandSupport = true; })
   ];
 
   dawson.discord.nixcord = true;
