@@ -36,6 +36,8 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
 
       hotkey-overlay.skip-at-startup = true;
 
+      clipboard.disable-primary = true;
+
       gestures.hot-corners.enable = false;
 
       layout = {

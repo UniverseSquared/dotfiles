@@ -9,7 +9,7 @@
     feh
     file
     godot
-    jetbrains.idea-ultimate
+    jetbrains.idea
     jetbrains.rider
     libreoffice
     lutris
@@ -20,6 +20,7 @@
     prismlauncher
     qbittorrent
     tree
+    unityhub
     unzip
 
     (vintagestory.override { waylandSupport = true; })
