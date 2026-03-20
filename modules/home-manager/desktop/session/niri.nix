@@ -18,7 +18,11 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
 
       configPackages = [ osConfig.programs.niri.package ];
 
-      config.common."org.freedesktop.impl.portal.FileChooser" = "gtk";
+      config.common = {
+        default = "gnome;gtk;";
+        "org.freedesktop.impl.portal.FileChooser" = "gtk";
+        "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+      };
     };
   };
 

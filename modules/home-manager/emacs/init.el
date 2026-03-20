@@ -44,6 +44,10 @@ the new theme, and set the `cursor-type' to box."
 
 (use-package edit-indirect)
 
+(use-package geiser
+  :config
+  (remove-hook 'scheme-mode-hook 'geiser-mode--maybe-activate))
+
 (use-package haskell-mode
   :hook (haskell-mode . interactive-haskell-mode))
 
@@ -62,7 +66,7 @@ the new theme, and set the `cursor-type' to box."
      "=>" "=>>" ">==" ">===" "<->" "<-->" "<--->" "<---->" "<=>" "<==>"
      "<===>" "<====>" "::" ":::" "==" "!=" "~=" "<>" "===" "!==" "<|" "<|>" "|>"
      ":=" "++" "+++" "<!--" "<!---" "<=" ">=" ">>=" "<<=" "<<" ">>" "<*" "<*>" "*>"
-     "<<<" ">>>" "-*-")))
+     "<<<" ">>>" "-*-" ">=>")))
 
 (use-package lua-mode
   :custom (lua-indent-level 4))
@@ -288,6 +292,7 @@ to ALPHA."
 
 (add-hook 'special-mode-hook #'my/disable-line-numbers)
 (add-hook 'dired-mode-hook #'my/disable-line-numbers)
+(add-hook 'compilation-mode-hook #'my/disable-line-numbers)
 
 ;; Scroll one line at a time
 (setq scroll-step 1

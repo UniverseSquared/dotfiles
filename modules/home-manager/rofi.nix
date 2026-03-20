@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = [ pkgs.source-sans ];
+
   programs.rofi = {
     enable = true;
     font = "Source Sans 3 12";
