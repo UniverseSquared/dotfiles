@@ -452,15 +452,26 @@ is modified.")
 ;; Allow toggling between a light and dark theme
 (setq my/is-light-theme nil)
 
-(defun my/cycle-theme ()
-  (interactive)
-  (setq my/is-light-theme (not my/is-light-theme))
-  (pcase-let ((`(,flavor ,alpha) (if my/is-light-theme
-                                     '(latte 100)
-                                   '(macchiato 75))))
-    (setq catppuccin-flavor flavor)
+;; FIXME: i think C-u C-c t should only cycle the alpha of the current frame
+(defun my/cycle-theme (arg)
+  (interactive "P")
+  (let* ((alternate-alpha (if (= (frame-parameter (selected-frame) 'alpha-background) 100)
+                              75
+                            100))
+         (flavor-alpha (if arg
+                           (cons catppuccin-flavor alternate-alpha)
+                         (progn (setq my/is-light-theme (not my/is-light-theme))
+                                (if my/is-light-theme
+                                    '(latte . 100)
+                                  '(macchiato . 75))))))
+    (setq catppuccin-flavor (car flavor-alpha))
     (load-theme 'catppuccin t)
-    (my/set-alpha-for-all-frames alpha)))
+    (my/set-alpha-for-all-frames (cdr flavor-alpha))
+
+    ;; regenerate all latex previews in org buffers
+    (when (eq major-mode 'org-mode)
+      (let ((current-prefix-arg '(16)))
+        (call-interactively 'org-latex-preview)))))
 
 ;; Misc. key bindings
 (bind-keys*
