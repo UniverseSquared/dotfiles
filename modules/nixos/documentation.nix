@@ -11,7 +11,10 @@ in
 {
   documentation = {
     dev.enable = true;
-    man.generateCaches = true; # required for e.g. `consult-man` to work in emacs
+    man.cache = {
+      enable = true; # required for e.g. `consult-man` to work in emacs
+      generateAtRuntime = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [

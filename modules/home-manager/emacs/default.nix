@@ -62,6 +62,7 @@
             tree-sitter-cpp
             tree-sitter-elixir
             tree-sitter-heex
+            tree-sitter-kdl
             tree-sitter-tsx
             tree-sitter-typescript
           ]
