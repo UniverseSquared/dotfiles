@@ -43,6 +43,8 @@
     enable = true;
     enableBashIntegration = true;
     nix-direnv.enable = true;
+
+    config.global.log_filter = "^(un)?loading";
   };
 
   home.stateVersion = "24.11";
