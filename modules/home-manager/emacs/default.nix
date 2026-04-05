@@ -20,6 +20,7 @@
         consult
         direnv
         edit-indirect
+        fish-mode
         haskell-mode
         hl-todo
         kdl-mode

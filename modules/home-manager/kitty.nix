@@ -14,6 +14,7 @@
       mouse_hide_wait = 0; # disable mouse hiding
       enable_audio_bell = false;
       confirm_os_window_close = 0;
+      shell_integration = "no-cursor";
     };
 
     keybindings = {
