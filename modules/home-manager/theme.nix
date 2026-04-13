@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   catppuccin = {
@@ -22,6 +22,7 @@
   gtk = {
     enable = true;
     theme.name = "Adwaita-dark";
+    gtk4.theme = config.gtk.theme;
 
     gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
     gtk4.extraConfig.gtk-application-prefer-dark-theme = true;

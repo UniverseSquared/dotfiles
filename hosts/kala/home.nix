@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, osConfig, pkgs, ... }:
 
 {
   imports = [ ./syncthing.nix ];
@@ -42,7 +42,11 @@
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
-    nix-direnv.enable = true;
+
+    nix-direnv = {
+      enable = true;
+      package = osConfig.nix.package;
+    };
 
     config.global.log_filter = "^(un)?loading";
   };
