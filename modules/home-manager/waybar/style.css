@@ -25,7 +25,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background-color: @mauve;
+    background-color: @accent;
 }
 
 #workspaces button.active label {
@@ -35,7 +35,7 @@ window#waybar {
 tooltip {
     color: @text;
     background-color: @base;
-    border: 2px solid @mauve;
+    border: 2px solid @accent;
     border-radius: 4px;
 }
 

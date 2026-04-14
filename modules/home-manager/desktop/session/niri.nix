@@ -59,7 +59,7 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
         border = {
           enable = true;
           width = 2;
-          active.color = "#c6a0f6";
+          active.color = osConfig.dawson.theme.palette.accent;
         };
 
         shadow.enable = true;
@@ -68,7 +68,7 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
 
         insert-hint = {
           enable = true;
-          display.color = "#c6a0f67f";
+          display.color = osConfig.dawson.theme.palette.accent + "7f";
         };
       };
 

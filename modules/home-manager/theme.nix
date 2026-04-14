@@ -1,10 +1,13 @@
-{ config, pkgs, ... }:
+{ config, osConfig, pkgs, ... }:
 
+let
+  isDarkTheme = osConfig.dawson.theme.variant == "dark";
+in
 {
   catppuccin = {
     enable = true;
-    flavor = "macchiato";
-    accent = "mauve";
+    flavor = osConfig.dawson.theme.flavor;
+    accent = osConfig.dawson.theme.accent;
 
     # workaround for a build error with the catppuccin flake
     mako.enable = false;
@@ -21,18 +24,18 @@
 
   gtk = {
     enable = true;
-    theme.name = "Adwaita-dark";
+    theme.name = "Adwaita-${if isDarkTheme then "dark" else "light"}";
     gtk4.theme = config.gtk.theme;
 
-    gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
-    gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = isDarkTheme;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = isDarkTheme;
   };
 
   dconf.settings."org/gnome/desktop/interface" = {
-    color-scheme = "prefers-dark";
+    color-scheme = if isDarkTheme then "prefers-dark" else "prefers-light";
   };
 
-  home.sessionVariables.GTK_THEME = "Adwaita:dark";
+  home.sessionVariables.GTK_THEME = "Adwaita:${if isDarkTheme then "dark" else "light"}";
 
   # required for catppuccin qt theme
   qt = {

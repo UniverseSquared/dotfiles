@@ -10,6 +10,7 @@
     ./power-saving.nix
     ./steam
     ./sunshine.nix
+    ./theme.nix
     ./virtualisation.nix
   ];
 }
