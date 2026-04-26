@@ -30,7 +30,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri.url = "github:sodiboo/niri-flake";
+    niri.url = "github:myume/niri-flake?ref=4ffa832159b8f7f3ac8879102011f0a47a8db11e";
+    niri-upstream.url = "github:niri-wm/niri";
   };
 
   outputs =

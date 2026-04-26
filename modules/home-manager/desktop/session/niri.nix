@@ -35,6 +35,7 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
       screenshot-path = "~/Pictures/Screenshots/%Y-%m-%d_%H:%M:%S.png";
 
       spawn-at-startup = [
+        # FIXME: put xwayland-satellite on niri's path instead
         { command = [ "${lib.getExe pkgs.xwayland-satellite}" ]; }
       ];
 
@@ -82,6 +83,8 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
           };
 
           clip-to-geometry = true;
+
+          background-effect.blur = true;
         }
 
         {

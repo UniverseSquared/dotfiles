@@ -44,7 +44,7 @@
 
       programs.niri = {
         enable = config.dawson.desktop.session == "niri";
-        package = pkgs.niri-unstable;
+        package = inputs.niri-upstream.packages.x86_64-linux.niri;
       };
     };
 }

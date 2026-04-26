@@ -12,7 +12,13 @@
     jetbrains.idea
     jetbrains.rider
     libreoffice
-    lutris
+    # FIXME: temporary workaround for lutris build failure
+    ((import (pkgs.fetchFromGitHub {
+      owner = "NixOS";
+      repo = "nixpkgs";
+      rev = "2d293cbfa5a793b4c50d17c05ef9e385b90edf6c";
+      sha256 = "sha256-pp3uT4hHijIC8JUK5MEqeAWmParJrgBVzHLNfJDZxg4=";
+    }) { inherit (pkgs.stdenv.hostPlatform) system; config.allowUnfree = true; }).lutris)
     nix-output-monitor
     noto-fonts
     osu-lazer-bin
