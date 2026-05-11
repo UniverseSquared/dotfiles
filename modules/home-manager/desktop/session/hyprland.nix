@@ -14,6 +14,9 @@ lib.mkIf (osConfig.dawson.desktop.session == "hyprland") {
     [ -z "$WAYLAND_DISPLAY" -a "$XDG_VTNR" = 1 ] && exec Hyprland
   '';
 
+  # hyprland likes to generate a default config which breaks home manager activation
+  xdg.configFile."hypr/hyprland.conf".force = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
 
