@@ -1,9 +1,22 @@
 { config, pkgs, ... }:
 
+let
+  # FIXME: temporarily pin old mesa because latest causes "resource temporarily unavailable" when starting niri
+  pkgs-mesa = import (pkgs.fetchFromGitHub {
+    owner = "NixOS";
+    repo = "nixpkgs";
+    rev = "b12141ef619e0a9c1c84dc8c684040326f27cdcc";
+    sha256 = "sha256-ZSK0NL4a1BwVbbTBoSnWgbJy9HeZFXLYQizjb2DPF24=";
+  }) { inherit (pkgs.stdenv.hostPlatform) system; };
+in
 {
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+
+    package = pkgs-mesa.mesa;
+    package32 = pkgs-mesa.pkgsi686Linux.mesa;
+
     extraPackages = with pkgs; [
       intel-media-driver
       libvdpau-va-gl

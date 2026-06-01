@@ -1,4 +1,9 @@
-{ config, osConfig, pkgs, ... }:
+{
+  config,
+  osConfig,
+  pkgs,
+  ...
+}:
 
 let
   isDarkTheme = osConfig.dawson.theme.variant == "dark";

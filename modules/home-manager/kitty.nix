@@ -1,4 +1,9 @@
-{ lib, osConfig, pkgs, ... }:
+{
+  lib,
+  osConfig,
+  pkgs,
+  ...
+}:
 
 {
   programs.kitty = {
@@ -16,7 +21,8 @@
       enable_audio_bell = false;
       confirm_os_window_close = 0;
       shell_integration = "no-cursor";
-    } // lib.optionalAttrs (osConfig.dawson.theme.variant == "light") {
+    }
+    // lib.optionalAttrs (osConfig.dawson.theme.variant == "light") {
       background_opacity = 1.0;
       cursor = osConfig.dawson.theme.palette.pink;
       selection_background = osConfig.dawson.theme.palette.pink;
