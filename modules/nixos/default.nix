@@ -11,6 +11,7 @@
     ./steam
     ./sunshine.nix
     ./theme.nix
+    ./versioning.nix
     ./virtualisation.nix
   ];
 }
