@@ -11,6 +11,8 @@ in
 {
   catppuccin = {
     enable = true;
+    autoEnable = true;
+
     flavor = osConfig.dawson.theme.flavor;
     accent = osConfig.dawson.theme.accent;
 

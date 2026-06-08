@@ -2,7 +2,7 @@
 
 {
   programs.anyrun = {
-    enable = true;
+    enable = false;
     config = {
       x.fraction = 0.5;
       y.fraction = 0.5;

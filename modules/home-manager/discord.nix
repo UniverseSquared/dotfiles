@@ -26,7 +26,7 @@ in
           ];
         };
 
-        discord.autoscroll.enable = true;
+        discord.commandLineArgs = [ "--enable-blink-features=MiddleClickAutoscroll" ];
       };
     })
 
