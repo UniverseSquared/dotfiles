@@ -81,6 +81,10 @@
         modules = [ ./hosts/waso/home.nix ];
       };
 
+      packages.x86_64-linux.nx = pkgs.callPackage ./packages/nx { };
+
+      devShells.x86_64-linux.nx = pkgs.callPackage ./packages/nx/shell.nix { };
+
       templates = {
         c = {
           path = ./templates/c;
