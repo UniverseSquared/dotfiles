@@ -13,6 +13,7 @@
 (define help-message "\
 usage: nx gen                                         list the system generations
        nx gen switch [--specialisation <name>] <gen>  switch to the specified generation
+       nx gen boot <gen>                              make the specified generation the boot default
 
   -h, --help                   display this help message
   -s, --specialisation <name>  name of the specialisation to activate
@@ -31,13 +32,13 @@ usage: nx gen                                         list the system generation
       (build-date . ,(stat:ctime stats))
       (nixos-version . ,(read-text-file (format #f "~a/nixos-version" generation-path))))))
 
-(define (switch-to-generation gen specialisation)
+(define (switch-to-generation verb gen specialisation)
   (let ((switch-to-configuration
          (format #f "/nix/var/nix/profiles/system-~a-link~a/bin/switch-to-configuration" gen
                  (if specialisation
                      (string-append "/specialisation/" specialisation)
                      ""))))
-    (system* "sudo" switch-to-configuration "switch")
+    (system* "sudo" switch-to-configuration (symbol->string verb))
     (system* "sudo" "nix-env" "--profile" "/nix/var/nix/profiles/system" "--switch-generation"
              (number->string gen))))
 
@@ -46,7 +47,14 @@ usage: nx gen                                         list the system generation
          (generation (string->number (car (option-ref options '() #f)))))
     (if (option-ref options 'help #f)
         (display help-message)
-        (switch-to-generation generation (option-ref options 'specialisation #f)))))
+        (switch-to-generation 'switch generation (option-ref options 'specialisation #f)))))
+
+(define (subcmd-boot args)
+  (let* ((options (getopt-long args option-spec))
+         (generation (string->number (car (option-ref options '() #f)))))
+    (if (option-ref options 'help #f)
+        (display help-message)
+        (switch-to-generation 'boot generation (option-ref options 'specialisation #f)))))
 
 (define (current-generation)
   (string->number
@@ -80,4 +88,5 @@ usage: nx gen                                         list the system generation
   (if (null? (cdr args))
       (subcmd-list args)
       (cond ((string=? (cadr args) "switch") (subcmd-switch (cdr args)))
+            ((string=? (cadr args) "boot") (subcmd-boot (cdr args)))
             (else (subcmd-list args)))))
