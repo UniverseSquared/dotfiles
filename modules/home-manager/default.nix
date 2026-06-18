@@ -10,7 +10,7 @@
     ./fish.nix
     ./git.nix
     ./kitty.nix
-    ./nx
+    ./nx.nix
     ./rofi.nix
     ./syncthing.nix
     ./theme.nix

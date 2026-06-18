@@ -69,11 +69,11 @@
               ];
 
               users.dawson = import ./hosts/kala/home.nix;
-              extraSpecialArgs = { inherit inputs; };
+              extraSpecialArgs = { inherit inputs self; };
             };
           }
         ];
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs self; };
       };
 
       homeConfigurations."deck@waso" = home-manager.lib.homeManagerConfiguration {
