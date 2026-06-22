@@ -32,13 +32,17 @@
 
     niri.url = "github:myume/niri-flake?ref=4ffa832159b8f7f3ac8879102011f0a47a8db11e";
     niri-upstream.url = "github:niri-wm/niri";
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      home-manager,
       treefmt-nix,
       ...
     }@inputs:
@@ -54,7 +58,7 @@
         modules = [
           ./modules/nixos
           ./hosts/kala/nixos.nix
-          home-manager.nixosModules.home-manager
+          inputs.home-manager.nixosModules.home-manager
           inputs.niri.nixosModules.niri
 
           {
@@ -66,6 +70,7 @@
                 ./modules/home-manager
                 inputs.catppuccin.homeModules.catppuccin
                 inputs.nixcord.homeModules.nixcord
+                inputs.spicetify-nix.homeManagerModules.spicetify
               ];
 
               users.dawson = import ./hosts/kala/home.nix;
@@ -76,7 +81,7 @@
         specialArgs = { inherit inputs self; };
       };
 
-      homeConfigurations."deck@waso" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."deck@waso" = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./hosts/waso/home.nix ];
       };

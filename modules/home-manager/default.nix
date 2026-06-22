@@ -12,6 +12,7 @@
     ./kitty.nix
     ./nx.nix
     ./rofi.nix
+    ./spotify.nix
     ./syncthing.nix
     ./theme.nix
     ./thunderbird.nix
