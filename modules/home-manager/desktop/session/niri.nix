@@ -104,6 +104,18 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
 
           place-within-backdrop = true;
         }
+
+        # enable blur for dunst notifications
+        {
+          matches = [
+            { namespace = "^notifications$"; }
+          ];
+
+          background-effect = {
+            blur = true;
+            xray = false;
+          };
+        }
       ];
 
       overview.workspace-shadow.enable = false;
