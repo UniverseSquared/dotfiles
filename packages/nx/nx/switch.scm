@@ -3,23 +3,23 @@
   #:use-module (ice-9 popen)
   #:use-module (ice-9 textual-ports)
   #:use-module (nx common)
+  #:use-module ((nx nix) #:prefix nix/)
   #:export (cmd))
 
 (define option-spec
-  '((help (single-char #\h) (value #f))
-    (deck                   (value #t))))
+  '((help           (single-char #\h) (value #f))
+    (deck                             (value #t))
+    (specialisation (single-char #\s) (value #t))))
 
 (define help-message "\
 usage: nx switch [--deck <ip address>]
 
 rebuild and activate a system
 
-  -h, --help               display this help message
-      --deck <ip address>  deploy waso to the system at the specified address
+  -h, --help                   display this help message
+      --deck <ip address>      deploy waso to the system at the specified address
+  -s, --specialisation <name>  name of the specialisation to activate
 ")
-
-(define (remove-whitespace s)
-  (string-filter (negate char-whitespace?) s))
 
 ;; TODO: test this
 (define (deploy-to-deck deck-address)
@@ -49,16 +49,12 @@ rebuild and activate a system
     ;; TODO: implement our own diffing
     (system* "nvd" "diff" previous-generation-path "/run/current-system")))
 
-(define (switch)
-  (let ((rebuild-cmd
-         "nixos-rebuild switch --flake /home/dawson/dotfiles --sudo --log-format internal-json \
-             |& nom --json"))
-    (when (zero? (status:exit-val (system rebuild-cmd)))
-      (diff-latest-system-profiles))))
+(define (switch options)
+  (nix/rebuild-system #:specialisation (option-ref options 'specialisation #f)))
 
 (define (cmd args)
   (let* ((options (getopt-long args option-spec))
          (deck-address (option-ref options 'deck #f)))
     (cond ((option-ref options 'help #f) (display help-message))
           (deck-address (deploy-to-deck deck-address))
-          (else (switch)))))
+          (else (switch options)))))

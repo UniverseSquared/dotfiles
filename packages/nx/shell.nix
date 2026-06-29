@@ -2,11 +2,14 @@
   callPackage,
   guile-json,
   mkShell,
+  rlwrap,
   ...
 }:
 
 mkShell {
   inputsFrom = [ (callPackage ./default.nix { }) ];
+
+  packages = [ rlwrap ];
 
   GUILE_AUTO_COMPILE = 0;
 
