@@ -23,16 +23,8 @@ rebuild and activate a system
 
 ;; TODO: test this
 (define (deploy-to-deck deck-address)
-  (let* ((waso-configuration "dotfiles#homeConfigurations.deck@waso.activationPackage")
-         (nix-build-pipe (open-pipe* OPEN_READ
-                                     "nix"
-                                     "build"
-                                     "--no-link"
-                                     "--print-out-paths"
-                                     waso-configuration))
-         (generation-store-path (remove-whitespace (get-string-all nix-build-pipe))))
-    (close-port nix-build-pipe)
-
+  (let* ((generation-store-path
+          (nix/build (string-append (nix/flake-path) "#homeConfigurations.deck@waso.activationPackage"))))
     ;; `remote-program=...` is a workaround for https://github.com/NixOS/nix/issues/1078
     (system* "nix" "copy" "--verbose" "--to"
              "ssh://deck@#{deck_ip}?remote-program=/home/deck/.nix-profile/bin/nix-store"

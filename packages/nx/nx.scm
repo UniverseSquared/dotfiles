@@ -2,6 +2,7 @@
 !#
 
 (define-module (nx)
+  #:use-module ((nx boot) #:prefix boot/)
   #:use-module ((nx gen) #:prefix gen/)
   #:use-module ((nx new) #:prefix new/)
   #:use-module ((nx shell) #:prefix shell/)
@@ -10,6 +11,7 @@
 (define help-message "\
 usage: nx <subcommand>
 
+  boot    rebuild the system and make it the boot default
   gen     list the system generations
   new     create a new project from a template
   shell   spawn a shell with a set of packages available
@@ -17,7 +19,8 @@ usage: nx <subcommand>
 ")
 
 (define (dispatch-cmd subcommand args)
-  (cond ((equal? subcommand "gen") (gen/cmd args))
+  (cond ((equal? subcommand "boot") (boot/cmd args))
+        ((equal? subcommand "gen") (gen/cmd args))
         ((equal? subcommand "new") (new/cmd args))
         ((equal? subcommand "shell") (shell/cmd args))
         ((equal? subcommand "switch") (switch/cmd args))

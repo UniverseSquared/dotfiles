@@ -7,6 +7,17 @@
 
 (define-public flake-path (make-parameter "/home/dawson/dotfiles"))
 
+(define (exec cmd . args)
+  "Spawn and wait for the termination of a process, returning `#f' on a failed exit, or its standard output as
+a string otherwise."
+  (let* ((input-output (pipe))
+         (pid (spawn cmd (cons cmd args) #:output (cdr input-output)))
+         (exit-status (cdr (waitpid pid))))
+    (close-port (cdr input-output))
+    (if (zero? (status:exit-val exit-status))
+        (get-string-all (car input-output))
+        #f)))
+
 (define-public (system-generations)
   (let ((system-link? (lambda (name) (and (string-prefix? "system-" name)
                                           (string-suffix? "-link" name))))
@@ -39,10 +50,10 @@ the system profile, according to VERB, which is `switch', `boot', or `test'."
 
 (define-public (build installable)
   "Build a derivation and produce the resulting store path."
-  (let* ((nix-build-pipe (open-pipe* OPEN_READ "nom" "build" "--no-link"  "--print-out-paths" installable))
-         (store-path (remove-whitespace (get-string-all nix-build-pipe))))
-    (close-port nix-build-pipe)
-    store-path))
+  (let ((store-path (exec "nom" "build" "--no-link" "--print-out-paths" installable)))
+    (if store-path
+        (remove-whitespace store-path)
+        #f)))
 
 (define*-public (rebuild-system #:key verb specialisation)
   "Build the system configuration and switch to it according to VERB."
@@ -50,6 +61,9 @@ the system profile, according to VERB, which is `switch', `boot', or `test'."
                                                      "#nixosConfigurations."
                                                      (gethostname)
                                                      ".config.system.build.toplevel"))))
-    ;; set the built toplevel as the newest system generation
-    (system* "sudo" "nix-env" "--profile" "/nix/var/nix/profiles/system" "--set" generation-store-path)
-    (switch-to-generation generation-store-path #:verb verb #:specialisation specialisation)))
+    (if generation-store-path
+        ;; set the built toplevel as the newest system generation
+        (begin
+          (system* "sudo" "nix-env" "--profile" "/nix/var/nix/profiles/system" "--set" generation-store-path)
+          (switch-to-generation generation-store-path #:verb verb #:specialisation specialisation))
+        #f)))
