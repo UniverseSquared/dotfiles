@@ -9,6 +9,9 @@
 
   dawson.syncthing.folders = {
     cemu.path = "~/Emulation/roms/wiiu/mlc01/usr/save";
+    yuzu.path = "~/Emulation/storage/yuzu/nand/user/save/0000000000000000";
+    dolphin-wii.path = "~/.var/app/org.DolphinEmu.dolphin-emu/data/dolphin-emu/Wii/title/00010000";
+    dolphin-gc.path = "~/.var/app/org.DolphinEmu.dolphin-emu/data/dolphin-emu/GC";
   };
 
   home.file.".ssh/authorized_keys".text = ''

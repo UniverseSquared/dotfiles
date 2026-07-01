@@ -26,8 +26,10 @@ rebuild and activate a system
   (let* ((generation-store-path
           (nix/build (string-append (nix/flake-path) "#homeConfigurations.deck@waso.activationPackage"))))
     ;; `remote-program=...` is a workaround for https://github.com/NixOS/nix/issues/1078
-    (system* "nix" "copy" "--verbose" "--to"
-             "ssh://deck@#{deck_ip}?remote-program=/home/deck/.nix-profile/bin/nix-store"
+    (system* "nix" "copy" "--verbose" "--substitute-on-destination" "--to"
+             (string-append "ssh://deck@"
+                            deck-address
+                            "?remote-program=/home/deck/.nix-profile/bin/nix-store")
              generation-store-path)
 
     ;; `source .bash_profile` is a workaround for the same issue as above
