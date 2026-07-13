@@ -26,7 +26,10 @@ in
           ];
         };
 
-        discord.commandLineArgs = [ "--enable-blink-features=MiddleClickAutoscroll" ];
+        discord = {
+          vencord.enable = true;
+          commandLineArgs = [ "--enable-blink-features=MiddleClickAutoscroll" ];
+        };
       };
     })
 
