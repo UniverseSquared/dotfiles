@@ -149,6 +149,7 @@ With a prefix argument, first prompt for a protocol; otherwise, only prompt for 
   :hook
   (org-mode . variable-pitch-mode)
   (org-mode . visual-line-mode)
+  (org-mode . my/disable-line-numbers)
   (org-mode . my/prettify-org-checkboxes)
   (text-scale-mode . my/text-scale-adjust-org-latex-previews)
   (org-agenda-mode . my/disable-line-numbers)
