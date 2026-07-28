@@ -100,6 +100,7 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
         {
           matches = [
             { namespace = "^hyprpaper$"; }
+            { namespace = "^awww-daemon$"; }
           ];
 
           place-within-backdrop = true;

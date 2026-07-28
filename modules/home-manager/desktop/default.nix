@@ -1,13 +1,11 @@
 {
   imports = [
     ./brightness.nix
-    ./hyprpaper.nix
+    ./wallpaper.nix
     ./power-menu.nix
     ./screenshot.nix
     ./session
   ];
 
-  config = {
-    home.file.".XCompose".source = ./XCompose;
-  };
+  home.file.".XCompose".source = ./XCompose;
 }
