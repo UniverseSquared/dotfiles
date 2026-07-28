@@ -143,9 +143,16 @@
       "hyprland-session.target"
     ];
 
-    Unit.After = [
-      "niri.service"
-      "hyprland-session.target"
-    ];
+    Unit = {
+      After = [
+        "niri.service"
+        "hyprland-session.target"
+      ];
+
+      X-Reload-Triggers = [
+        config.catppuccin.flavor
+        config.catppuccin.accent
+      ];
+    };
   };
 }
