@@ -7,9 +7,13 @@
 
 let
   powerMenu = pkgs.writeShellScript "power-menu" ''
-    case $(echo -e "Shutdown\nReboot\nSleep\nLogout" | rofi -dmenu -i) in
+    case $(echo -e "Shutdown\nReboot\nReboot to Bootloader\nSleep\nLogout" | rofi -dmenu -i) in
       Shutdown) shutdown now;;
       Reboot) reboot;;
+      "Reboot to Bootloader")
+        sudo bootctl set-timeout-oneshot 10
+        reboot
+        ;;
       Sleep) systemctl suspend;;
       Logout)
         ${
