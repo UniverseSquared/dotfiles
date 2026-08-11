@@ -25,6 +25,7 @@ in
 
   home.packages = with pkgs; [
     acpi
+    aseprite
     fairfax-hd
     feh
     file
@@ -32,13 +33,14 @@ in
     jetbrains.idea
     jetbrains.rider
     libreoffice
-    pkgs-lutris.lutris
     nix-output-monitor
     noto-fonts
     osu-lazer-bin
     pavucontrol
+    pkgs-lutris.lutris
     prismlauncher
     qbittorrent
+    r2modman
     tree
     unityhub
     unzip
