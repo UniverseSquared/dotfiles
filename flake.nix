@@ -88,7 +88,7 @@
 
       packages.x86_64-linux.nx = pkgs.callPackage ./packages/nx { };
 
-      devShells.x86_64-linux.nx = pkgs.callPackage ./packages/nx/shell.nix { };
+      devShells.x86_64-linux.nx = import ./packages/nx/shell.nix { inherit pkgs; };
 
       templates = {
         c = {

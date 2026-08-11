@@ -1,11 +1,8 @@
-{
-  callPackage,
-  guile-json,
-  mkShell,
-  rlwrap,
-  ...
-}:
+{ pkgs ? import <nixpkgs> {} }:
 
+let
+  inherit (pkgs) callPackage guile-json mkShell rlwrap;
+in
 mkShell {
   inputsFrom = [ (callPackage ./default.nix { }) ];
 
