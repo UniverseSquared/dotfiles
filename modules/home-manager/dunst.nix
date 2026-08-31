@@ -1,4 +1,4 @@
-{ lib, osConfig, ... }:
+{ config, lib, osConfig, ... }:
 
 {
   services.dunst = {
@@ -6,7 +6,7 @@
     settings = {
       global = {
         offset = "10x10";
-        font = "Iosevka 12";
+        font = "${config.dawson.fonts.fixed.name} 12";
         corner_radius = 6;
         frame_width = 2;
       };

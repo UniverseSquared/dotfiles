@@ -44,6 +44,9 @@ the new theme, and set the `cursor-type' to box."
 
 (use-package edit-indirect)
 
+(use-package gdscript-mode
+  :custom (gdscript-use-tab-indents nil))
+
 (use-package geiser
   :config
   (remove-hook 'scheme-mode-hook 'geiser-mode--maybe-activate))
@@ -270,16 +273,19 @@ to ALPHA."
 (setq visible-cursor nil)
 
 ;; Set the default font
-(let ((monospace-font-family "Iosevka")
-      (monospace-font-size 12)
-      (variable-font-family "Source Sans 3")
-      (variable-font-size 12))
-  (custom-set-faces
-   `(default ((t (:family ,monospace-font-family :height ,(* 10 monospace-font-size)))))
-   `(fixed-pitch ((t (:family ,monospace-font-family :height ,(* 10 monospace-font-size)))))
-   `(variable-pitch ((t (:family ,variable-font-family :height ,(* 10 variable-font-size)))))
-   ;; Ensure that `variable-pitch-mode' doesn't affect line numbers
-   `(line-number ((t :inherit fixed-pitch)))))
+(add-hook 'after-init-hook
+          #'(lambda ()
+              (let ((monospace-font-family "Iosevka Dawson")
+                    (monospace-font-size 12)
+                    (variable-font-family "Source Sans 3")
+                    (variable-font-size 12))
+                (custom-set-faces
+                 `(default ((t (:family ,monospace-font-family :height ,(* 10 monospace-font-size)))))
+                 `(fixed-pitch ((t (:family ,monospace-font-family :height ,(* 10 monospace-font-size)))))
+                 `(variable-pitch ((t (:family ,variable-font-family :height ,(* 10 variable-font-size)))))
+                 ;; Ensure that `variable-pitch-mode' doesn't affect line numbers
+                 `(line-number ((t :inherit fixed-pitch)))))))
+
 
 ;; Make line numbers not italic
 (set-face-attribute 'line-number nil :slant 'normal)
@@ -453,26 +459,32 @@ is modified.")
 ;; Allow toggling between a light and dark theme
 (setq my/is-light-theme nil)
 
-;; FIXME: i think C-u C-c t should only cycle the alpha of the current frame
+(defun my/alternate-alpha-for-current-frame ()
+  (if (= (frame-parameter (selected-frame) 'alpha-background) 100)
+      75
+    100))
+
+(defun my/set-theme-variant (is-light)
+  (unless (eq my/is-light-theme is-light)
+    (setq my/is-light-theme is-light)
+    (let* ((alternate-alpha (my/alternate-alpha-for-current-frame))
+           (flavor-alpha (if my/is-light-theme
+                             '(latte . 100)
+                           '(macchiato . 75))))
+      (setq catppuccin-flavor (car flavor-alpha))
+      (load-theme 'catppuccin t)
+      (my/set-alpha-for-all-frames (cdr flavor-alpha))
+
+      ;; regenerate all latex previews in org buffers
+      (when (eq major-mode 'org-mode)
+        (let ((current-prefix-arg '(16)))
+          (call-interactively 'org-latex-preview))))))
+
 (defun my/cycle-theme (arg)
   (interactive "P")
-  (let* ((alternate-alpha (if (= (frame-parameter (selected-frame) 'alpha-background) 100)
-                              75
-                            100))
-         (flavor-alpha (if arg
-                           (cons catppuccin-flavor alternate-alpha)
-                         (progn (setq my/is-light-theme (not my/is-light-theme))
-                                (if my/is-light-theme
-                                    '(latte . 100)
-                                  '(macchiato . 75))))))
-    (setq catppuccin-flavor (car flavor-alpha))
-    (load-theme 'catppuccin t)
-    (my/set-alpha-for-all-frames (cdr flavor-alpha))
-
-    ;; regenerate all latex previews in org buffers
-    (when (eq major-mode 'org-mode)
-      (let ((current-prefix-arg '(16)))
-        (call-interactively 'org-latex-preview)))))
+  (if arg
+      (my/set-alpha-for-all-frames (my/alternate-alpha-for-current-frame))
+    (my/set-theme-variant (not my/is-light-theme))))
 
 ;; Misc. key bindings
 (bind-keys*

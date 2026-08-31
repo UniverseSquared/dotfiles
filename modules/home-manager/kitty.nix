@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   osConfig,
   pkgs,
@@ -10,9 +11,8 @@
     enable = true;
 
     font = {
-      name = "Iosevka";
+      name = config.dawson.fonts.fixed.name;
       size = 12;
-      package = pkgs.iosevka;
     };
 
     settings = {

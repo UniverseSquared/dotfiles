@@ -5,7 +5,7 @@
 
   programs.rofi = {
     enable = true;
-    font = "Source Sans 3 12";
+    font = "${config.dawson.fonts.variable.name} 12";
 
     extraConfig.show-icons = true;
 

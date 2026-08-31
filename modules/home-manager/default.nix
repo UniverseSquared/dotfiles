@@ -8,6 +8,7 @@
     ./eza.nix
     ./firefox.nix
     ./fish.nix
+    ./fonts.nix
     ./git.nix
     ./kitty.nix
     ./nx.nix

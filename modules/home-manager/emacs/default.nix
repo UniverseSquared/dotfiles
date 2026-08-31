@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, osConfig, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -21,6 +21,7 @@
         direnv
         edit-indirect
         fish-mode
+        glsl-mode
         haskell-mode
         hl-todo
         kdl-mode
@@ -57,6 +58,10 @@
 
         just-mode
 
+        elm-mode
+
+        gdscript-mode
+
         (treesit-grammars.with-grammars (
           grammars: with grammars; [
             tree-sitter-c
@@ -75,5 +80,22 @@
   services.emacs = {
     enable = true;
     defaultEditor = true;
+  };
+
+  systemd.user.services.switch-emacs-theme = {
+    Install.WantedBy = [ "default.target" ];
+
+    Unit = {
+      After = [ "emacs.service" ];
+      X-RestartIfChanged = true;
+    };
+
+    Service = {
+      Type = "oneshot";
+      ExecStart = ''
+        ${config.services.emacs.package}/bin/emacsclient --eval \
+          '(my/set-theme-variant ${if osConfig.dawson.theme.variant == "light" then "t" else "nil"})'
+      '';
+    };
   };
 }
