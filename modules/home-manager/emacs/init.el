@@ -55,9 +55,9 @@ the new theme, and set the `cursor-type' to box."
   :hook (haskell-mode . interactive-haskell-mode))
 
 (use-package hl-todo
-  :custom-face (hl-todo ((t (:weight bold :inherit font-lock-comment-face))))
   :hook (after-init . global-hl-todo-mode)
   :config
+  (custom-set-faces `(hl-todo ((t (:weight bold :inherit font-lock-comment-face)))))
   (add-to-list 'hl-todo-keyword-faces '("SAFETY" . "#7cb8bb")))
 
 (use-package ligature
@@ -140,15 +140,6 @@ With a prefix argument, first prompt for a protocol; otherwise, only prompt for 
            (org-attach-auto-tag nil)
            (org-startup-truncated nil)
            (org-preview-latex-default-process 'dvisvgm))
-  :custom-face
-  (org-block ((t (:foreground unspecified :inherit fixed-pitch))))
-  (org-table ((t (:inherit fixed-pitch))))
-  (org-code ((t (:inherit fixed-pitch))))
-  (org-quote ((t (:inherit fixed-pitch))))
-  (org-target ((t (:inherit font-lock-comment-face))))
-  (org-level-1 ((t (:height 1.3))))
-  (org-level-2 ((t (:height 1.2))))
-  (org-level-3 ((t (:height 1.1))))
   :hook
   (org-mode . variable-pitch-mode)
   (org-mode . visual-line-mode)
@@ -157,6 +148,16 @@ With a prefix argument, first prompt for a protocol; otherwise, only prompt for 
   (text-scale-mode . my/text-scale-adjust-org-latex-previews)
   (org-agenda-mode . my/disable-line-numbers)
   :config
+  (custom-set-faces
+   `(org-block ((t (:foreground unspecified :inherit fixed-pitch))))
+   `(org-table ((t (:inherit fixed-pitch))))
+   `(org-code ((t (:inherit fixed-pitch))))
+   `(org-quote ((t (:inherit fixed-pitch))))
+   `(org-target ((t (:inherit font-lock-comment-face))))
+   `(org-level-1 ((t (:height 1.3))))
+   `(org-level-2 ((t (:height 1.2))))
+   `(org-level-3 ((t (:height 1.1)))))
+  (add-to-list 'org-modules 'habit)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 0.8))
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -192,13 +193,13 @@ With a prefix argument, first prompt for a protocol; otherwise, only prompt for 
 
 (use-package tuareg
   :custom (tuareg-match-clause-indent 2)
-  :custom-face
-  (tuareg-font-lock-governing-face
-   ((t (:inherit font-lock-keyword-face :weight unspecified :foreground unspecified))))
-  ;; By default, this inherits `default', which causes OCaml code in code blocks to break the background
-  ;; color sometimes
-  (tuareg-font-lock-constructor-face ((t (:inherit unspecified))))
   :config
+  (custom-set-faces
+   `(tuareg-font-lock-governing-face
+     ((t (:inherit font-lock-keyword-face :weight unspecified :foreground unspecified))))
+   ;; By default, this inherits `default', which causes OCaml code in code blocks to break the background
+   ;; color sometimes
+   `(tuareg-font-lock-constructor-face ((t (:inherit unspecified)))))
   (add-to-list 'exec-path (s-trim (shell-command-to-string "opam var bin"))))
 
 (use-package web-mode
