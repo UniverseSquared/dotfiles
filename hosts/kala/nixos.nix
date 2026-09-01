@@ -68,12 +68,12 @@
 
   environment.systemPackages = with pkgs; [
     gnupg
-    pinentry-gtk2
+    pinentry-gnome3
   ];
 
   programs.gnupg.agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-gtk2;
+    pinentryPackage = pkgs.pinentry-gnome3;
   };
 
   # networking = {

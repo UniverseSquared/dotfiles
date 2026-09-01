@@ -9,7 +9,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs30.override {
+    package = pkgs.emacs31.override {
       withGTK3 = true;
       withPgtk = true;
     };
