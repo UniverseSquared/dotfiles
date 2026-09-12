@@ -1,7 +1,8 @@
 {
   config,
-  osConfig,
+  inputs,
   lib,
+  osConfig,
   pkgs,
   ...
 }:
@@ -36,7 +37,7 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
 
       spawn-at-startup = [
         # FIXME: put xwayland-satellite on niri's path instead
-        { command = [ "${lib.getExe pkgs.xwayland-satellite}" ]; }
+        { command = [ "${lib.getExe inputs.xwayland-satellite.packages.x86_64-linux.default}" ]; }
       ];
 
       hotkey-overlay.skip-at-startup = true;

@@ -33,6 +33,11 @@
     niri.url = "github:myume/niri-flake?ref=4ffa832159b8f7f3ac8879102011f0a47a8db11e";
     niri-upstream.url = "github:niri-wm/niri";
 
+    xwayland-satellite = {
+      url = "github:Supreeeme/xwayland-satellite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
