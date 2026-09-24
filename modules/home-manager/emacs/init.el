@@ -157,11 +157,11 @@ With a prefix argument, first prompt for a protocol; otherwise, only prompt for 
    `(org-level-1 ((t (:height 1.3))))
    `(org-level-2 ((t (:height 1.2))))
    `(org-level-3 ((t (:height 1.1)))))
-  (add-to-list 'org-modules 'habit)
+  (add-to-list 'org-modules 'org-habit)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 0.8))
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((sqlite . t) (C . t) (haskell . t) (python . t) (ocaml . t) (gnuplot . t))))
+   '((sqlite . t) (C . t) (haskell . t) (python . t) (ocaml . t) (gnuplot . t) (shell . t))))
 
 (use-package org-appear
   :hook (org-mode . org-appear-mode))
