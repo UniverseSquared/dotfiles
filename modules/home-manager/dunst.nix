@@ -13,6 +13,11 @@
     };
   };
 
+  systemd.user.services.dunst.Unit.X-Reload-Triggers = [
+    config.catppuccin.flavor
+    config.catppuccin.accent
+  ];
+
   # catppuccin/nix places its configuration in dunstrc.d which takes precedence over user settings, so put
   # theme overrides in dunstrc.d as well
   xdg.configFile."dunst/dunstrc.d/99-dawson.conf".text =
@@ -29,10 +34,7 @@
       background = osConfig.dawson.theme.palette.base + "bf";
     in
     toDunstIni {
-      # frame_color = osConfig.dawson.theme.palette.base + "bf";
-      global = {
-        frame_color = osConfig.dawson.theme.palette.accent;
-      };
+      global.frame_color = osConfig.dawson.theme.palette.accent;
 
       urgency_low = { inherit background; };
       urgency_normal = { inherit background; };

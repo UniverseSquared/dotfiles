@@ -4,24 +4,24 @@
   options.dawson.fonts = {
     fixed = {
       name = lib.mkOption {
-        description = "The name of the fixed pitch (monospace) font to use by default";
+        description = "The name of the fixed-pitch (monospace) font to use by default";
         type = lib.types.str;
       };
 
       package = lib.mkOption {
-        description = "The package providing the fixed pitch font";
+        description = "The package providing the fixed-pitch font";
         type = lib.types.package;
       };
     };
 
     variable = {
       name = lib.mkOption {
-        description = "The name of the fixed pitch (monospace) font to use by default";
+        description = "The name of the variable-pitch (non-monospace) font to use by default";
         type = lib.types.str;
       };
 
       package = lib.mkOption {
-        description = "The package providing the fixed pitch font";
+        description = "The package providing the variable-pitch font";
         type = lib.types.package;
       };
     };
