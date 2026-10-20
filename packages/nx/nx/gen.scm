@@ -19,36 +19,21 @@ usage: nx gen                                         list the system generation
   -s, --specialisation <name>  name of the specialisation to activate
 ")
 
-(define (generation-info gen)
-  (let* ((generation-path (readlink (format #f "/nix/var/nix/profiles/system-~a-link" gen)))
-         (stats (stat generation-path)))
-    `((number . ,gen)
-      (build-date . ,(stat:ctime stats))
-      (nixos-version . ,(read-text-file (format #f "~a/nixos-version" generation-path))))))
-
-(define (switch-to-generation verb gen specialisation)
-  (let ((switch-to-configuration
-         (format #f "/nix/var/nix/profiles/system-~a-link~a/bin/switch-to-configuration" gen
-                 (if specialisation
-                     (string-append "/specialisation/" specialisation)
-                     ""))))
-    (system* "sudo" switch-to-configuration (symbol->string verb))
-    (system* "sudo" "nix-env" "--profile" "/nix/var/nix/profiles/system" "--switch-generation"
-             (number->string gen))))
-
 (define (subcmd-switch args)
   (let* ((options (getopt-long args switch-option-spec))
          (generation (string->number (car (option-ref options '() #f)))))
     (if (option-ref options 'help #f)
         (display help-message)
-        (switch-to-generation 'switch generation (option-ref options 'specialisation #f)))))
+        (nix/switch-to-generation generation #:specialisation (option-ref options 'specialisation #f)))))
 
 (define (subcmd-boot args)
   (let* ((options (getopt-long args option-spec))
          (generation (string->number (car (option-ref options '() #f)))))
     (if (option-ref options 'help #f)
         (display help-message)
-        (switch-to-generation 'boot generation (option-ref options 'specialisation #f)))))
+        (nix/switch-to-generation generation
+                                  #:verb 'boot
+                                  #:specialisation (option-ref options 'specialisation #f)))))
 
 (define (current-generation)
   (string->number
