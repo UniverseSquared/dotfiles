@@ -6,6 +6,7 @@
     ./documentation.nix
     ./graphics.nix
     ./keyd.nix
+    ./low-battery-notify.nix
     ./nix.nix
     ./power-saving.nix
     ./steam
