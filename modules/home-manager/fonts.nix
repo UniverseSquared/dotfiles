@@ -53,6 +53,7 @@
             variants.design = {
               lig-equal-chain = "without-notch";
               lig-ltgteq = "slanted";
+              lower-lambda = "tailed-turn";
             };
           };
         }).overrideAttrs (finalAttrs: {

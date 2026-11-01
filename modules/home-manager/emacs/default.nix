@@ -37,6 +37,7 @@
         orderless
         org
         org-appear
+        org-drill
         org-superstar
         rainbow-delimiters
         rust-mode
