@@ -8,6 +8,9 @@
         email = "universesquared4@gmail.com";
       };
 
+      # properly init the terminal (e.g. for mouse wheel scrolling) when starting less
+      core.pager = "less -+X";
+
       init.defaultBranch = "main";
       credential.helper = "store";
 
