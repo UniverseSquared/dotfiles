@@ -1,8 +1,9 @@
 # https://github.com/JafarAkhondali/acer-predator-turbo-and-rgb-keyboard-linux-module/issues/136#issuecomment-1889949470
 {
-  stdenv,
   kernel,
+  kernelModuleMakeFlags,
   pkgs,
+  stdenv,
   ...
 }:
 
@@ -22,7 +23,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = kernel.moduleBuildDependencies;
 
-  makeFlags = [
+  makeFlags = kernelModuleMakeFlags ++ [
     "-C"
     "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
     "M=$(sourceRoot)"

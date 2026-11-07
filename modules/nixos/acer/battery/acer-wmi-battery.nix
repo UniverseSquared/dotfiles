@@ -1,7 +1,8 @@
 {
-  stdenv,
   kernel,
+  kernelModuleMakeFlags,
   pkgs,
+  stdenv,
   ...
 }:
 
@@ -11,7 +12,7 @@ stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "frederik-h";
     repo = name;
-    rev = "0889d3ea54655eaa88de552b334911ce7375952f";
+    rev = "9f90d75cc9237aeed7964622d10dbdf4d2c7b518";
     sha256 = "sha256-mI6Ob9BmNfwqT3nndWf3jkz8f7tV10odkTnfApsNo+A=";
   };
 
@@ -21,7 +22,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = kernel.moduleBuildDependencies;
 
-  makeFlags = [
+  makeFlags = kernelModuleMakeFlags ++ [
     "-C"
     "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
     "M=$(sourceRoot)"
