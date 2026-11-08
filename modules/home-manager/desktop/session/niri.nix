@@ -27,6 +27,10 @@ lib.mkIf (osConfig.dawson.desktop.session == "niri") {
     };
   };
 
+  # gnome control center is used for managing global shortcuts
+  home.packages = [ pkgs.gnome-control-center ];
+  dbus.packages = [ pkgs.gnome-control-center ];
+
   programs.niri = {
     settings = {
       environment.DISPLAY = ":0";
