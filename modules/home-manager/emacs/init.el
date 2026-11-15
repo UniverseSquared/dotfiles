@@ -69,7 +69,7 @@ the new theme, and set the `cursor-type' to box."
      "=>" "=>>" ">==" ">===" "<->" "<-->" "<--->" "<---->" "<=>" "<==>"
      "<===>" "<====>" "::" ":::" "==" "!=" "~=" "<>" "===" "!==" "<|" "<|>" "|>"
      ":=" "++" "+++" "<!--" "<!---" "<=" ">=" ">>=" "<<=" "<<" ">>" "<*" "<*>" "*>"
-     "<<<" ">>>" "-*-" ">=>")))
+     "<<<" ">>>" "-*-" ">=>" "(*" "*)")))
 
 (use-package lua-mode
   :custom (lua-indent-level 4))
@@ -473,8 +473,12 @@ is modified.")
                              '(latte . 100)
                            '(macchiato . 75))))
       (setq catppuccin-flavor (car flavor-alpha))
+
       (load-theme 'catppuccin t)
       (my/set-alpha-for-all-frames (cdr flavor-alpha))
+
+      (when my/is-light-theme
+        (custom-theme-set-faces 'catppuccin `(cursor ((t (:background ,(catppuccin-color 'pink)))))))
 
       ;; regenerate all latex previews in org buffers
       (when (eq major-mode 'org-mode)
