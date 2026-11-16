@@ -7,7 +7,7 @@
 
 let
   powerMenu = pkgs.writeShellScript "power-menu" ''
-    case $(echo -e "Shutdown\nReboot\nReboot to Bootloader\nSleep\nLogout" | rofi -dmenu -i) in
+    case $(echo -e "Shutdown\nReboot\nReboot to Bootloader\nSleep\nHibernate\nLogout" | rofi -dmenu -i) in
       Shutdown) shutdown now;;
       Reboot) reboot;;
       "Reboot to Bootloader")
@@ -15,6 +15,7 @@ let
         reboot
         ;;
       Sleep) systemctl suspend;;
+      Hibernate) systemctl hibernate;;
       Logout)
         ${
           if osConfig.dawson.desktop.session == "hyprland" then
