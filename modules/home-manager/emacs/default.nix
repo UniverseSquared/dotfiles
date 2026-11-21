@@ -83,6 +83,8 @@
     defaultEditor = true;
   };
 
+  home.shellAliases.e = "emacsclient -nw";
+
   systemd.user.services.switch-emacs-theme = {
     Install.WantedBy = [ "default.target" ];
 
